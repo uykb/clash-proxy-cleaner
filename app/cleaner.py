@@ -145,7 +145,8 @@ class ProxyCleaner:
         """启动 Mihomo 内核"""
         self.stop_mihomo()
         cmd = ["/app/mihomo", "-d", self.working_dir, "-f", config_path]
-        self.mihomo_process = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # Allow Mihomo output to flow to docker logs for debugging
+        self.mihomo_process = subprocess.Popen(cmd)
         # 等待启动
         for _ in range(10):
             try:

@@ -1,23 +1,20 @@
-# 使用轻量级 Python 镜像
-FROM python:3.10-slim
+# 使用已有的镜像作为基础
+FROM ghcr.io/uykb/clash-proxy-cleaner:latest
 
 WORKDIR /app
 
-# 安装必要的系统工具 (curl用于下载mihomo, ca-certificates用于https)
-RUN apt-get update && apt-get install -y curl ca-certificates gzip && rm -rf /var/lib/apt/lists/*
-
-# 下载 Mihomo 内核 (Clash.Meta)
-# 注意：这里使用 GitHub Releases
-RUN curl -L -o mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v1.17.0/mihomo-linux-amd64-v1.17.0.gz \
+# 下载兼容版 Mihomo (v1.17.0 compatible) 以支持旧型号 CPU (缺乏 v3 指令集)
+# 覆盖基础镜像中的 /app/mihomo
+RUN apt-get update && apt-get install -y curl gzip && \
+    curl -L -o mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v1.17.0/mihomo-linux-amd64-compatible-v1.17.0.gz \
     && gzip -d mihomo.gz \
-    && chmod +x mihomo
+    && chmod +x mihomo \
+    && mv mihomo /app/mihomo \
+    && rm -rf /var/lib/apt/lists/*
 
-# 下载 Country.mmdb (地理位置库，Clash运行必需)
-RUN curl -L -o Country.mmdb https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb
-
-# 安装 Python 依赖
+# 复制依赖
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # 复制代码
 COPY . .
