@@ -14,7 +14,7 @@ scheduler = BackgroundScheduler()
 @app.on_event("startup")
 def start_scheduler():
     from datetime import datetime
-    # 立即执行一次 (next_run_time=datetime.now())，之后按 interval 循环
+    # 立即执行一次
     scheduler.add_job(cleaner_service.run_test, 'interval', seconds=settings.CRON_INTERVAL, id='proxy_check', next_run_time=datetime.now())
     scheduler.start()
 
@@ -28,18 +28,16 @@ def health_check():
     }
 
 @app.post("/trigger")
-def trigger_update(background_tasks: BackgroundTasks, token: str = ""):
-    if token != settings.API_TOKEN:
-        raise HTTPException(status_code=403, detail="Invalid token")
+def trigger_update(background_tasks: BackgroundTasks):
+    # Removed token check
     background_tasks.add_task(cleaner_service.run_test)
     return {"message": "Update triggered in background"}
 
 @app.get("/subscribe")
-def get_subscription(token: str = ""):
+def get_subscription():
     """返回 Clash 格式的 YAML"""
     from .cleaner import CLEANED_PROXIES
-    if token != settings.API_TOKEN:
-        raise HTTPException(status_code=403, detail="Invalid token")
+    # Removed token check
     
     result = {
         "proxies": CLEANED_PROXIES,
@@ -57,16 +55,9 @@ def get_subscription(token: str = ""):
     return PlainTextResponse(yaml.dump(result, allow_unicode=True))
 
 @app.get("/subscribe/base64")
-def get_subscription_base64(token: str = ""):
-    """返回 Base64 编码的 YAML (兼容部分客户端)"""
-    # 注意：这只是 YAML 文件的 Base64，不是 vmess:// 链接列表的 Base64
-    # 大多数客户端导入 Base64 都会尝试按 YAML 解析或按节点列表解析
-    # 为了兼容性，这里我们直接返回 YAML 内容，客户端通常能自动识别
-    # 如果必须 Base64，则对 YAML 进行编码
-    if token != settings.API_TOKEN:
-        raise HTTPException(status_code=403, detail="Invalid token")
-    
-    # 获取 YAML 内容
+def get_subscription_base64():
+    """返回 Base64 编码的 YAML"""
+    # Removed token check
     from .cleaner import CLEANED_PROXIES
     result = {
         "proxies": CLEANED_PROXIES

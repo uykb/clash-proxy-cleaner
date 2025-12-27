@@ -6,6 +6,7 @@ import time
 import subprocess
 import signal
 import json
+from datetime import datetime, timedelta, timezone
 from loguru import logger
 from .config import settings
 
@@ -20,18 +21,61 @@ class ProxyCleaner:
         if not os.path.exists(self.working_dir):
             os.makedirs(self.working_dir)
 
-    def fetch_and_parse(self):
-        """下载并解析所有订阅源"""
-        proxies = []
-        urls = [url.strip() for url in settings.SOURCE_URLS.split(',') if url.strip()]
+    def get_beijing_time(self):
+        """获取北京时间"""
+        utc_now = datetime.now(timezone.utc)
+        beijing_tz = timezone(timedelta(hours=8))
+        return utc_now.astimezone(beijing_tz)
+
+    def get_dynamic_urls(self):
+        """动态生成订阅地址（参考 clash_worker.js 逻辑）"""
+        base_url_prefix = "https://raw.githubusercontent.com/free-nodes/clashfree/refs/heads/main/clash"
+        base_url_suffix = ".yml"
         
-        for url in urls:
+        now = self.get_beijing_time()
+        
+        # 生成今天和昨天的日期字符串 YYYYMMDD
+        date_str_today = now.strftime("%Y%m%d")
+        date_str_yesterday = (now - timedelta(days=1)).strftime("%Y%m%d")
+        
+        urls = [
+            f"{base_url_prefix}{date_str_today}{base_url_suffix}",
+            f"{base_url_prefix}{date_str_yesterday}{base_url_suffix}"
+        ]
+        return urls
+
+    def fetch_and_parse(self):
+        """下载并解析动态订阅源"""
+        proxies = []
+        target_urls = self.get_dynamic_urls()
+        
+        # 配置代理
+        request_proxies = None
+        if settings.SOCKS5_PROXY:
+            request_proxies = {
+                "http": settings.SOCKS5_PROXY,
+                "https": settings.SOCKS5_PROXY
+            }
+            logger.info(f"Using proxy: {settings.SOCKS5_PROXY}")
+
+        success = False
+        for url in target_urls:
             try:
-                logger.info(f"Fetching from: {url}")
+                logger.info(f"Attempting to fetch from: {url}")
                 # 模拟 Clash 客户端或浏览器 UA
                 headers = {"User-Agent": "Clash/1.0.0"}
-                resp = requests.get(url, headers=headers, timeout=15)
-                resp.raise_for_status()
+                
+                resp = requests.get(
+                    url, 
+                    headers=headers, 
+                    timeout=15, 
+                    proxies=request_proxies
+                )
+                
+                if resp.status_code != 200:
+                    logger.warning(f"Failed to fetch {url}: Status {resp.status_code}")
+                    continue
+
                 content = resp.text
                 
                 # 尝试解析 YAML
@@ -39,39 +83,44 @@ class ProxyCleaner:
                     data = yaml.safe_load(content)
                     if isinstance(data, dict) and 'proxies' in data:
                         proxies.extend(data['proxies'])
-                        continue
-                except:
+                        success = True
+                        logger.info(f"Successfully loaded proxies from {url}")
+                        break # 成功获取一个即可，参考 worker 逻辑是优先取最新的
+                except Exception as e:
+                    logger.error(f"YAML parse error for {url}: {e}")
                     pass
                 
-                # 尝试 Base64 解码
-                try:
-                    # 补全 padding
-                    missing_padding = len(content) % 4
-                    if missing_padding:
-                        content += '=' * (4 - missing_padding)
-                    decoded = base64.b64decode(content).decode('utf-8')
-                    # 简单的 vmess/trojan/ss 链接解析需要更复杂的逻辑，
-                    # 这里假设 Base64 解码后是 YAML 格式或者暂不支持纯链接解析(为简化逻辑)
-                    # 实际生产中通常 Base64 解码后是 vmness://... 列表，
-                    # 想要完美支持需要集成像 subconverter 这样的转换逻辑。
-                    # 为了本方案的可行性，我们暂时假设用户提供的是 Clash 格式的订阅链接，或者由转换器转换过的链接。
-                    # 如果解码后包含 proxies: ...
-                    data = yaml.safe_load(decoded)
-                    if isinstance(data, dict) and 'proxies' in data:
-                        proxies.extend(data['proxies'])
-                except Exception as e:
-                    logger.error(f"Failed to parse base64/content from {url}: {e}")
+                # 如果 YAML 解析失败，尝试 Base64 (虽然这个源通常是 YAML，为了健壮性保留)
+                if not success:
+                    try:
+                        # 补全 padding
+                        missing_padding = len(content) % 4
+                        if missing_padding:
+                            content += '=' * (4 - missing_padding)
+                        decoded = base64.b64decode(content).decode('utf-8')
+                        data = yaml.safe_load(decoded)
+                        if isinstance(data, dict) and 'proxies' in data:
+                            proxies.extend(data['proxies'])
+                            success = True
+                            break
+                    except Exception:
+                        pass
 
             except Exception as e:
                 logger.error(f"Error fetching {url}: {e}")
         
+        if not success:
+            logger.error("All dynamic sources failed.")
+            return []
+
         # 去重 (基于 name 和 server)
         unique_proxies = {}
         for p in proxies:
             key = f"{p.get('server')}:{p.get('port')}"
             # 确保名字不重复，防止 Clash 报错
             if key not in unique_proxies:
-                # 清理名字中的非法字符
+                # 清理名字中的非法字符，这里保留部分原名信息可能更好，但为了安全统一重命名或保留原名
+                # 既然是动态获取，原名可能包含推广信息，这里重置为 Node-X 比较稳妥，或者 clean 一下
                 p['name'] = f"Node-{len(unique_proxies)}-{p['type']}" 
                 unique_proxies[key] = p
         
@@ -136,35 +185,25 @@ class ProxyCleaner:
         base_url = f"http://127.0.0.1:{settings.MIHOMO_API_PORT}"
         headers = {"Authorization": f"Bearer {settings.MIHOMO_API_SECRET}"}
         
-        # 批量测试
-        # Mihomo API 不支持一次性测所有，需要遍历或者创建一个 url-test 组
-        # 这里为了精准控制，我们遍历请求 /proxies/{name}/delay
-        
-        # 优化：并行测试太复杂，这里用简单的串行，因为是后台任务
-        # 如果节点多，可以考虑用 ThreadPoolExecutor
-        
         for proxy in proxies:
             name = proxy['name']
-            # 对中文名进行 URL 编码处理由 requests 自动完成
             try:
+                # 测速请求也可以走代理吗？通常测速是直连测试节点通不通，或者通过代理测试？
+                # Cleaner 的目的是测试节点是否可用。Mihomo 自身会使用节点去连接。
+                # requests 这里只是发指令给 Mihomo API，Mihomo API 是本地的，不需要代理。
                 test_url = f"{base_url}/proxies/{name}/delay?timeout=2000&url=http://www.gstatic.com/generate_204"
                 resp = requests.get(test_url, headers=headers, timeout=3)
                 if resp.status_code == 200:
                     data = resp.json()
                     delay = data.get('delay', 9999)
                     if delay < settings.MAX_LATENCY:
-                        # 这是一个好节点
-                        # 恢复原始名字(可选)，或者保留重命名
                         proxy['name'] = f"{proxy.get('type').upper()} {delay}ms"
                         valid_proxies.append(proxy)
             except Exception:
-                pass # 超时或错误
+                pass 
 
         self.stop_mihomo()
         
-        # 按延迟排序
-        # 此时 valid_proxies 里的名字已经改成了带延迟的，无法直接用来排序回原来的字典
-        # 简化处理：直接存
         valid_proxies.sort(key=lambda x: int(x['name'].split()[1].replace('ms','')))
         
         CLEANED_PROXIES = valid_proxies
