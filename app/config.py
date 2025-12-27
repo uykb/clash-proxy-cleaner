@@ -1,7 +1,7 @@
 import os
-from pydantic import BaseSettings # type: ignore
+from pydantic_settings import BaseSettings # type: ignore
 
-class Settings:
+class Settings(BaseSettings):
     # 允许通过环境变量覆盖，默认值如下
     API_TOKEN: str = os.getenv("API_TOKEN", "123456") # 简单的接口保护
     SOURCE_URLS: str = os.getenv("SOURCE_URLS", "") # 逗号分隔的订阅地址
