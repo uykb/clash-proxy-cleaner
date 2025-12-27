@@ -11,8 +11,8 @@ RUN apt-get update && apt-get install -y curl gzip && \
     curl -L -o mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v1.17.0/mihomo-linux-amd64-compatible-v1.17.0.gz \
     && gzip -d mihomo.gz \
     && chmod +x mihomo \
-    && mv mihomo /app/mihomo \
     && rm -rf /var/lib/apt/lists/*
+    # mihomo 已经在 /app 目录下，无需移动
 
 # 复制依赖
 COPY requirements.txt .
