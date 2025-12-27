@@ -33,7 +33,7 @@ def trigger_update(background_tasks: BackgroundTasks):
     background_tasks.add_task(cleaner_service.run_test)
     return {"message": "Update triggered in background"}
 
-@app.get("/subscribe")
+@app.get("/sub")
 def get_subscription():
     """返回 Clash 格式的 YAML"""
     from .cleaner import CLEANED_PROXIES
@@ -54,7 +54,7 @@ def get_subscription():
     }
     return PlainTextResponse(yaml.dump(result, allow_unicode=True))
 
-@app.get("/subscribe/base64")
+@app.get("/sub/base64")
 def get_subscription_base64():
     """返回 Base64 编码的 YAML"""
     # Removed token check
