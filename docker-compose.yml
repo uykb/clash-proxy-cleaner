@@ -9,7 +9,7 @@ services:
     ports:
       - "8090:8000"
     environment:
-      - CRON_INTERVAL=3600
+      - CRON_INTERVAL=600 # 10 分钟
       - MAX_LATENCY=1500
       # 请根据实际情况修改 Socks5 代理地址
       - SOCKS5_PROXY=socks5://192.168.8.88:1080
