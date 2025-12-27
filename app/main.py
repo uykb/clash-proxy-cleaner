@@ -13,11 +13,10 @@ scheduler = BackgroundScheduler()
 
 @app.on_event("startup")
 def start_scheduler():
-    # 立即执行一次
-    scheduler.add_job(cleaner_service.run_test, 'interval', seconds=settings.CRON_INTERVAL, id='proxy_check')
+    from datetime import datetime
+    # 立即执行一次 (next_run_time=datetime.now())，之后按 interval 循环
+    scheduler.add_job(cleaner_service.run_test, 'interval', seconds=settings.CRON_INTERVAL, id='proxy_check', next_run_time=datetime.now())
     scheduler.start()
-    # 也可以异步触发第一次运行，不阻塞启动
-    pass
 
 @app.get("/")
 def health_check():

@@ -28,7 +28,9 @@ class ProxyCleaner:
         for url in urls:
             try:
                 logger.info(f"Fetching from: {url}")
-                resp = requests.get(url, timeout=15)
+                # 模拟 Clash 客户端或浏览器 UA
+                headers = {"User-Agent": "Clash/1.0.0"}
+                resp = requests.get(url, headers=headers, timeout=15)
                 resp.raise_for_status()
                 content = resp.text
                 
