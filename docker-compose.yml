@@ -2,15 +2,17 @@ version: '3.8'
 
 services:
   clash-cleaner:
-    build: .
+    # 使用 GitHub Container Registry 的镜像
+    image: ghcr.io/uykb/clash-proxy-cleaner:latest
     container_name: clash_cleaner
     restart: unless-stopped
     ports:
-      - "8090:8000" # 映射到主机的 8090 端口
+      - "8090:8000"
     environment:
+      # 请修改以下环境变量
       - API_TOKEN=mysecret123
       - SOURCE_URLS=https://raw.githubusercontent.com/example/subs/main/config.yaml
       - CRON_INTERVAL=3600 # 1小时
       - MAX_LATENCY=1500
     volumes:
-      - ./data:/app/data # 持久化数据
+      - ./data:/app/data
