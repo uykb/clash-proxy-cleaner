@@ -182,33 +182,48 @@ class ProxyCleaner:
 
         logger.info("Mihomo started. Testing connectivity...")
         
-        valid_proxies = []
+        tested_proxies = [] # List of tuples: (proxy_dict, delay_int)
         base_url = f"http://127.0.0.1:{settings.MIHOMO_API_PORT}"
         headers = {"Authorization": f"Bearer {settings.MIHOMO_API_SECRET}"}
         
         for proxy in proxies:
             name = proxy['name']
             try:
-                # 测速请求也可以走代理吗？通常测速是直连测试节点通不通，或者通过代理测试？
-                # Cleaner 的目的是测试节点是否可用。Mihomo 自身会使用节点去连接。
-                # requests 这里只是发指令给 Mihomo API，Mihomo API 是本地的，不需要代理。
                 test_url = f"{base_url}/proxies/{name}/delay?timeout=2000&url=http://www.gstatic.com/generate_204"
                 resp = requests.get(test_url, headers=headers, timeout=3)
                 if resp.status_code == 200:
                     data = resp.json()
                     delay = data.get('delay', 9999)
                     if delay < settings.MAX_LATENCY:
-                        proxy['name'] = f"{proxy.get('type').upper()} {delay}ms"
-                        valid_proxies.append(proxy)
+                        tested_proxies.append((proxy, delay))
             except Exception:
                 pass 
 
         self.stop_mihomo()
         
-        valid_proxies.sort(key=lambda x: int(x['name'].split()[1].replace('ms','')))
+        # 按延迟排序
+        tested_proxies.sort(key=lambda x: x[1])
         
-        CLEANED_PROXIES = valid_proxies
+        final_proxies = []
+        name_counts = {}
+        
+        for p, delay in tested_proxies:
+            p_type = p.get('type', 'Unknown').upper()
+            base_name = f"{p_type} {delay}ms"
+            
+            # 处理重名
+            if base_name in name_counts:
+                name_counts[base_name] += 1
+                new_name = f"{base_name} {name_counts[base_name]}"
+            else:
+                name_counts[base_name] = 0
+                new_name = base_name
+                
+            p['name'] = new_name
+            final_proxies.append(p)
+        
+        CLEANED_PROXIES = final_proxies
         LAST_UPDATE_TIME = time.strftime("%Y-%m-%d %H:%M:%S")
-        logger.info(f"Cleanup finished. Retained {len(valid_proxies)}/{len(proxies)} proxies.")
+        logger.info(f"Cleanup finished. Retained {len(final_proxies)}/{len(proxies)} proxies.")
 
 cleaner_service = ProxyCleaner()
