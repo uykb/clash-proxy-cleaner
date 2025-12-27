@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  clash-cleaner:
+    build: .
+    container_name: clash_cleaner
+    restart: unless-stopped
+    ports:
+      - "8090:8000" # 映射到主机的 8090 端口
+    environment:
+      - API_TOKEN=mysecret123
+      - SOURCE_URLS=https://raw.githubusercontent.com/example/subs/main/config.yaml
+      - CRON_INTERVAL=3600 # 1小时
+      - MAX_LATENCY=1500
+    volumes:
+      - ./data:/app/data # 持久化数据
