@@ -5,7 +5,9 @@ WORKDIR /app
 
 # 下载兼容版 Mihomo (v1.17.0 compatible) 以支持旧型号 CPU (缺乏 v3 指令集)
 # 覆盖基础镜像中的 /app/mihomo
+# 先删除旧的 mihomo 防止 gzip 报错 "already exists"
 RUN apt-get update && apt-get install -y curl gzip && \
+    rm -f mihomo && \
     curl -L -o mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v1.17.0/mihomo-linux-amd64-compatible-v1.17.0.gz \
     && gzip -d mihomo.gz \
     && chmod +x mihomo \
