@@ -24,10 +24,9 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -r clash-proxy-cleaner/requirements.txt
+        pip install -r requirements.txt
 
     - name: Download Mihomo (Clash Meta)
-      working-directory: clash-proxy-cleaner
       run: |
         # Download a compatible mihomo binary for Linux x86_64 (GitHub Actions runner)
         # This ensures it runs even if the repo binary is for a different arch
@@ -38,7 +37,6 @@ jobs:
         echo "Mihomo binary ready."
 
     - name: Run Cleaner
-      working-directory: clash-proxy-cleaner
       env:
         # Override paths to work in the runner environment
         DATA_DIR: ./data
@@ -84,8 +82,8 @@ jobs:
         git config --global user.email 'action@github.com'
         
         # Check if file changed
-        if [[ -f clash-proxy-cleaner/subscribe.yaml ]]; then
-            git add clash-proxy-cleaner/subscribe.yaml
+        if [[ -f subscribe.yaml ]]; then
+            git add subscribe.yaml
             git commit -m "Auto-update proxies [skip ci]" || echo "No changes to commit"
             git push
         else
