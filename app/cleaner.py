@@ -17,9 +17,13 @@ LAST_UPDATE_TIME = "Never"
 class ProxyCleaner:
     def __init__(self):
         self.mihomo_process = None
-        self.working_dir = "/app/data"
+        # Allow configuring data directory via env, default to Docker path
+        self.working_dir = os.getenv("DATA_DIR", "/app/data")
         if not os.path.exists(self.working_dir):
             os.makedirs(self.working_dir)
+        
+        # Allow configuring binary path via env, default to Docker path
+        self.mihomo_path = os.getenv("MIHOMO_PATH", "/app/mihomo")
 
     def get_beijing_time(self):
         """获取北京时间"""
@@ -144,7 +148,12 @@ class ProxyCleaner:
     def start_mihomo(self, config_path):
         """启动 Mihomo 内核"""
         self.stop_mihomo()
-        cmd = ["/app/mihomo", "-d", self.working_dir, "-f", config_path]
+        
+        if not os.path.exists(self.mihomo_path):
+            logger.error(f"Mihomo binary not found at: {self.mihomo_path}")
+            return False
+            
+        cmd = [self.mihomo_path, "-d", self.working_dir, "-f", config_path]
         # Allow Mihomo output to flow to docker logs for debugging
         self.mihomo_process = subprocess.Popen(cmd)
         # 等待启动

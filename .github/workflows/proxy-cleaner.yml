@@ -1,0 +1,93 @@
+name: Hourly Proxy Clean
+
+on:
+  schedule:
+    # Runs at minute 0 of every hour
+    - cron: '0 * * * *'
+  workflow_dispatch: # Allows manual triggering
+
+permissions:
+  contents: write
+
+jobs:
+  clean-and-publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install -r clash-proxy-cleaner/requirements.txt
+
+    - name: Download Mihomo (Clash Meta)
+      working-directory: clash-proxy-cleaner
+      run: |
+        # Download a compatible mihomo binary for Linux x86_64 (GitHub Actions runner)
+        # This ensures it runs even if the repo binary is for a different arch
+        echo "Downloading latest Mihomo alpha..."
+        wget https://github.com/MetaCubeX/mihomo/releases/download/Prerelease-Alpha/mihomo-linux-amd64-alpha-c584489.gz -O mihomo.gz
+        gzip -d mihomo.gz
+        chmod +x mihomo
+        echo "Mihomo binary ready."
+
+    - name: Run Cleaner
+      working-directory: clash-proxy-cleaner
+      env:
+        # Override paths to work in the runner environment
+        DATA_DIR: ./data
+        MIHOMO_PATH: ./mihomo
+        # Add your SOCKS5 proxy here if needed, otherwise it uses direct connection
+        # SOCKS5_PROXY: ${{ secrets.SOCKS5_PROXY }} 
+      run: |
+        python -c "
+        import sys
+        import yaml
+        import os
+        from app.cleaner import cleaner_service
+        
+        print('Starting cleaning process...')
+        cleaner_service.run_test()
+        
+        from app.cleaner import CLEANED_PROXIES
+        
+        if not CLEANED_PROXIES:
+            print('No proxies found!')
+            # We don't exit with error to avoid failing the workflow completely, 
+            # just don't update the file.
+            sys.exit(0)
+            
+        result = {
+            'proxies': CLEANED_PROXIES,
+            'proxy-groups': [{
+                'name': 'Proxy',
+                'type': 'select',
+                'proxies': [p['name'] for p in CLEANED_PROXIES]
+            }],
+            'rules': ['MATCH,Proxy']
+        }
+        
+        with open('subscribe.yaml', 'w', encoding='utf-8') as f:
+            yaml.dump(result, f, allow_unicode=True)
+        print(f'Successfully wrote {len(CLEANED_PROXIES)} proxies to subscribe.yaml')
+        "
+
+    - name: Commit and Push
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'
+        
+        # Check if file changed
+        if [[ -f clash-proxy-cleaner/subscribe.yaml ]]; then
+            git add clash-proxy-cleaner/subscribe.yaml
+            git commit -m "Auto-update proxies [skip ci]" || echo "No changes to commit"
+            git push
+        else
+            echo "subscribe.yaml not found, skipping commit."
+        fi
