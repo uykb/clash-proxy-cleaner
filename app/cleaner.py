@@ -32,21 +32,8 @@ class ProxyCleaner:
         return utc_now.astimezone(beijing_tz)
 
     def get_dynamic_urls(self):
-        """动态生成订阅地址（参考 clash_worker.js 逻辑）"""
-        base_url_prefix = "https://raw.githubusercontent.com/free-nodes/clashfree/refs/heads/main/clash"
-        base_url_suffix = ".yml"
-        
-        now = self.get_beijing_time()
-        
-        # 生成今天和昨天的日期字符串 YYYYMMDD
-        date_str_today = now.strftime("%Y%m%d")
-        date_str_yesterday = (now - timedelta(days=1)).strftime("%Y%m%d")
-        
-        urls = [
-            f"{base_url_prefix}{date_str_today}{base_url_suffix}",
-            f"{base_url_prefix}{date_str_yesterday}{base_url_suffix}"
-        ]
-        return urls
+        """Get proxy source URL"""
+        return ["https://raw.githubusercontent.com/uykb/clash-proxy-cleaner/refs/heads/main/subscribe.yaml"]
 
     def fetch_and_parse(self):
         """下载并解析动态订阅源"""

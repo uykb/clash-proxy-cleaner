@@ -2,8 +2,8 @@ name: Hourly Proxy Clean
 
 on:
   schedule:
-    # Runs at minute 0 of every hour
-    - cron: '0 * * * *'
+    # Runs at 21:00 UTC daily (05:00 GMT+8)
+    - cron: '0 21 * * *'
   workflow_dispatch: # Allows manual triggering
 
 permissions:
