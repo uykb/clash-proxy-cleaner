@@ -33,7 +33,26 @@ class ProxyCleaner:
 
     def get_dynamic_urls(self):
         """Get proxy source URL"""
-        return ["https://raw.githubusercontent.com/uykb/clash-proxy-cleaner/refs/heads/main/subscribe.yaml"]
+        if settings.PROXY_URLS:
+            if isinstance(settings.PROXY_URLS, list):
+                return settings.PROXY_URLS
+            return [url.strip() for url in settings.PROXY_URLS.split(',')]
+
+        # Fallback to free-nodes logic if no custom URLs provided
+        base_url_prefix = "https://raw.githubusercontent.com/free-nodes/clashfree/refs/heads/main/clash"
+        base_url_suffix = ".yml"
+        
+        now = self.get_beijing_time()
+        
+        # Generate today and yesterday string YYYYMMDD
+        date_str_today = now.strftime("%Y%m%d")
+        date_str_yesterday = (now - timedelta(days=1)).strftime("%Y%m%d")
+        
+        urls = [
+            f"{base_url_prefix}{date_str_today}{base_url_suffix}",
+            f"{base_url_prefix}{date_str_yesterday}{base_url_suffix}"
+        ]
+        return urls
 
     def fetch_and_parse(self):
         """下载并解析动态订阅源"""
@@ -49,7 +68,6 @@ class ProxyCleaner:
             }
             logger.info(f"Using proxy: {settings.SOCKS5_PROXY}")
 
-        success = False
         for url in target_urls:
             try:
                 logger.info(f"Attempting to fetch from: {url}")
@@ -70,19 +88,21 @@ class ProxyCleaner:
                 content = resp.text
                 
                 # 尝试解析 YAML
+                current_proxies = []
+                success_parse = False
+                
                 try:
                     data = yaml.safe_load(content)
                     if isinstance(data, dict) and 'proxies' in data:
-                        proxies.extend(data['proxies'])
-                        success = True
-                        logger.info(f"Successfully loaded proxies from {url}")
-                        break # 成功获取一个即可，参考 worker 逻辑是优先取最新的
+                        current_proxies = data['proxies']
+                        success_parse = True
+                        logger.info(f"Successfully loaded {len(current_proxies)} proxies from {url}")
                 except Exception as e:
                     logger.error(f"YAML parse error for {url}: {e}")
                     pass
                 
-                # 如果 YAML 解析失败，尝试 Base64 (虽然这个源通常是 YAML，为了健壮性保留)
-                if not success:
+                # 如果 YAML 解析失败，尝试 Base64
+                if not success_parse:
                     try:
                         # 补全 padding
                         missing_padding = len(content) % 4
@@ -91,32 +111,18 @@ class ProxyCleaner:
                         decoded = base64.b64decode(content).decode('utf-8')
                         data = yaml.safe_load(decoded)
                         if isinstance(data, dict) and 'proxies' in data:
-                            proxies.extend(data['proxies'])
-                            success = True
-                            break
+                            current_proxies = data['proxies']
+                            success_parse = True
                     except Exception:
                         pass
+                
+                if current_proxies:
+                    proxies.extend(current_proxies)
 
             except Exception as e:
                 logger.error(f"Error fetching {url}: {e}")
         
-        if not success:
-            logger.error("All dynamic sources failed.")
-            return []
-
-        # 去重 (基于 name 和 server)
-        unique_proxies = {}
-        for p in proxies:
-            key = f"{p.get('server')}:{p.get('port')}"
-            # 确保名字不重复，防止 Clash 报错
-            if key not in unique_proxies:
-                # 清理名字中的非法字符，这里保留部分原名信息可能更好，但为了安全统一重命名或保留原名
-                # 既然是动态获取，原名可能包含推广信息，这里重置为 Node-X 比较稳妥，或者 clean 一下
-                p['name'] = f"Node-{len(unique_proxies)}-{p['type']}" 
-                unique_proxies[key] = p
-        
-        logger.info(f"Total unique proxies fetched: {len(unique_proxies)}")
-        return list(unique_proxies.values())
+        return proxies
 
     def generate_test_config(self, proxies):
         """生成用于测试的 Clash 配置"""
@@ -160,17 +166,35 @@ class ProxyCleaner:
             self.mihomo_process.wait()
             self.mihomo_process = None
 
-    def run_test(self):
+    def run_test(self, extra_proxies=None):
         """执行完整测试流程"""
         global CLEANED_PROXIES, LAST_UPDATE_TIME
         
         logger.info("Starting proxy cleanup job...")
         proxies = self.fetch_and_parse()
+        
+        if extra_proxies:
+            logger.info(f"Adding {len(extra_proxies)} accumulated proxies...")
+            proxies.extend(extra_proxies)
+            
         if not proxies:
             logger.warning("No proxies found to test.")
             return
 
-        config_path = self.generate_test_config(proxies)
+        # Deduplicate before testing
+        unique_proxies = {}
+        for p in proxies:
+            # key based on server:port
+            key = f"{p.get('server')}:{p.get('port')}"
+            if key not in unique_proxies:
+                # Temporary name for testing, will be renamed after test
+                p['name'] = f"Node-{len(unique_proxies)}" 
+                unique_proxies[key] = p
+        
+        proxies_to_test = list(unique_proxies.values())
+        logger.info(f"Total unique proxies to test: {len(proxies_to_test)}")
+
+        config_path = self.generate_test_config(proxies_to_test)
         
         if not self.start_mihomo(config_path):
             logger.error("Failed to start Mihomo core.")
@@ -182,7 +206,7 @@ class ProxyCleaner:
         base_url = f"http://127.0.0.1:{settings.MIHOMO_API_PORT}"
         headers = {"Authorization": f"Bearer {settings.MIHOMO_API_SECRET}"}
         
-        for proxy in proxies:
+        for proxy in proxies_to_test:
             name = proxy['name']
             try:
                 test_url = f"{base_url}/proxies/{name}/delay?timeout=2000&url=http://www.gstatic.com/generate_204"
@@ -220,6 +244,6 @@ class ProxyCleaner:
         
         CLEANED_PROXIES = final_proxies
         LAST_UPDATE_TIME = time.strftime("%Y-%m-%d %H:%M:%S")
-        logger.info(f"Cleanup finished. Retained {len(final_proxies)}/{len(proxies)} proxies.")
+        logger.info(f"Cleanup finished. Retained {len(final_proxies)}/{len(proxies_to_test)} proxies.")
 
 cleaner_service = ProxyCleaner()

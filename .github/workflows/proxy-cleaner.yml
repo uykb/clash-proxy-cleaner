@@ -51,7 +51,21 @@ jobs:
         from app.cleaner import cleaner_service
         
         print('Starting cleaning process...')
-        cleaner_service.run_test()
+        
+        # Load existing proxies for accumulation
+        existing_proxies = []
+        if os.path.exists('subscribe.yaml'):
+            try:
+                with open('subscribe.yaml', 'r', encoding='utf-8') as f:
+                    data = yaml.safe_load(f)
+                    if data and 'proxies' in data:
+                        existing_proxies = data['proxies']
+                        print(f'Loaded {len(existing_proxies)} existing proxies from subscribe.yaml')
+            except Exception as e:
+                print(f'Error loading existing proxies: {e}')
+        
+        # Run test with existing proxies combined with new ones
+        cleaner_service.run_test(extra_proxies=existing_proxies)
         
         from app.cleaner import CLEANED_PROXIES
         
