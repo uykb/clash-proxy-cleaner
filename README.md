@@ -13,22 +13,10 @@
 ## ✨ 核心特性
 
 - 🚀 **全自动运行**：基于 GitHub Actions，无需任何服务器部署。
-- 🕒 **定时更新**：每天伦敦时间 00:00 准时自动清洗。
+- 🕒 **定时更新**：每天 00:00 准时自动清洗。
 - ⚡ **真实测速**：使用 Mihomo 内核进行实际连通性测试，拒绝虚假节点。
 - 🌍 **智能命名**：自动识别节点所属国家/地区，并为节点添加 GeoIP 标识。
 - 📊 **延迟排序**：自动将节点按延迟从低到高排序，保证首选节点最快。
-
-## 🛠️ 工作原理
-
-```mermaid
-graph TD
-    A[定时触发/手动运行] --> B[下载 Mihomo 内核]
-    B --> C[获取原始订阅节点]
-    C --> D[Mihomo 连通性/延迟测速]
-    D --> E[过滤高延迟节点并排序]
-    E --> F[生成 subscribe.yaml]
-    F --> G[提交并推送回仓库]
-```
 
 ## 🚀 快速上手
 
@@ -41,7 +29,7 @@ graph TD
 配置完成后，您可以使用以下地址直接在 Clash 中使用清洗后的订阅：
 
 ```bash
-https://raw.githubusercontent.com/您的用户名/您的仓库名/main/subscribe.yaml
+https://raw.githubusercontent.com/uykb/clash-proxy-cleaner/main/subscribe.yaml
 ```
 
 ## ⚙️ 自定义配置
