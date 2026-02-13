@@ -1,0 +1,43 @@
+name: Clean and Update Proxies
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Every 6 hours
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pyyaml loguru
+
+      - name: Download Mihomo
+        run: |
+          wget -O mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v1.17.0/mihomo-linux-amd64-compatible-v1.17.0.gz
+          gunzip mihomo.gz
+          chmod +x mihomo
+
+      - name: Run Cleaner
+        env:
+          PROXY_URLS: ${{ secrets.PROXY_URLS }}
+          MAX_LATENCY: 1500
+        run: python clean_proxies.py
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add subscribe.yaml
+          git commit -m "Update cleaned proxies [$(date -u +'%Y-%m-%d %H:%M:%S')]" || exit 0
+          git push
