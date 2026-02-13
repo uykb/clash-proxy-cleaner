@@ -4,7 +4,7 @@
 
 ## 工作原理
 
-1. **GitHub Actions** 每 6 小时自动运行一次。
+1. **GitHub Actions** 每天伦敦时间 00:00 自动运行一次。
 2. 下载 **Mihomo (Clash Meta)** 内核。
 3. 从配置的订阅源获取节点。
 4. 使用 Mihomo 进行实际连通性和延迟测速。
@@ -24,4 +24,4 @@
 ## 配置项
 可以在 `.github/workflows/clean-proxies.yml` 中修改以下环境变量：
 - `MAX_LATENCY`: 最大允许延迟（默认 1500ms）。
-- `CRON`: 触发频率（默认每 6 小时）。
+- `CRON`: 触发频率（默认每天一次）。
