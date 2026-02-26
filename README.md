@@ -26,10 +26,16 @@
 - 添加 **`PROXY_URLS`**：填入您的原始订阅链接，多个链接请用逗号 `,` 分隔。
 
 ### 2. 获取清洗后的订阅
-配置完成后，您可以使用以下地址直接在 Clash 中使用清洗后的订阅：
+配置完成后，您可以使用以下地址直接在您的客户端中使用清洗后的订阅：
 
+**Clash 订阅 (YAML):**
 ```bash
 https://raw.githubusercontent.com/uykb/clash-proxy-cleaner/main/subscribe.yaml
+```
+
+**通用订阅 (Base64):**
+```bash
+https://raw.githubusercontent.com/uykb/clash-proxy-cleaner/main/base64.txt
 ```
 
 ## ⚙️ 自定义配置
