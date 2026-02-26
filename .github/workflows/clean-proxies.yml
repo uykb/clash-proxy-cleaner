@@ -27,7 +27,26 @@ jobs:
 
       - name: Download Mihomo
         run: |
-          wget -O mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v1.17.0/mihomo-linux-amd64-compatible-v1.17.0.gz
+          # Get latest release download URL (linux-amd64-compatible)
+          DOWNLOAD_URL=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep "browser_download_url" | grep "linux-amd64-compatible-v" | head -n 1 | cut -d '"' -f 4)
+          
+          if [ -z "$DOWNLOAD_URL" ]; then
+            echo "Failed to get latest mihomo download URL"
+            exit 1
+          fi
+          
+          echo "Downloading from: $DOWNLOAD_URL"
+          
+          # Retry download up to 5 times
+          for i in {1..5}; do
+            wget -q -O mihomo.gz "$DOWNLOAD_URL" && break || sleep 10;
+          done
+          
+          if [ ! -f mihomo.gz ]; then
+            echo "Failed to download mihomo after 5 attempts"
+            exit 1
+          fi
+          
           gunzip mihomo.gz
           chmod +x mihomo
 
