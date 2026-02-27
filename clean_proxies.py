@@ -30,18 +30,6 @@ class ProxyCleaner:
         beijing_tz = timezone(timedelta(hours=8))
         return utc_now.astimezone(beijing_tz)
 
-    def get_dynamic_urls(self):
-        proxy_urls = os.getenv("PROXY_URLS")
-        if proxy_urls:
-            return [url.strip() for url in proxy_urls.split(',')]
-
-        # Fallback to free-nodes logic
-        base_url_prefix = "https://raw.githubusercontent.com/free-nodes/clashfree/refs/heads/main/clash"
-        base_url_suffix = ".yml"
-        now = self.get_beijing_time()
-        date_today = now.strftime("%Y%m%d")
-        date_yesterday = (now - timedelta(days=1)).strftime("%Y%m%d")
-        return [f"{base_url_prefix}{date_today}{base_url_suffix}", f"{base_url_prefix}{date_yesterday}{base_url_suffix}"]
 
     def decode_base64(self, content):
         """Helper to decode base64 content with padding fix"""
@@ -148,9 +136,57 @@ class ProxyCleaner:
             return proxy
         except: return None
 
+    def _fetch_single_url(self, url, proxies_list, request_proxies):
+        try:
+            resp = requests.get(url, headers={"User-Agent": "Clash/1.0.0"}, timeout=15, proxies=request_proxies)
+            if resp.status_code != 200:
+                return False
+            
+            content = resp.text.strip()
+            current_proxies = []
+            
+            # Try YAML first
+            try:
+                data = yaml.safe_load(content)
+                if isinstance(data, dict) and 'proxies' in data:
+                    current_proxies = data['proxies']
+            except: pass
+            
+            # Try Base64/Standard links if YAML fails or found no proxies
+            if not current_proxies:
+                decoded = self.decode_base64(content)
+                if decoded:
+                    # Could be YAML in base64 or a list of links
+                    try:
+                        data = yaml.safe_load(decoded)
+                        if isinstance(data, dict) and 'proxies' in data:
+                            current_proxies = data['proxies']
+                    except: pass
+                    
+                    if not current_proxies:
+                        # Try parsing line by line (vmess://, ss://, etc)
+                        for line in decoded.splitlines():
+                            line = line.strip()
+                            if not line: continue
+                            p = None
+                            if line.startswith('vmess://'): p = self.parse_vmess(line)
+                            elif line.startswith('ss://'): p = self.parse_ss(line)
+                            elif line.startswith('trojan://'): p = self.parse_trojan(line)
+                            elif line.startswith('vless://'): p = self.parse_vless(line)
+                            if p: current_proxies.append(p)
+            
+            if current_proxies:
+                proxies_list.extend(current_proxies)
+                logger.info(f"Found {len(current_proxies)} proxies from {url}")
+            
+            return True
+
+        except Exception as e:
+            logger.error(f"Error fetching {url}: {e}")
+            return False
+
     def fetch_and_parse(self):
         proxies = []
-        target_urls = self.get_dynamic_urls()
         
         # Optional SOCKS5 proxy for fetching
         request_proxies = None
@@ -159,50 +195,33 @@ class ProxyCleaner:
             request_proxies = {"http": socks5, "https": socks5}
             logger.info(f"Using proxy: {socks5}")
 
-        for url in target_urls:
-            try:
+        proxy_urls_env = os.getenv("PROXY_URLS")
+        if proxy_urls_env:
+            target_urls = [url.strip() for url in proxy_urls_env.split(',')]
+            for url in target_urls:
+                self._fetch_single_url(url, proxies, request_proxies)
+        else:
+            # Fallback to free-nodes logic with infinite backward loop
+            base_url_prefix = "https://raw.githubusercontent.com/free-nodes/clashfree/refs/heads/main/clash"
+            base_url_suffix = ".yml"
+            now = self.get_beijing_time()
+            
+            days_back = 0
+            while True:
+                date_str = (now - timedelta(days=days_back)).strftime("%Y%m%d")
+                url = f"{base_url_prefix}{date_str}{base_url_suffix}"
+                
                 logger.info(f"Fetching from: {url}")
-                resp = requests.get(url, headers={"User-Agent": "Clash/1.0.0"}, timeout=15, proxies=request_proxies)
-                if resp.status_code != 200: continue
+                if not self._fetch_single_url(url, proxies, request_proxies):
+                    logger.warning(f"Failed to fetch {url}, stopping auto-fetch loop.")
+                    break
                 
-                content = resp.text.strip()
-                current_proxies = []
-                
-                # Try YAML first
-                try:
-                    data = yaml.safe_load(content)
-                    if isinstance(data, dict) and 'proxies' in data:
-                        current_proxies = data['proxies']
-                except: pass
-                
-                # Try Base64/Standard links if YAML fails or found no proxies
-                if not current_proxies:
-                    decoded = self.decode_base64(content)
-                    if decoded:
-                        # Could be YAML in base64 or a list of links
-                        try:
-                            data = yaml.safe_load(decoded)
-                            if isinstance(data, dict) and 'proxies' in data:
-                                current_proxies = data['proxies']
-                        except: pass
-                        
-                        if not current_proxies:
-                            # Try parsing line by line (vmess://, ss://, etc)
-                            for line in decoded.splitlines():
-                                line = line.strip()
-                                if not line: continue
-                                p = None
-                                if line.startswith('vmess://'): p = self.parse_vmess(line)
-                                elif line.startswith('ss://'): p = self.parse_ss(line)
-                                elif line.startswith('trojan://'): p = self.parse_trojan(line)
-                                elif line.startswith('vless://'): p = self.parse_vless(line)
-                                if p: current_proxies.append(p)
-                
-                if current_proxies:
-                    proxies.extend(current_proxies)
-                    logger.info(f"Found {len(current_proxies)} proxies from {url}")
-            except Exception as e:
-                logger.error(f"Error fetching {url}: {e}")
+                days_back += 1
+                # Safety limit to prevent infinite loops
+                if days_back > 365: 
+                    logger.warning("Reached 365 days limit, stopping.")
+                    break
+        
         return proxies
 
     def resolve_host(self, host):
