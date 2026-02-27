@@ -42,6 +42,15 @@ class ProxyCleaner:
             logger.debug(f"Base64 decode error: {e}")
             return None
 
+    def _sanitize_proxy(self, proxy):
+        if not proxy: return None
+        # Fix SS cipher
+        if proxy.get('type') == 'ss':
+            cipher = proxy.get('cipher')
+            if cipher == 'chacha20-poly1305':
+                proxy['cipher'] = 'chacha20-ietf-poly1305'
+        return proxy
+
     def parse_vmess(self, uri):
         try:
             data = json.loads(self.decode_base64(uri[8:]))
@@ -81,7 +90,7 @@ class ProxyCleaner:
                 method, password = auth.split(':', 1)
             
             host, port = server.split(':', 1)
-            return {
+            proxy = {
                 "name": name,
                 "type": "ss",
                 "server": host,
@@ -89,6 +98,7 @@ class ProxyCleaner:
                 "cipher": method,
                 "password": password
             }
+            return self._sanitize_proxy(proxy)
         except: return None
 
     def parse_trojan(self, uri):
@@ -176,6 +186,8 @@ class ProxyCleaner:
                             if p: current_proxies.append(p)
             
             if current_proxies:
+                # Sanitize all proxies
+                current_proxies = [self._sanitize_proxy(p) for p in current_proxies if p]
                 proxies_list.extend(current_proxies)
                 logger.info(f"Found {len(current_proxies)} proxies from {url}")
             
