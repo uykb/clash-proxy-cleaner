@@ -230,8 +230,8 @@ class ProxyCleaner:
                 
                 days_back += 1
                 # Safety limit to prevent infinite loops
-                if days_back > 365: 
-                    logger.warning("Reached 365 days limit, stopping.")
+                if days_back > 30: 
+                    logger.warning("Reached 30 days limit, stopping.")
                     break
         
         return proxies
