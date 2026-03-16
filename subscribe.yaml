@@ -1,8 +1,8 @@
 proxies:
-- name: CA-VLESS 71ms
+- name: CA-VLESS 33ms
   network: ws
   port: 80
-  server: 104.17.150.99
+  server: 104.17.138.164
   skip-cert-verify: false
   tfo: false
   tls: false
@@ -12,26 +12,35 @@ proxies:
     headers:
       Host: vip.yaml7.ggff.net
     path: /
-- name: CA-VLESS 73ms
+- name: CA-VLESS 40ms
   network: ws
-  port: 2082
-  server: 104.18.2.11
+  port: 2096
+  server: 162.159.153.231
+  servername: sni.111000.indevs.in
   skip-cert-verify: false
   tfo: false
-  tls: false
+  tls: true
   type: vless
-  uuid: cb213db5-803d-49dd-a7e2-46d938af0751
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   ws-opts:
     headers:
-      Host: amiroo-l43dac88-v2.amiroo-d8b.workers.dev
+      Host: sni.111000.indevs.in
     path: /
-- cipher: chacha20-ietf-poly1305
-  name: MX-SS 77ms
-  password: 7c31a67b41b18c26
-  port: 11201
-  server: 89.223.88.33
-  type: ss
-- name: US-VLESS 79ms
+- name: CZ-VLESS 41ms
+  network: ws
+  port: 2096
+  server: 14.102.228.238
+  servername: sni.jpmj.dev
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  ws-opts:
+    headers:
+      Host: sni.jpmj.dev
+    path: /
+- name: US-VLESS 43ms
   network: ws
   port: 2096
   server: 192.200.160.238
@@ -47,173 +56,21 @@ proxies:
     path: /?ed=2560
 - alpn:
   - http/1.1
-  client-fingerprint: random
-  name: US-VLESS 81ms
+  name: CA-VLESS 44ms
   network: ws
   port: 443
-  server: 192.0.54.191
-  servername: snippet.fgfw.indevs.in
+  server: 188.114.96.3
+  servername: 60ysrd9-v10nswi4duhvlrv0yxuspeth.efownd9to.workers.dev
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
+  uuid: 937d410f-1858-471d-bc0e-cdf3b43e78b8
   ws-opts:
     headers:
-      Host: snippet.fgfw.indevs.in
-    path: /danfeng
-- name: GB-VLESS 82ms
-  network: ws
-  port: 2096
-  server: 185.162.231.138
-  servername: sni.111000.indevs.in
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  ws-opts:
-    headers:
-      Host: sni.111000.indevs.in
-    path: /
-- name: CA-VLESS 82ms
-  network: ws
-  port: 80
-  server: 104.17.138.164
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: 388a6c57-87e7-420b-afe2-b3eb670fd7da
-  ws-opts:
-    headers:
-      Host: vip.yaml7.ggff.net
-    path: /
-- name: CZ-VLESS 85ms
-  network: ws
-  port: 2096
-  server: 14.102.228.238
-  servername: sni.jpmj.dev
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  ws-opts:
-    headers:
-      Host: sni.jpmj.dev
-    path: /
-- name: US-VLESS 87ms
-  network: ws
-  port: 443
-  server: 192.0.63.60
-  servername: snippet.gfw.nn.kg
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
-  ws-opts:
-    headers:
-      Host: snippet.gfw.nn.kg
-    path: /danfeng
-- cipher: aes-256-gcm
-  name: US-SS 91ms
-  password: SM7WYtAwvBORXKjI
-  port: 80
-  server: 154.53.63.42
-  type: ss
-- alpn:
-  - http%2F1.1
-  name: CA-VLESS 91ms
-  network: ws
-  port: 443
-  server: 188.114.98.0
-  servername: zh.hollowspot.ir
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: cff6f361-828a-43c8-a8b5-8d10b32e57fb
-  ws-opts:
-    headers:
-      Host: zh.hollowspot.ir
-    path: /
-- cipher: aes-256-gcm
-  name: US-SS 92ms
-  password: QzM0NfuMNngbVnZK
-  port: 443
-  server: 144.126.145.77
-  type: ss
-- name: DE-VLESS 93ms
-  network: ws
-  port: 2096
-  server: 185.158.133.138
-  servername: sni.111000.indevs.in
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  ws-opts:
-    headers:
-      Host: sni.111000.indevs.in
-    path: /?telegram%F0%9F%87%A8%F0%9F%87%B3+%40wangcai2=
-- cipher: aes-256-gcm
-  name: US-SS 93ms
-  password: QzM0NfuMNngbVnZK
-  port: 80
-  server: 144.126.145.77
-  type: ss
-- name: XX-VLESS 95ms
-  network: ws
-  port: 8443
-  server: chatgpt.com
-  servername: sni.111000.dynv6.net
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  ws-opts:
-    headers:
-      Host: sni.111000.dynv6.net
-    path: /?Telegram🇨🇳 @WangCai2
-- alpn:
-  - http/1.1
-  client-fingerprint: random
-  name: US-VLESS 98ms
-  network: ws
-  port: 443
-  server: 192.0.63.157
-  servername: snippet.fgfw.ccwu.cc
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
-  ws-opts:
-    headers:
-      Host: snippet.fgfw.ccwu.cc
-    path: /danfeng
-- alpn:
-  - http/1.1
-  client-fingerprint: random
-  name: US-VLESS 98ms 1
-  network: ws
-  port: 443
-  server: 192.0.54.223
-  servername: snippet.fgfw.ccwu.cc
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
-  ws-opts:
-    headers:
-      Host: snippet.fgfw.ccwu.cc
-    path: /danfeng
-- name: FR-VLESS 99ms
+      Host: 60ysrd9-v10nswi4duhvlrv0yxuspeth.efownd9to.workers.dev
+    path: /eyJqdW5rIjoiMnlwZUVocGtVZSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+- name: FR-VLESS 45ms
   network: ws
   port: 2096
   server: 185.16.110.238
@@ -227,7 +84,7 @@ proxies:
     headers:
       Host: sni.jpmj.dev
     path: /?ed=2560
-- name: US-VLESS 100ms
+- name: US-VLESS 47ms
   network: ws
   port: 443
   server: 135.84.64.226
@@ -241,22 +98,21 @@ proxies:
     headers:
       Host: sni.111000.dynv6.net
     path: /?Telegram🇨🇳@WangCai2=
-- name: US-VLESS 102ms
+- name: CA-VLESS 47ms
   network: ws
-  port: 2096
-  server: 192.0.63.138
-  servername: sni.111000.indevs.in
+  port: 2082
+  server: 104.18.2.11
   skip-cert-verify: false
   tfo: false
-  tls: true
+  tls: false
   type: vless
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  uuid: cb213db5-803d-49dd-a7e2-46d938af0751
   ws-opts:
     headers:
-      Host: sni.111000.indevs.in
-    path: /?ed=2560
+      Host: amiroo-l43dac88-v2.amiroo-d8b.workers.dev
+    path: /
 - client-fingerprint: random
-  name: CA-VLESS 103ms
+  name: CA-VLESS 47ms 1
   network: ws
   port: 443
   server: 104.19.34.86
@@ -270,13 +126,236 @@ proxies:
     headers:
       Host: snippet.sh21.eu.org
     path: /danfeng
-- cipher: aes-256-gcm
-  name: US-SS 106ms
-  password: 5mCH4624QflO1cFR
+- alpn:
+  - http%2F1.1
+  name: CA-VLESS 49ms
+  network: ws
+  port: 443
+  server: 188.114.98.0
+  servername: zh.hollowspot.ir
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: cff6f361-828a-43c8-a8b5-8d10b32e57fb
+  ws-opts:
+    headers:
+      Host: zh.hollowspot.ir
+    path: /
+- client-fingerprint: random
+  name: CA-VLESS 50ms
+  network: ws
+  port: 443
+  server: 104.16.178.202
+  servername: 52yunwang.dpdns.org
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 13a567dd-7a07-45d1-970d-8db7f2e8a47d
+  ws-opts:
+    headers:
+      Host: 52yunwang.dpdns.org
+    path: /?ed=2560
+- alpn:
+  - http/1.1
+  client-fingerprint: random
+  name: US-VLESS 51ms
+  network: ws
+  port: 443
+  server: 192.0.54.223
+  servername: snippet.fgfw.ccwu.cc
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
+  ws-opts:
+    headers:
+      Host: snippet.fgfw.ccwu.cc
+    path: /danfeng
+- name: US-VLESS 51ms 1
+  network: ws
+  port: 2096
+  server: 192.0.63.138
+  servername: sni.111000.indevs.in
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  ws-opts:
+    headers:
+      Host: sni.111000.indevs.in
+    path: /?ed=2560
+- name: CA-VLESS 51ms
+  network: ws
   port: 80
-  server: 185.111.156.33
+  server: 104.19.151.106
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: 73d17f62-d0c0-4c90-903c-a2b3f3806cca
+  ws-opts:
+    headers:
+      Host: fragrant-tooth-a5b7.cajeba6448.workers.dev
+    path: /
+- name: US-VLESS 52ms
+  network: ws
+  port: 443
+  server: 192.0.63.60
+  servername: snippet.gfw.nn.kg
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
+  ws-opts:
+    headers:
+      Host: snippet.gfw.nn.kg
+    path: /danfeng
+- alpn:
+  - http/1.1
+  client-fingerprint: random
+  name: IN-VLESS 52ms
+  network: ws
+  port: 443
+  server: 154.198.173.27
+  servername: snippet.fgfw.indevs.in
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
+  ws-opts:
+    headers:
+      Host: snippet.fgfw.indevs.in
+    path: /danfeng
+- name: CA-VLESS 54ms
+  network: ws
+  port: 443
+  server: 104.16.133.220
+  servername: fornewiranvpn6.fornewiranvpn6.workers.dev
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 8e7269cd-e5c0-48fa-970e-bc0e63c35d19
+  ws-opts:
+    headers:
+      Host: fornewiranvpn6.fornewiranvpn6.workers.dev
+    path: /
+- name: CA-VLESS 55ms
+  network: ws
+  port: 80
+  server: 104.17.150.99
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: 388a6c57-87e7-420b-afe2-b3eb670fd7da
+  ws-opts:
+    headers:
+      Host: vip.yaml7.ggff.net
+    path: /
+- name: GB-VLESS 61ms
+  network: ws
+  port: 2096
+  server: 185.162.231.138
+  servername: sni.111000.indevs.in
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  ws-opts:
+    headers:
+      Host: sni.111000.indevs.in
+    path: /
+- name: XX-VLESS 62ms
+  network: ws
+  port: 8443
+  server: chatgpt.com
+  servername: sni.111000.dynv6.net
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  ws-opts:
+    headers:
+      Host: sni.111000.dynv6.net
+    path: /?Telegram🇨🇳 @WangCai2
+- name: CA-VLESS 64ms
+  network: ws
+  port: 443
+  server: 104.19.173.68
+  servername: paRMis-1Tk63J.PArMiS.WoRkeRs.DeV
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 7e346122-2ee0-406e-b964-a8ee665f1814
+  ws-opts:
+    headers:
+      Host: paRMis-1Tk63J.PArMiS.WoRkeRs.DeV
+    path: /
+- alpn:
+  - http/1.1
+  client-fingerprint: random
+  name: US-VLESS 68ms
+  network: ws
+  port: 443
+  server: 192.0.54.191
+  servername: snippet.fgfw.indevs.in
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
+  ws-opts:
+    headers:
+      Host: snippet.fgfw.indevs.in
+    path: /danfeng
+- client-fingerprint: random
+  name: CA-VLESS 69ms
+  network: ws
+  port: 443
+  server: 173.245.58.95
+  servername: snippet.danfeng.ccwu.cc
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
+  ws-opts:
+    headers:
+      Host: snippet.danfeng.ccwu.cc
+    path: /danfeng
+- alpn:
+  - http/1.1
+  name: XX-VLESS 75ms
+  network: ws
+  port: 443
+  server: irancell.buzzmuzzpanel.online
+  servername: 022.eLEctRocELlcO-CF-022.worKeRs.DEV
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: ef6db9e0-4c05-4933-a599-0dc9530f08cc
+  ws-opts:
+    headers:
+      Host: 022.eLEctRocELlcO-CF-022.worKeRs.DEV
+    path: /eyJqdW5rIjoiZDlTMUlUZGZPM0NYVCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+- cipher: chacha20-ietf-poly1305
+  name: XX-SS 79ms
+  password: hbGrpfvNrJsUmKmPbR3iY2
+  port: 443
+  server: tinkered-pennies-puppies.freesocks.work
   type: ss
-- name: CA-VLESS 119ms
+- name: CA-VLESS 83ms
   network: ws
   port: 443
   server: 104.18.44.182
@@ -290,32 +369,123 @@ proxies:
     headers:
       Host: do88.cmddo.ggff.net
     path: /
-- cipher: chacha20-ietf-poly1305
-  name: XX-SS 121ms
-  password: hbGrpfvNrJsUmKmPbR3iY2
+- alpn:
+  - http/1.1
+  client-fingerprint: random
+  name: US-VLESS 90ms
+  network: ws
   port: 443
-  server: tinkered-pennies-puppies.freesocks.work
+  server: 192.0.63.157
+  servername: snippet.fgfw.ccwu.cc
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
+  ws-opts:
+    headers:
+      Host: snippet.fgfw.ccwu.cc
+    path: /danfeng
+- cipher: chacha20-ietf-poly1305
+  name: MX-SS 96ms
+  password: 7c31a67b41b18c26
+  port: 11201
+  server: 89.223.88.33
   type: ss
 - cipher: aes-256-gcm
-  name: US-SS 124ms
+  name: US-SS 102ms
   password: 14CLBaFBqwqxBJy6
   port: 80
   server: 66.94.125.178
   type: ss
 - client-fingerprint: chrome
-  name: US-VLESS 130ms
+  name: XX-VLESS 102ms
   network: tcp
-  port: 34045
+  port: 443
   reality-opts:
-    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
-    short-id: e8ab71d0
-  server: 64.23.143.23
-  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
+    public-key: 1HeKf_8KDjfzXfUi9P7WBaGStMvr96TKdUbofpkwBzQ
+    short-id: 8bd29483ded126b4
+  server: ny-meow.nethcloud.top
+  servername: wikihow.com
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+  uuid: 21915536-afb5-4a0c-b047-fcf549d3a173
+- cipher: aes-256-gcm
+  name: US-SS 104ms
+  password: SM7WYtAwvBORXKjI
+  port: 80
+  server: 154.53.63.42
+  type: ss
+- cipher: aes-256-gcm
+  name: US-SS 113ms
+  password: QzM0NfuMNngbVnZK
+  port: 443
+  server: 144.126.145.77
+  type: ss
+- name: DE-VLESS 120ms
+  network: ws
+  port: 2096
+  server: 185.158.133.138
+  servername: sni.111000.indevs.in
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  ws-opts:
+    headers:
+      Host: sni.111000.indevs.in
+    path: /?telegram%F0%9F%87%A8%F0%9F%87%B3+%40wangcai2=
+- client-fingerprint: chrome
+  name: US-VLESS 121ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: 1xMt7stxzh55Xy31H180TZNMvRYNkhEE86StqE4CtDs
+    short-id: 2f2a
+  server: 66.179.82.126
+  servername: yahoo.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: b1267991-59ff-4b67-b141-97e3ced4e7c8
+- cipher: aes-256-gcm
+  name: US-SS 127ms
+  password: 5mCH4624QflO1cFR
+  port: 80
+  server: 185.111.156.33
+  type: ss
+- name: US-VLESS 148ms
+  network: ws
+  port: 2053
+  server: 77.110.119.35
+  servername: zgtwylnhh.cc.cd
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  ws-opts:
+    headers:
+      Host: zgtwylnhh.cc.cd
+    path: Telegram🇨🇳
+- client-fingerprint: chrome
+  name: US-VLESS 151ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: xbbOyx0nk3ch1TczCJvSg-km5ac0NM7MgRbFSLCMXyU
+    short-id: '8397'
+  server: 103.113.70.21
+  servername: yahoo.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 3b9ff760-6b22-467b-a54f-e25a82a40908
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
   name: US-VLESS 162ms
@@ -331,51 +501,26 @@ proxies:
   tls: true
   type: vless
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-- client-fingerprint: chrome
-  name: US-VLESS 164ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: xbbOyx0nk3ch1TczCJvSg-km5ac0NM7MgRbFSLCMXyU
-    short-id: '8397'
-  server: 103.113.70.21
-  servername: yahoo.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 3b9ff760-6b22-467b-a54f-e25a82a40908
-- name: CA-VLESS 175ms
+- alpn:
+  - http/1.1
+  client-fingerprint: random
+  name: US-VLESS 163ms
   network: ws
   port: 443
-  server: 172.64.53.148
-  servername: tar.alabama-tigr.info
+  server: 94.183.232.8
+  servername: snippet.danfeng.ccwu.cc
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 5a4abb78-ecd7-4d68-ab2a-c11a3842f261
+  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
   ws-opts:
     headers:
-      Host: tar.alabama-tigr.info
-    path: /love
-- name: US-VLESS 179ms
-  network: ws
-  port: 2053
-  server: 198.204.227.171
-  servername: sni.111000.dynv6.net
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  ws-opts:
-    headers:
-      Host: sni.111000.dynv6.net
-    path: /?ed=2560
+      Host: snippet.danfeng.ccwu.cc
+    path: /danfeng
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: US-VLESS 198ms
+  name: US-VLESS 164ms
   network: tcp
   port: 23576
   reality-opts:
@@ -390,7 +535,7 @@ proxies:
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: US-VLESS 199ms
+  name: US-VLESS 164ms 1
   network: tcp
   port: 23576
   reality-opts:
@@ -403,170 +548,7 @@ proxies:
   tls: true
   type: vless
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-- name: XX-TROJAN 204ms
-  password: ZY07256934
-  port: 443
-  server: closing-crow.rooster465.autos
-  skip-cert-verify: false
-  sni: closing-crow.rooster465.autos
-  type: trojan
-- cipher: chacha20-ietf-poly1305
-  name: XX-SS 216ms
-  password: W74XFALLLuw6m5IA
-  port: 443
-  server: admin.c1.webramz.co
-  type: ss
-- client-fingerprint: chrome
-  name: US-VLESS 217ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 1xMt7stxzh55Xy31H180TZNMvRYNkhEE86StqE4CtDs
-    short-id: 2f2a
-  server: 66.179.82.126
-  servername: yahoo.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: b1267991-59ff-4b67-b141-97e3ced4e7c8
-- cipher: chacha20-ietf-poly1305
-  name: GB-SS 219ms
-  password: W74XFALLLuw6m5IA
-  port: 443
-  server: 51.132.226.113
-  type: ss
-- cipher: aes-256-gcm
-  name: GB-SS 220ms
-  password: YhzqOeJsfuZ9rkkc
-  port: 80
-  server: 149.102.132.186
-  type: ss
-- cipher: aes-128-gcm
-  name: NL-SS 226ms
-  password: shadowsocks
-  port: 443
-  server: 158.173.20.171
-  type: ss
-- name: US-VLESS 228ms
-  network: ws
-  port: 2053
-  server: 77.110.119.35
-  servername: zgtwylnhh.cc.cd
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
-  ws-opts:
-    headers:
-      Host: zgtwylnhh.cc.cd
-    path: Telegram🇨🇳
-- client-fingerprint: chrome
-  name: US-VLESS 235ms
-  network: ws
-  port: 443
-  server: 45.61.140.116
-  servername: zgtwylnhh.cc.cd
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
-  ws-opts:
-    headers:
-      Host: zgtwylnhh.cc.cd
-    path: Telegram🇨🇳@WangCai2
-- cipher: chacha20-ietf-poly1305
-  name: XX-SS 237ms
-  password: 1kVr0KATIJI7mwOF
-  port: 443
-  server: admin.c1.havij.co
-  type: ss
-- cipher: chacha20-ietf-poly1305
-  name: DE-SS 247ms
-  password: 1hhrqrokj3ag
-  port: 8388
-  server: 209.46.102.22
-  type: ss
-- cipher: chacha20-ietf-poly1305
-  name: NL-SS 248ms
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.62
-  type: ss
-- cipher: chacha20-ietf-poly1305
-  name: GB-SS 258ms
-  password: 6c815bb84c781da5
-  port: 13030
-  server: 51.75.168.50
-  type: ss
-- cipher: chacha20-ietf-poly1305
-  name: DE-SS 261ms
-  password: 6675cbf62d6a3a4f
-  port: 11201
-  server: 57.129.95.45
-  type: ss
-- name: DE-VLESS 262ms
-  network: tcp
-  port: 50219
-  server: 162.55.190.0
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: 449e3088-5ada-463d-b582-e5d9e0a101b8
-- alpn:
-  - http/1.1
-  client-fingerprint: random
-  name: IN-VLESS 265ms
-  network: ws
-  port: 443
-  server: 154.198.173.27
-  servername: snippet.fgfw.indevs.in
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
-  ws-opts:
-    headers:
-      Host: snippet.fgfw.indevs.in
-    path: /danfeng
-- cipher: aes-256-gcm
-  name: AT-SS 268ms
-  password: KixLvKzwjekG00rm
-  port: 8080
-  server: 38.180.197.41
-  type: ss
-- cipher: aes-256-gcm
-  name: JP-SS 270ms
-  password: XKFKl2rULjIp74
-  port: 8009
-  server: 103.106.228.175
-  type: ss
-- name: DE-VLESS 289ms
-  network: tcp
-  port: 59029
-  server: 81.88.25.20
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: c031d6c7-5132-4d81-8efc-3b13a947984e
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: XX-VLESS 296ms
-  network: tcp
-  port: 443
-  server: s173.okgg.top
-  servername: u710948ub2afs173.okgg.top
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: ccd85f23-9105-37fd-96b9-9dcbc89ff3eb
-- name: XX-VLESS 300ms
+- name: XX-VLESS 169ms
   network: ws
   port: 2087
   server: cf.9999669.xyz
@@ -580,25 +562,141 @@ proxies:
     headers:
       Host: hfnb8xmvw3h14.fx02.ccwu.cc
     path: /
-- cipher: chacha20-ietf-poly1305
-  name: NL-SS 302ms
-  password: EDTfh0zLmD5dfg03sQYFcp
-  port: 45356
-  server: 144.31.234.82
+- cipher: aes-256-gcm
+  name: GB-SS 195ms
+  password: YhzqOeJsfuZ9rkkc
+  port: 80
+  server: 149.102.132.186
   type: ss
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: XX-VLESS 308ms
-  network: tcp
+- cipher: chacha20-ietf-poly1305
+  name: XX-SS 197ms
+  password: W74XFALLLuw6m5IA
   port: 443
-  server: s175.okgg.top
-  servername: u710948ua492s175.okgg.top
+  server: admin.c1.webramz.co
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: XX-SS 201ms
+  password: W74XFALLLuw6m5IA
+  port: 443
+  server: series-a2.samanehha.co
+  type: ss
+- cipher: aes-128-gcm
+  name: NL-SS 211ms
+  password: shadowsocks
+  port: 443
+  server: 158.173.20.171
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: DE-SS 212ms
+  password: 1hhrqrokj3ag
+  port: 8388
+  server: 209.46.102.22
+  type: ss
+- client-fingerprint: chrome
+  name: US-VLESS 215ms
+  network: tcp
+  port: 34045
+  reality-opts:
+    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
+    short-id: e8ab71d0
+  server: 64.23.143.23
+  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: ccd85f23-9105-37fd-96b9-9dcbc89ff3eb
-- name: TR-VLESS 317ms
+  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
+- cipher: chacha20-ietf-poly1305
+  name: NL-SS 219ms
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 82.38.31.62
+  type: ss
+- name: XX-TROJAN 228ms
+  password: ZY07256934
+  port: 443
+  server: closing-crow.rooster465.autos
+  skip-cert-verify: false
+  sni: closing-crow.rooster465.autos
+  type: trojan
+- name: DE-VLESS 230ms
+  network: tcp
+  port: 50219
+  server: 162.55.190.0
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: 449e3088-5ada-463d-b582-e5d9e0a101b8
+- cipher: chacha20-ietf-poly1305
+  name: DE-SS 239ms
+  password: 6675cbf62d6a3a4f
+  port: 11201
+  server: 57.129.95.45
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: GB-SS 240ms
+  password: 6c815bb84c781da5
+  port: 13030
+  server: 51.75.168.50
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: XX-SS 250ms
+  password: 1kVr0KATIJI7mwOF
+  port: 443
+  server: admin.c1.havij.co
+  type: ss
+- name: DE-VLESS 252ms
+  network: tcp
+  port: 59029
+  server: 81.88.25.20
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: c031d6c7-5132-4d81-8efc-3b13a947984e
+- client-fingerprint: chrome
+  name: US-VLESS 283ms
+  network: ws
+  port: 443
+  server: 45.61.140.116
+  servername: zgtwylnhh.cc.cd
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  ws-opts:
+    headers:
+      Host: zgtwylnhh.cc.cd
+    path: Telegram🇨🇳@WangCai2
+- cipher: aes-256-gcm
+  name: US-SS 286ms
+  password: QzM0NfuMNngbVnZK
+  port: 80
+  server: 144.126.145.77
+  type: ss
+- cipher: aes-256-gcm
+  name: JP-SS 289ms
+  password: XKFKl2rULjIp74
+  port: 8009
+  server: 103.106.228.175
+  type: ss
+- client-fingerprint: chrome
+  name: NL-VLESS 297ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: _L_eqCCzVbP0fzWTA_AqtmlyZVscCzrJ5b2nXFnq3U0
+    short-id: d020b2
+  server: 45.136.126.16
+  servername: google.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 203b0744-f943-4bba-a8d2-cab635467c46
+- name: TR-VLESS 299ms
   network: tcp
   port: 56126
   server: 185.72.9.200
@@ -607,13 +705,35 @@ proxies:
   tls: false
   type: vless
   uuid: 9bde09b3-09b5-4d7a-b5fd-3fae8dfeed5a
-- cipher: chacha20-ietf-poly1305
-  name: TR-SS 324ms
-  password: p1R3hJEWeQJGJL42SaYy22CC21uFt_0y
-  port: 9443
-  server: 144.31.130.99
-  type: ss
-- name: NL-VLESS 336ms
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: NL-VLESS 304ms
+  network: tcp
+  port: 5443
+  reality-opts:
+    public-key: yvkNZISxbowAMxh-4NDS6GNcOeL0ziCmfkJ8PgZSTUY
+    short-id: 30f8
+  server: 45.66.163.95
+  servername: google.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 1955433c-a18a-4f0c-8837-390226193372
+- name: XX-VLESS 304ms
+  network: ws
+  port: 80
+  server: SC-TheNetherlands1.09vpn.com
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
+  ws-opts:
+    headers:
+      Host: SC-TheNetherlands1.09vpn.com
+    path: /vless/
+- name: NL-VLESS 306ms
   network: ws
   port: 10004
   server: 195.123.216.159
@@ -624,9 +744,123 @@ proxies:
   uuid: 426c7830-1d5c-11f1-add8-52ac00d0e60c
   ws-opts:
     path: /vpnjantit
+- cipher: chacha20-ietf-poly1305
+  name: XX-SS 312ms
+  password: W74XFALLLuw6m5IA
+  port: 443
+  server: series-a1.samanehha.co
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: SE-SS 313ms
+  password: XN6Xf0ZqwDeFrt39TQraen
+  port: 31019
+  server: 45.80.231.75
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: TR-SS 315ms
+  password: p1R3hJEWeQJGJL42SaYy22CC21uFt_0y
+  port: 9443
+  server: 144.31.130.99
+  type: ss
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: NL-VLESS 338ms
+  name: NL-VLESS 315ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: wBrGfTI9PaFf966aN6KaCY0cL6QRLlop4nzNa6bJsiQ
+    short-id: 9f35da6c9412b832
+  server: 5.180.97.139
+  servername: google.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: a384c715-aeb5-45e8-859b-f687ca6c083f
+- name: XX-VLESS 317ms
+  network: ws
+  port: 80
+  server: SC-TheNetherlands2.09vpn.com
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: e73df646-1f62-41bf-8c50-653497d603d0
+  ws-opts:
+    headers:
+      Host: SC-TheNetherlands2.09vpn.com
+    path: /vless/
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: DE-VLESS 319ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: mJwq_1b4cJxWmLmeCh-9pmxMIFNUbZ7eayDZXpiA4Qo
+    short-id: 61e6e3b8
+  server: 45.83.129.31
+  servername: www.microsoft.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 295ed7cc-3dee-4985-a81e-ecc2b741a1f1
+- name: DE-VLESS 321ms
+  network: ws
+  port: 443
+  server: 57.129.119.115
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: 1e97f262-296c-45cf-afc0-6ed86f768013
+  ws-opts:
+    path: /
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: RU-VLESS 321ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
+  server: 138.124.186.52
+  servername: www.fh-aachen.de
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: e346f220-4ca4-4f69-a66b-52e992b3b625
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: NO-VLESS 324ms
+  network: tcp
+  port: 8443
+  reality-opts:
+    public-key: Bg1P8Pv18fdeezfJWpqfUScMYHUUInCgdXsXEWBNBFo
+    short-id: 9edc548e1e284d84
+  server: 5.180.47.159
+  servername: google.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 2c564cf2-2291-4c8a-ad02-d8db601c41f9
+- client-fingerprint: chrome
+  name: NL-VLESS 324ms
+  network: tcp
+  port: 8080
+  reality-opts:
+    public-key: w28tNIWZCfW4X9aQDLwXECK3pU59zihJ0GIMA13u5X8
+  server: 94.131.105.12
+  servername: max.ru
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: a001c9c4-ece2-4dc1-9658-cbad90fcd2e0
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: NL-VLESS 324ms 1
   network: tcp
   port: 443
   reality-opts:
@@ -640,235 +874,7 @@ proxies:
   type: vless
   uuid: e2e1ddaa-1acf-4c4c-a211-92284f6440ed
 - client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: DE-VLESS 339ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: AYQOZFxjvHN-RIzKYEibwFiFsp03cdlWGdCmyFfuNVc
-    short-id: 4fa44664f6a566d3
-  server: 5.254.85.151
-  servername: germany.scroogethebest.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: ccedb1b1-35f3-46d1-a85a-c699eef5f3e1
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: RU-VLESS 344ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
-  server: 138.124.186.52
-  servername: www.fh-aachen.de
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: e346f220-4ca4-4f69-a66b-52e992b3b625
-- cipher: chacha20-ietf-poly1305
-  name: SE-SS 347ms
-  password: XN6Xf0ZqwDeFrt39TQraen
-  port: 31019
-  server: 45.80.231.75
-  type: ss
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: RU-VLESS 349ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
-  server: 138.124.186.80
-  servername: www.fh-aachen.de
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: e346f220-4ca4-4f69-a66b-52e992b3b625
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: NL-VLESS 352ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: AYQOZFxjvHN-RIzKYEibwFiFsp03cdlWGdCmyFfuNVc
-    short-id: 4fa44664f6a566d3
-  server: 5.255.107.115
-  servername: nll.scroogethebest.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: e2e1ddaa-1acf-4c4c-a211-92284f6440ed
-- client-fingerprint: chrome
-  name: NL-VLESS 357ms
-  network: tcp
-  port: 8080
-  reality-opts:
-    public-key: w28tNIWZCfW4X9aQDLwXECK3pU59zihJ0GIMA13u5X8
-  server: 94.131.105.12
-  servername: max.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: a001c9c4-ece2-4dc1-9658-cbad90fcd2e0
-- cipher: aes-256-gcm
-  name: BG-SS 359ms
-  password: lGqs95QkFHo2NV
-  port: 5499
-  server: 38.180.2.141
-  type: ss
-- name: CA-VLESS 360ms
-  network: ws
-  port: 80
-  server: 188.114.98.0
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: 478cc26d-16b3-4fdd-be64-60d5a58c1622
-  ws-opts:
-    headers:
-      Host: tt.andishehparenting.com
-    path: /
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: DE-VLESS 362ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: AYQOZFxjvHN-RIzKYEibwFiFsp03cdlWGdCmyFfuNVc
-    short-id: 4fa44664f6a566d3
-  server: 5.254.85.152
-  servername: germany.scroogethebest.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: ccedb1b1-35f3-46d1-a85a-c699eef5f3e1
-- client-fingerprint: chrome
-  name: DE-VLESS 365ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: qrnqrRbyJ3KLRDdvO0Ed2ewMvTn1i5XWyF07q_4eunk
-    short-id: 8cb5caf3547681c1
-  server: 185.191.118.144
-  servername: www.microsoft.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 7a37a4a1-0750-4311-a355-ff7d499c6797
-- client-fingerprint: chrome
-  name: RU-VLESS 366ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 1HeKf_8KDjfzXfUi9P7WBaGStMvr96TKdUbofpkwBzQ
-    short-id: 8bd29483ded126b4
-  server: 185.125.103.147
-  servername: wikihow.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 21915536-afb5-4a0c-b047-fcf549d3a173
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: XX-VLESS 374ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
-    short-id: 9c2378562188c3cb
-  server: fr.denditop.site
-  servername: fr.denditop.site
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: DE-VLESS 374ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: TnfSCSoPjSQZ2GNtR15iEnTtF6AMroEBGNBhxAnitWY
-    short-id: 4c2404fc
-  server: 144.31.116.213
-  servername: sun6-22.userapi.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: a10791c1-4710-4ac7-901e-143eabe632e4
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: DE-VLESS 376ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: mJwq_1b4cJxWmLmeCh-9pmxMIFNUbZ7eayDZXpiA4Qo
-    short-id: 61e6e3b8
-  server: 45.83.129.31
-  servername: www.microsoft.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 295ed7cc-3dee-4985-a81e-ecc2b741a1f1
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: CH-VLESS 377ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
-    short-id: 9c2378562188c3cb
-  server: 2.59.219.241
-  servername: cz.denditop.site
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: DE-VLESS 381ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: Wvt6tuMcFY9rWF2BsdAD4DXgLAoxQJxHWlao2BPR23Y
-  server: 80.253.249.251
-  servername: apple.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: d1209ffb-c159-48d5-b40d-542ce11fc768
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: NL-VLESS 385ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: wBrGfTI9PaFf966aN6KaCY0cL6QRLlop4nzNa6bJsiQ
-    short-id: 9f35da6c9412b832
-  server: 5.180.97.139
-  servername: google.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: a384c715-aeb5-45e8-859b-f687ca6c083f
-- client-fingerprint: chrome
-  name: DE-VLESS 387ms
+  name: DE-VLESS 325ms
   network: tcp
   port: 8443
   reality-opts:
@@ -883,7 +889,123 @@ proxies:
   uuid: 21915536-afb5-4a0c-b047-fcf549d3a173
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: PL-VLESS 387ms
+  name: DE-VLESS 331ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: AYQOZFxjvHN-RIzKYEibwFiFsp03cdlWGdCmyFfuNVc
+    short-id: 4fa44664f6a566d3
+  server: 5.254.85.151
+  servername: germany.scroogethebest.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: ccedb1b1-35f3-46d1-a85a-c699eef5f3e1
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: DE-VLESS 333ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: AYQOZFxjvHN-RIzKYEibwFiFsp03cdlWGdCmyFfuNVc
+    short-id: 4fa44664f6a566d3
+  server: 5.254.85.152
+  servername: germany.scroogethebest.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: ccedb1b1-35f3-46d1-a85a-c699eef5f3e1
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: NL-VLESS 339ms
+  network: tcp
+  port: 8446
+  reality-opts:
+    public-key: Az7yi4Q-UKI-hsYKtO4wvn1iW4JVW5ivrIXO0ICYtE0
+  server: 185.112.59.4
+  servername: ads.x5.ru
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: c048bd88-3e84-4f98-9699-8379f690ac7b
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: NL-VLESS 340ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: nPcUKydxoRI66O3tT9O4QCZpLjOBvkGsiXG7pDX1BBw
+    short-id: 6ba85179e30d4fc2
+  server: 194.87.216.140
+  servername: www.google.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 299ee660-0ad5-4366-9b34-f4bb51eb73ee
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: RU-VLESS 341ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
+  server: 138.124.186.80
+  servername: www.fh-aachen.de
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: e346f220-4ca4-4f69-a66b-52e992b3b625
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: DE-VLESS 345ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: Q7-qj-XTTDEiQ5viSWBzMVhXgIUevGlwpkmJ42U68g4
+    short-id: 7ce9b3db85b9
+  server: 144.31.118.172
+  servername: sun6-22.userapi.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 1af826cb-9503-43d4-adcf-d876e53e4c5b
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: DE-VLESS 348ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: TnfSCSoPjSQZ2GNtR15iEnTtF6AMroEBGNBhxAnitWY
+    short-id: 4c2404fc
+  server: 144.31.116.213
+  servername: sun6-22.userapi.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: a10791c1-4710-4ac7-901e-143eabe632e4
+- name: FR-VLESS 349ms
+  network: ws
+  port: 80
+  server: 213.136.69.8
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: 15cbab96-197e-46a5-9042-073b3980c798
+  ws-opts:
+    headers:
+      Host: fsdns.ectunnelvpn.me
+    path: /vless
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: PL-VLESS 350ms
   network: tcp
   port: 443
   reality-opts:
@@ -896,20 +1018,361 @@ proxies:
   tls: true
   type: vless
   uuid: e2e1ddaa-1acf-4c4c-a211-92284f6440ed
-- name: CA-VLESS 387ms
-  network: ws
-  port: 2052
-  server: 104.18.32.47
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: XX-VLESS 353ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
+    short-id: 9c2378562188c3cb
+  server: cz.denditop.site
+  servername: cz.denditop.site
   skip-cert-verify: false
   tfo: false
-  tls: false
+  tls: true
   type: vless
-  uuid: 5e62ddcf-78c9-4b15-803a-436c8c839ddc
+  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: XX-VLESS 354ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
+    short-id: 9c2378562188c3cb
+  server: fr.denditop.site
+  servername: fr.denditop.site
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: CH-VLESS 355ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
+    short-id: 9c2378562188c3cb
+  server: 2.59.219.241
+  servername: cz.denditop.site
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
+- client-fingerprint: chrome
+  name: DE-VLESS 359ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: qrnqrRbyJ3KLRDdvO0Ed2ewMvTn1i5XWyF07q_4eunk
+    short-id: 8cb5caf3547681c1
+  server: 185.191.118.144
+  servername: www.microsoft.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 7a37a4a1-0750-4311-a355-ff7d499c6797
+- name: GB-VLESS 360ms
+  network: ws
+  port: 8443
+  server: 158.220.88.180
+  servername: sni.111000.indevs.in
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   ws-opts:
     headers:
-      Host: oBEDiENt-noiseqJf5ja18yF.wIndLer.CO.UK.
-    path: /
-- name: CA-VLESS 392ms
+      Host: sni.111000.indevs.in
+    path: /?ed=2560
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: PL-VLESS 368ms
+  network: tcp
+  port: 7443
+  reality-opts:
+    public-key: J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs
+    short-id: a20d3ed244c76426
+  server: 144.31.0.65
+  servername: fastt.overload.ovh
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 2dd1a15d-1426-413a-a3b8-a645788bc844
+- name: CA-VLESS 372ms
+  network: ws
+  port: 443
+  server: 108.162.193.217
+  servername: vangoghhh.info
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 94daa8ad-75ed-4dbf-a6de-d05036d98df5
+  ws-opts:
+    headers:
+      Host: vangoghhh.info
+    path: /tixvuws
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: AT-VLESS 382ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
+    short-id: 9c2378562188c3cb
+  server: 152.53.47.91
+  servername: austria.denditop.site
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: NL-VLESS 382ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: pLXdzqnXM5iopIHD95v5DdIqJFeb0VbX1SjebKqw6z0
+    short-id: ee346054204e99bd
+  server: 91.242.229.129
+  servername: eh.vk.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 6fa40e7f-f363-425d-9331-43f07a423b5b
+- name: CA-VLESS 385ms
+  network: ws
+  port: 443
+  server: 162.159.36.5
+  servername: vangoghhh.info
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 94daa8ad-75ed-4dbf-a6de-d05036d98df5
+  ws-opts:
+    headers:
+      Host: vangoghhh.info
+    path: /tixvuws
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: AT-VLESS 386ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
+    short-id: 9c2378562188c3cb
+  server: 152.53.46.104
+  servername: austria.denditop.site
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: NL-VLESS 387ms
+  network: tcp
+  port: 5443
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  server: 87.229.108.103
+  servername: yandex.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: XX-VLESS 387ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: AYQOZFxjvHN-RIzKYEibwFiFsp03cdlWGdCmyFfuNVc
+    short-id: 4fa44664f6a566d3
+  server: nll.scroogethebest.com
+  servername: nll.scroogethebest.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: e2e1ddaa-1acf-4c4c-a211-92284f6440ed
+- cipher: chacha20-ietf-poly1305
+  name: HR-SS 389ms
+  password: JOZ5Mb3nJCmmoKhd8Cc9aC
+  port: 36608
+  server: 5.181.2.76
+  type: ss
+- client-fingerprint: chrome
+  name: GB-VLESS 389ms
+  network: tcp
+  port: 2040
+  reality-opts:
+    public-key: 1RJ2ulM9UyAC8PFy194dV0RTZI6xF6U4CGClhNz9fTg
+    short-id: 50ed6f6007515d63
+  server: 108.165.174.192
+  servername: tradingview.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 14818654-7689-453a-9a1f-4c72f89782d5
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: NL-VLESS 389ms
+  network: tcp
+  port: 5443
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  server: 87.229.108.135
+  servername: yandex.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: DE-VLESS 389ms
+  network: tcp
+  port: 7443
+  reality-opts:
+    public-key: 5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI
+    short-id: d82fb387
+  server: 152.53.200.42
+  servername: chat.deepseek.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 4ab1088a-9f8a-4fcc-8805-8353a8b3cf44
+- name: XX-VLESS 390ms
+  network: tcp
+  port: 443
+  server: plcdn23.suio.me
+  servername: plcdn23.suio.me
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 62ad5a48-f452-4868-b7eb-d27df9b3d723
+- name: XX-VLESS 395ms
+  network: ws
+  port: 443
+  server: norman.ns.cloudflare.com
+  servername: vangoghhh.info
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 94daa8ad-75ed-4dbf-a6de-d05036d98df5
+  ws-opts:
+    headers:
+      Host: vangoghhh.info
+    path: /tixvuws
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: EE-VLESS 400ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: pOdL1l8cGGg7qnOPAbDcAIVOgA7O8f75XevxeYyaYCg
+    short-id: cd11af
+  server: 93.123.39.218
+  servername: www.apple.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 3130fccb-e72e-468d-b2ce-0721bb3058c8
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: LV-VLESS 400ms
+  network: tcp
+  port: 8443
+  reality-opts:
+    public-key: qBcUlVqkzWxGORpDCj_FcNHACi3mrAYTCZeJyVQa5yU
+    short-id: 6b374e33af12fd1e
+  server: 31.57.28.209
+  servername: retn.net
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 9a63b59c-5e54-437a-b7a1-2788780a7c13
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: XX-VLESS 402ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
+    short-id: 9c2378562188c3cb
+  server: austria.denditop.site
+  servername: austria.denditop.site
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: FI-VLESS 410ms
+  network: tcp
+  port: 10965
+  reality-opts:
+    public-key: lHxeD2nYtDb1V7JseV-sUTEuqH6_jie7U_iOARX7cT0
+    short-id: 9f3a7c6d2e8b41af
+  server: 138.124.6.182
+  servername: deepl.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: d1209ffb-c159-48d5-b40d-542ce11fc768
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: DE-VLESS 410ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: Wvt6tuMcFY9rWF2BsdAD4DXgLAoxQJxHWlao2BPR23Y
+  server: 80.253.249.251
+  servername: apple.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: d1209ffb-c159-48d5-b40d-542ce11fc768
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: SE-VLESS 415ms
+  network: tcp
+  port: 8443
+  reality-opts:
+    public-key: J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs
+    short-id: a20d3ed244c76426
+  server: 144.31.130.36
+  servername: swe.speedload.online
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 2dd1a15d-1426-413a-a3b8-a645788bc844
+- name: CA-VLESS 416ms
   network: ws
   port: 443
   server: 172.64.33.217
@@ -925,257 +1388,22 @@ proxies:
     path: /tixvuws
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: PL-VLESS 397ms
+  name: MD-VLESS 417ms
   network: tcp
-  port: 7443
+  port: 8443
   reality-opts:
     public-key: J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs
     short-id: a20d3ed244c76426
-  server: 144.31.0.65
-  servername: fastt.overload.ovh
+  server: 144.31.131.224
+  servername: mold.speedload.online
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 2dd1a15d-1426-413a-a3b8-a645788bc844
-- cipher: chacha20-ietf-poly1305
-  name: XX-SS 400ms
-  password: W74XFALLLuw6m5IA
-  port: 443
-  server: series-a1.samanehha.co
-  type: ss
+  uuid: 0ee2d410-3e64-4c41-a571-3e5d2b5b8982
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: NL-VLESS 401ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: nPcUKydxoRI66O3tT9O4QCZpLjOBvkGsiXG7pDX1BBw
-    short-id: 6ba85179e30d4fc2
-  server: 194.87.216.140
-  servername: www.google.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 299ee660-0ad5-4366-9b34-f4bb51eb73ee
-- name: DE-VLESS 407ms
-  network: ws
-  port: 443
-  server: 57.129.119.115
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: 1e97f262-296c-45cf-afc0-6ed86f768013
-  ws-opts:
-    path: /
-- client-fingerprint: chrome
-  name: FR-VLESS 407ms
-  network: tcp
-  port: 8080
-  reality-opts:
-    public-key: w28tNIWZCfW4X9aQDLwXECK3pU59zihJ0GIMA13u5X8
-  server: 81.19.137.83
-  servername: max.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: a001c9c4-ece2-4dc1-9658-cbad90fcd2e0
-- name: XX-VLESS 408ms
-  network: tcp
-  port: 443
-  server: nlcdn7.suio.me
-  servername: nlcdn7.suio.me
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 62ad5a48-f452-4868-b7eb-d27df9b3d723
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: DE-VLESS 409ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: Q7-qj-XTTDEiQ5viSWBzMVhXgIUevGlwpkmJ42U68g4
-    short-id: 7ce9b3db85b9
-  server: 144.31.118.172
-  servername: sun6-22.userapi.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 1af826cb-9503-43d4-adcf-d876e53e4c5b
-- client-fingerprint: chrome
-  name: NL-VLESS 412ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: _L_eqCCzVbP0fzWTA_AqtmlyZVscCzrJ5b2nXFnq3U0
-    short-id: d020b2
-  server: 45.136.126.16
-  servername: google.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 203b0744-f943-4bba-a8d2-cab635467c46
-- name: JP-TROJAN 413ms
-  password: f389ed926e512e15f382dc3804029474
-  port: 4937
-  server: 160.16.214.104
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: JP-TROJAN 414ms
-  password: f389ed926e512e15f382dc3804029474
-  port: 34818
-  server: 153.121.45.139
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: GB-VLESS 414ms
-  network: ws
-  port: 8443
-  server: 158.220.88.180
-  servername: sni.111000.indevs.in
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  ws-opts:
-    headers:
-      Host: sni.111000.indevs.in
-    path: /?ed=2560
-- name: JP-TROJAN 415ms
-  password: f389ed926e512e15f382dc3804029474
-  port: 4937
-  server: 160.16.85.33
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: CA-VLESS 415ms
-  network: ws
-  port: 443
-  server: 108.162.193.217
-  servername: vangoghhh.info
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 94daa8ad-75ed-4dbf-a6de-d05036d98df5
-  ws-opts:
-    headers:
-      Host: vangoghhh.info
-    path: /tixvuws
-- cipher: chacha20-ietf-poly1305
-  name: XX-SS 415ms
-  password: W74XFALLLuw6m5IA
-  port: 443
-  server: series-a2.samanehha.co
-  type: ss
-- name: JP-TROJAN 415ms 1
-  password: f389ed926e512e15f382dc3804029474
-  port: 4937
-  server: 160.16.132.38
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: AT-VLESS 416ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
-    short-id: 9c2378562188c3cb
-  server: 152.53.47.91
-  servername: austria.denditop.site
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
-- name: JP-TROJAN 417ms
-  password: f389ed926e512e15f382dc3804029474
-  port: 34818
-  server: 160.16.106.99
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- cipher: chacha20-ietf-poly1305
-  name: HR-SS 427ms
-  password: JOZ5Mb3nJCmmoKhd8Cc9aC
-  port: 36608
-  server: 5.181.2.76
-  type: ss
-- name: JP-TROJAN 427ms
-  password: f7dbed8b1ca85124e793ba6c0bcfd0db
-  port: 4937
-  server: 160.16.70.180
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: JP-TROJAN 427ms 1
-  password: f7dbed8b1ca85124e793ba6c0bcfd0db
-  port: 2001
-  server: 160.16.72.33
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: JP-TROJAN 428ms
-  password: f7dbed8b1ca85124e793ba6c0bcfd0db
-  port: 34818
-  server: 153.121.65.107
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: JP-TROJAN 430ms
-  password: f7dbed8b1ca85124e793ba6c0bcfd0db
-  port: 4937
-  server: 153.121.65.107
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: JP-TROJAN 431ms
-  password: f7dbed8b1ca85124e793ba6c0bcfd0db
-  port: 34818
-  server: 160.16.72.33
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: XX-VLESS 434ms
-  network: tcp
-  port: 443
-  server: s503.okgg.top
-  servername: u710948u2550s503.okgg.top
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: ccd85f23-9105-37fd-96b9-9dcbc89ff3eb
-- name: US-VLESS 437ms
-  network: ws
-  port: 443
-  server: 162.159.38.176
-  servername: terazhediii.info
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 1b2c91ab-f6c9-42f8-b2c6-8de0ac133d63
-  ws-opts:
-    headers:
-      Host: terazhediii.info
-    path: /sghiyws
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: EE-VLESS 438ms
+  name: EE-VLESS 417ms
   network: tcp
   port: 443
   reality-opts:
@@ -1189,137 +1417,21 @@ proxies:
   type: vless
   uuid: 3130fccb-e72e-468d-b2ce-0721bb3058c8
 - client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: DE-VLESS 438ms
+  name: DE-VLESS 417ms
   network: tcp
-  port: 7443
+  port: 25451
   reality-opts:
-    public-key: 5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI
-    short-id: d82fb387
-  server: 152.53.200.42
-  servername: chat.deepseek.com
+    public-key: JlMOb8hVg1VOrRlMLdXpv8IADp-R4I-cIT856hz_Cg0
+    short-id: f686d19cd7b8b3df
+  server: 93.94.51.13
+  servername: yandex.ru
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 4ab1088a-9f8a-4fcc-8805-8353a8b3cf44
+  uuid: a90f4742-2f30-47b5-9f17-b6ab04cc98e8
 - client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: AT-VLESS 439ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
-    short-id: 9c2378562188c3cb
-  server: 152.53.46.104
-  servername: austria.denditop.site
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
-- name: XX-VLESS 442ms
-  network: tcp
-  port: 443
-  server: plcdn23.suio.me
-  servername: plcdn23.suio.me
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 62ad5a48-f452-4868-b7eb-d27df9b3d723
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: NL-VLESS 442ms
-  network: tcp
-  port: 8446
-  reality-opts:
-    public-key: Az7yi4Q-UKI-hsYKtO4wvn1iW4JVW5ivrIXO0ICYtE0
-  server: 185.112.59.4
-  servername: ads.x5.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: c048bd88-3e84-4f98-9699-8379f690ac7b
-- name: XX-VLESS 445ms
-  network: tcp
-  port: 443
-  server: decdn4.suio.me
-  servername: decdn4.suio.me
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 62ad5a48-f452-4868-b7eb-d27df9b3d723
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: XX-VLESS 447ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
-    short-id: 9c2378562188c3cb
-  server: cz.denditop.site
-  servername: cz.denditop.site
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
-- cipher: chacha20-ietf-poly1305
-  name: AU-SS 447ms
-  password: c90d63dc7a6203af
-  port: 45720
-  server: 46.250.241.55
-  type: ss
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: AL-VLESS 448ms
-  network: tcp
-  port: 8443
-  reality-opts:
-    public-key: J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs
-    short-id: a20d3ed244c76426
-  server: 144.31.131.32
-  servername: alb.speedload.online
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 2dd1a15d-1426-413a-a3b8-a645788bc844
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: NL-VLESS 452ms
-  network: tcp
-  port: 5443
-  reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  server: 87.229.108.135
-  servername: yandex.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: NL-VLESS 453ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: pLXdzqnXM5iopIHD95v5DdIqJFeb0VbX1SjebKqw6z0
-    short-id: ee346054204e99bd
-  server: 91.242.229.129
-  servername: eh.vk.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 6fa40e7f-f363-425d-9331-43f07a423b5b
-- client-fingerprint: chrome
-  name: DE-VLESS 454ms
+  name: DE-VLESS 418ms
   network: tcp
   port: 56864
   reality-opts:
@@ -1333,176 +1445,7 @@ proxies:
   type: vless
   uuid: 87580984-c2ef-4f44-9c7e-0b216f99aa87
 - client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: BY-VLESS 455ms
-  network: tcp
-  port: 8443
-  reality-opts:
-    public-key: J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs
-    short-id: a20d3ed244c76426
-  server: 144.31.131.0
-  servername: bel.speedload.online
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 2dd1a15d-1426-413a-a3b8-a645788bc844
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: NL-VLESS 456ms
-  network: tcp
-  port: 5443
-  reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  server: 87.229.108.103
-  servername: yandex.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: XX-VLESS 457ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: AYQOZFxjvHN-RIzKYEibwFiFsp03cdlWGdCmyFfuNVc
-    short-id: 4fa44664f6a566d3
-  server: nll.scroogethebest.com
-  servername: nll.scroogethebest.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: e2e1ddaa-1acf-4c4c-a211-92284f6440ed
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: SE-VLESS 460ms
-  network: tcp
-  port: 8443
-  reality-opts:
-    public-key: J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs
-    short-id: a20d3ed244c76426
-  server: 144.31.130.36
-  servername: swe.speedload.online
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 2dd1a15d-1426-413a-a3b8-a645788bc844
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: EE-VLESS 461ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: pOdL1l8cGGg7qnOPAbDcAIVOgA7O8f75XevxeYyaYCg
-    short-id: cd11af
-  server: 93.123.39.225
-  servername: www.apple.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 3130fccb-e72e-468d-b2ce-0721bb3058c8
-- client-fingerprint: chrome
-  name: DE-VLESS 462ms
-  network: tcp
-  port: 8181
-  reality-opts:
-    public-key: Z84J2IelR9ch3k8VtlVhhs5ycBUlXA7wHBWcBrjqnAw
-    short-id: 7dbf7d3233971d5c
-  server: 91.196.32.225
-  servername: max.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 446879b9-710c-431b-94d0-f6b4c18a528a
-- client-fingerprint: chrome
-  name: DE-VLESS 462ms 1
-  network: tcp
-  port: 25451
-  reality-opts:
-    public-key: JlMOb8hVg1VOrRlMLdXpv8IADp-R4I-cIT856hz_Cg0
-    short-id: f686d19cd7b8b3df
-  server: 93.94.51.13
-  servername: yandex.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: a90f4742-2f30-47b5-9f17-b6ab04cc98e8
-- name: XX-VLESS 464ms
-  network: ws
-  port: 80
-  server: fsdns.ectunnelvpn.me
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: 15cbab96-197e-46a5-9042-073b3980c798
-  ws-opts:
-    headers:
-      Host: fsdns.ectunnelvpn.me
-    path: /vless
-- client-fingerprint: chrome
-  name: DE-VLESS 466ms
-  network: tcp
-  port: 53320
-  reality-opts:
-    public-key: xrzsSwm-PkWv-DgyaFCVd_QELA6YFBtvaDOlQCd7Sj8
-    short-id: e4656850eaed4e86
-  server: 93.94.51.11
-  servername: yandex.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: c1e66fa3-951b-436c-a95a-b2abbaecb195
-- cipher: aes-256-gcm
-  name: CA-SS 467ms
-  password: 8JCsPssfgS8tiRwiMlhARg==
-  port: 12000
-  server: 144.217.164.29
-  type: ss
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: XX-VLESS 469ms
-  network: tcp
-  port: 443
-  server: s504.okgg.top
-  servername: u710948u649as504.okgg.top
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: ccd85f23-9105-37fd-96b9-9dcbc89ff3eb
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: XX-VLESS 471ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: wgoLhL4pRP0y6fu6He4qW_ElohCM_ANWJF3HEoUhNz4
-    short-id: 9c2378562188c3cb
-  server: austria.denditop.site
-  servername: austria.denditop.site
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 256c5f48-4908-4255-83d1-c86cb58f22b4
-- cipher: chacha20-ietf-poly1305
-  name: BG-SS 471ms
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  port: 990
-  server: 193.135.174.135
-  type: ss
-- client-fingerprint: chrome
-  name: DE-VLESS 473ms
+  name: DE-VLESS 420ms
   network: tcp
   port: 13380
   reality-opts:
@@ -1516,51 +1459,8 @@ proxies:
   type: vless
   uuid: e8fb0f43-3497-4ef3-8a89-35bae56549b7
 - client-fingerprint: chrome
-  name: FI-VLESS 474ms
-  network: tcp
-  port: 47141
-  reality-opts:
-    public-key: 9SwM8eaL5DEVodUUTlUAlv-D92LVg71VB2g-prhVAn0
-    short-id: f4fa9f410d7134ea
-  server: 77.42.67.4
-  servername: www.cloudflare.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 56d46499-c05d-4f8b-b073-63cbcd95d293
-- client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: DE-VLESS 476ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: gGnBn3VWyNgN7fhQ7WrxgWsfmdkrodPZ1_pf2BdQnlw
-    short-id: c8e5fbd3087e0a09
-  server: 144.31.230.50
-  servername: swe.katanavpn.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 46eb533d-e25d-4b15-a689-5ec0e834f0b9
-- name: US-VLESS 479ms
-  network: ws
-  port: 443
-  server: 198.62.62.248
-  servername: tar.alabama-tigr.info
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 5a4abb78-ecd7-4d68-ab2a-c11a3842f261
-  ws-opts:
-    headers:
-      Host: tar.alabama-tigr.info
-    path: /love
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: CY-VLESS 480ms
+  name: CY-VLESS 421ms
   network: tcp
   port: 8443
   reality-opts:
@@ -1575,71 +1475,80 @@ proxies:
   uuid: 2dd1a15d-1426-413a-a3b8-a645788bc844
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: EE-VLESS 482ms
+  name: AL-VLESS 421ms
   network: tcp
-  port: 443
+  port: 8443
   reality-opts:
-    public-key: pOdL1l8cGGg7qnOPAbDcAIVOgA7O8f75XevxeYyaYCg
-    short-id: cd11af
-  server: 93.123.39.218
-  servername: www.apple.com
+    public-key: J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs
+    short-id: a20d3ed244c76426
+  server: 144.31.131.32
+  servername: alb.speedload.online
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 3130fccb-e72e-468d-b2ce-0721bb3058c8
-- name: US-VLESS 486ms
-  network: ws
-  port: 443
-  server: 198.62.62.235
-  servername: bank.alaska-tigr.info
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 5a4abb78-ecd7-4d68-ab2a-c11a3842f261
-  ws-opts:
-    headers:
-      Host: bank.alaska-tigr.info
-    path: /love
-- name: XX-VLESS 489ms
-  network: ws
-  port: 443
-  server: norman.ns.cloudflare.com
-  servername: vangoghhh.info
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 94daa8ad-75ed-4dbf-a6de-d05036d98df5
-  ws-opts:
-    headers:
-      Host: vangoghhh.info
-    path: /tixvuws
+  uuid: 2dd1a15d-1426-413a-a3b8-a645788bc844
 - cipher: chacha20-ietf-poly1305
-  name: ZA-SS 492ms
-  password: aduB9HGxQHjA2SBMRjkHX6
-  port: 443
-  server: 102.37.156.224
+  name: XX-SS 422ms
+  password: mzeMYBJYp4Bo7nA1qYLvv7QG73igtAA85nt4pr8A9ntx2qhDfYgRtiJ7iH7VrcneQKNmtvpbsvvFKPaUATYELi18iH56Ttr4
+  port: 56594
+  server: download.riferoser.icu
   type: ss
 - client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: XX-VLESS 494ms
+  name: DE-VLESS 425ms
   network: tcp
-  port: 19001
+  port: 53320
   reality-opts:
-    public-key: S-g0oP36DShii1uPOnZDSEhp_wQghX6h68PgMivOmD4
-  server: fra01.jumperservice.com
-  servername: www.speedtest.net
+    public-key: xrzsSwm-PkWv-DgyaFCVd_QELA6YFBtvaDOlQCd7Sj8
+    short-id: e4656850eaed4e86
+  server: 93.94.51.11
+  servername: yandex.ru
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 12eac926-c4ec-4040-8fb8-f316e9fc0fd6
+  uuid: c1e66fa3-951b-436c-a95a-b2abbaecb195
 - client-fingerprint: chrome
-  name: DE-VLESS 497ms
+  flow: xtls-rprx-vision
+  name: DE-VLESS 430ms
   network: tcp
-  port: 8081
+  port: 7443
+  reality-opts:
+    public-key: l1aZ57psAgXXvK_uYa4EUNWlZi91sBg7Cc8hC5pB3j0
+    short-id: 8443abcd
+  server: 150.241.65.211
+  servername: eh.vk.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 45da1143-48d7-4eb7-897f-e924c55212c4
+- cipher: aes-256-gcm
+  name: BG-SS 433ms
+  password: lGqs95QkFHo2NV
+  port: 5499
+  server: 38.180.2.141
+  type: ss
+- name: XX-VLESS 433ms
+  network: tcp
+  port: 443
+  server: secdn14.suio.me
+  servername: secdn14.suio.me
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 62ad5a48-f452-4868-b7eb-d27df9b3d723
+- cipher: aes-256-gcm
+  name: CA-SS 437ms
+  password: 8JCsPssfgS8tiRwiMlhARg==
+  port: 12000
+  server: 144.217.164.29
+  type: ss
+- client-fingerprint: chrome
+  name: DE-VLESS 440ms
+  network: tcp
+  port: 8181
   reality-opts:
     public-key: Z84J2IelR9ch3k8VtlVhhs5ycBUlXA7wHBWcBrjqnAw
     short-id: 7dbf7d3233971d5c
@@ -1650,67 +1559,9 @@ proxies:
   tls: true
   type: vless
   uuid: 446879b9-710c-431b-94d0-f6b4c18a528a
-- cipher: chacha20-ietf-poly1305
-  name: ZA-SS 498ms
-  password: Xsy8Ox4yOV3xLlpxtjzs3X
-  port: 16233
-  server: 102.133.165.160
-  type: ss
-- client-fingerprint: chrome
-  name: NL-VLESS 498ms
-  network: tcp
-  port: 17191
-  server: 141.11.21.219
-  servername: a.sezar.top
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 54635a5b-8638-452a-c9b2-805b157025a8
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: DE-VLESS 499ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: whYmACpNNY4B3Yv8iBJ9AmxokZL2Tb7O210utmzvGSo
-    short-id: 6ba85179e30d4fc2
-  server: 84.201.4.191
-  servername: cdn.uxfeedback.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: a774f61d-a518-4c61-902f-807797da6caf
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: TR-VLESS 503ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 8VOdGYUHBgp6ICiOIRo0pjCiCbqO7c6e3MQlXprzjjY
-    short-id: 57b127e1
-  server: 89.35.73.250
-  servername: www.refersion.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 30dc00c9-16c5-4573-b5b2-532940febfd6
-- name: UA-VLESS 505ms
-  network: ws
-  port: 443
-  server: 31.42.190.76
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: 5ac2d3b6-33cc-4442-9c0b-ae3909cabaae
-  ws-opts:
-    path: /
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: IE-VLESS 512ms
+  name: IE-VLESS 440ms
   network: tcp
   port: 8443
   reality-opts:
@@ -1723,80 +1574,174 @@ proxies:
   tls: true
   type: vless
   uuid: 9a63b59c-5e54-437a-b7a1-2788780a7c13
-- name: CA-VLESS 514ms
-  network: ws
-  port: 2087
-  server: 188.114.98.0
-  servername: a1d.maxriser.ir
+- client-fingerprint: chrome
+  name: FI-VLESS 441ms
+  network: tcp
+  port: 47141
+  reality-opts:
+    public-key: 9SwM8eaL5DEVodUUTlUAlv-D92LVg71VB2g-prhVAn0
+    short-id: f4fa9f410d7134ea
+  server: 77.42.67.4
+  servername: www.cloudflare.com
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 3f58cc47-94f6-40d3-8797-1ce66cb0555e
+  uuid: 56d46499-c05d-4f8b-b073-63cbcd95d293
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: EE-VLESS 441ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: pOdL1l8cGGg7qnOPAbDcAIVOgA7O8f75XevxeYyaYCg
+    short-id: cd11af
+  server: 93.123.39.225
+  servername: www.apple.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 3130fccb-e72e-468d-b2ce-0721bb3058c8
+- name: JP-TROJAN 442ms
+  password: f389ed926e512e15f382dc3804029474
+  port: 4937
+  server: 160.16.106.99
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: XX-VLESS 446ms
+  network: ws
+  port: 443
+  server: stock.hostmonit.com
+  servername: empty-dawn-c148.elenac4.workers.dev
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   ws-opts:
     headers:
-      Host: a1d.maxriser.ir
+      Host: empty-dawn-c148.elenac4.workers.dev
+    path: /sni.111000.dynv6.net/
+- client-fingerprint: chrome
+  name: XX-VLESS 448ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: 1HeKf_8KDjfzXfUi9P7WBaGStMvr96TKdUbofpkwBzQ
+    short-id: 8bd29483ded126b4
+  server: madrid-meow.nethcloud.top
+  servername: wikihow.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 21915536-afb5-4a0c-b047-fcf549d3a173
+- name: UA-VLESS 449ms
+  network: ws
+  port: 443
+  server: 31.42.190.76
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: 5ac2d3b6-33cc-4442-9c0b-ae3909cabaae
+  ws-opts:
     path: /
-- name: XX-VLESS 514ms
-  network: ws
-  port: 443
-  server: brenna.ns.cloudflare.com
-  servername: terazhediii.info
+- name: JP-TROJAN 449ms
+  password: f7dbed8b1ca85124e793ba6c0bcfd0db
+  port: 2001
+  server: 160.16.72.33
   skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 1b2c91ab-f6c9-42f8-b2c6-8de0ac133d63
-  ws-opts:
-    headers:
-      Host: terazhediii.info
-    path: /sghiyws
+  sni: www.nintendogames.net
+  type: trojan
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: NO-VLESS 515ms
-  network: tcp
-  port: 8443
-  reality-opts:
-    public-key: Bg1P8Pv18fdeezfJWpqfUScMYHUUInCgdXsXEWBNBFo
-    short-id: 9edc548e1e284d84
-  server: 5.180.47.159
-  servername: google.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 2c564cf2-2291-4c8a-ad02-d8db601c41f9
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: EE-VLESS 515ms
+  name: TR-VLESS 452ms
   network: tcp
   port: 443
   reality-opts:
-    public-key: AYQOZFxjvHN-RIzKYEibwFiFsp03cdlWGdCmyFfuNVc
-    short-id: 4fa44664f6a566d3
-  server: 138.124.100.53
-  servername: estonia.scroogethebest.com
+    public-key: 8VOdGYUHBgp6ICiOIRo0pjCiCbqO7c6e3MQlXprzjjY
+    short-id: 57b127e1
+  server: 89.35.73.250
+  servername: www.refersion.com
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: e2e1ddaa-1acf-4c4c-a211-92284f6440ed
-- name: CA-VLESS 516ms
-  network: ws
-  port: 443
-  server: 108.162.194.176
-  servername: terazhediii.info
+  uuid: 30dc00c9-16c5-4573-b5b2-532940febfd6
+- name: JP-TROJAN 453ms
+  password: f389ed926e512e15f382dc3804029474
+  port: 4937
+  server: 160.16.85.33
   skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 1b2c91ab-f6c9-42f8-b2c6-8de0ac133d63
-  ws-opts:
-    headers:
-      Host: terazhediii.info
-    path: /sghiyws
+  sni: www.nintendogames.net
+  type: trojan
+- cipher: chacha20-ietf-poly1305
+  name: AU-SS 453ms
+  password: c90d63dc7a6203af
+  port: 45720
+  server: 46.250.241.55
+  type: ss
 - client-fingerprint: chrome
-  name: IE-VLESS 520ms
+  name: DE-VLESS 454ms
+  network: tcp
+  port: 8081
+  reality-opts:
+    public-key: Z84J2IelR9ch3k8VtlVhhs5ycBUlXA7wHBWcBrjqnAw
+    short-id: 7dbf7d3233971d5c
+  server: 91.196.32.225
+  servername: max.ru
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 446879b9-710c-431b-94d0-f6b4c18a528a
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: XX-VLESS 454ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: gGnBn3VWyNgN7fhQ7WrxgWsfmdkrodPZ1_pf2BdQnlw
+    short-id: c8e5fbd3087e0a09
+  server: swe.katanavpn.ru
+  servername: swe.katanavpn.ru
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 46eb533d-e25d-4b15-a689-5ec0e834f0b9
+- cipher: chacha20-ietf-poly1305
+  name: NL-SS 455ms
+  password: EDTfh0zLmD5dfg03sQYFcp
+  port: 45356
+  server: 144.31.234.82
+  type: ss
+- client-fingerprint: chrome
+  name: IE-VLESS 460ms
+  network: tcp
+  port: 51472
+  reality-opts:
+    public-key: hvFQArY-PeMdz4jfKEGZ9HgIJvZbR5Bd9F0GgNLemQI
+    short-id: ab4398ec00fc775d
+  server: 45.141.234.196
+  servername: yandex.ru
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 0c49f1d8-3d34-473b-bebf-9d9a4811db62
+- name: JP-TROJAN 462ms
+  password: f7dbed8b1ca85124e793ba6c0bcfd0db
+  port: 4937
+  server: 160.16.70.180
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- client-fingerprint: chrome
+  name: IE-VLESS 463ms
   network: tcp
   port: 30724
   reality-opts:
@@ -1810,70 +1755,23 @@ proxies:
   type: vless
   uuid: 54e5a989-5938-43ce-ba58-026ddbfd4d7b
 - client-fingerprint: chrome
-  name: IE-VLESS 532ms
+  flow: xtls-rprx-vision
+  name: EE-VLESS 463ms
   network: tcp
-  port: 51472
-  reality-opts:
-    public-key: hvFQArY-PeMdz4jfKEGZ9HgIJvZbR5Bd9F0GgNLemQI
-    short-id: ab4398ec00fc775d
-  server: 45.141.234.196
-  servername: yandex.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 0c49f1d8-3d34-473b-bebf-9d9a4811db62
-- cipher: chacha20-ietf-poly1305
-  name: SA-SS 534ms
-  password: 1e68d4bd002437ab
-  port: 11201
-  server: 149.104.71.134
-  type: ss
-- client-fingerprint: chrome
-  name: CY-VLESS 534ms
-  network: tcp
-  port: 7433
-  reality-opts:
-    public-key: Z84J2IelR9ch3k8VtlVhhs5ycBUlXA7wHBWcBrjqnAw
-    short-id: 7dbf7d3233971d5c
-  server: 144.31.130.242
-  servername: max.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 446879b9-710c-431b-94d0-f6b4c18a528a
-- name: US-VLESS 535ms
-  network: ws
   port: 443
-  server: 198.62.62.124
-  servername: war.connecticut-haloo.info
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 5a4abb78-ecd7-4d68-ab2a-c11a3842f261
-  ws-opts:
-    headers:
-      Host: war.connecticut-haloo.info
-    path: /love
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: HK-VLESS 538ms
-  network: tcp
-  port: 59750
   reality-opts:
-    public-key: W9BjX6YmCIVsjhKMlz233Yoe0xcf0SVHfvPKqbf3vCg
-  server: 47.83.153.19
-  servername: www.amd.com
+    public-key: AYQOZFxjvHN-RIzKYEibwFiFsp03cdlWGdCmyFfuNVc
+    short-id: 4fa44664f6a566d3
+  server: 138.124.100.53
+  servername: estonia.scroogethebest.com
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 9e76cfb8-b7a6-40f6-c2aa-9905aa19f31b
+  uuid: e2e1ddaa-1acf-4c4c-a211-92284f6440ed
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: DE-VLESS 548ms
+  name: DE-VLESS 464ms
   network: tcp
   port: 443
   reality-opts:
@@ -1887,36 +1785,61 @@ proxies:
   uuid: 249839ff-2a99-4ecb-a81d-b7e4d6c397b8
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: AU-VLESS 554ms
+  name: DE-VLESS 467ms
   network: tcp
-  port: 1443
+  port: 443
   reality-opts:
-    public-key: ZIBYUH_qQSeI1T6xImXG6MEZXP2yZW3NqGa8W69Cfyk
-    short-id: dde50f55d81116
-  server: 192.9.162.122
-  servername: swdist.apple.com
+    public-key: whYmACpNNY4B3Yv8iBJ9AmxokZL2Tb7O210utmzvGSo
+    short-id: 6ba85179e30d4fc2
+  server: 84.201.4.191
+  servername: cdn.uxfeedback.ru
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 7a169e43-ff85-4572-9843-ba7207d07319
+  uuid: a774f61d-a518-4c61-902f-807797da6caf
 - client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: NL-VLESS 556ms
+  name: CY-VLESS 468ms
   network: tcp
-  port: 5443
+  port: 7433
   reality-opts:
-    public-key: yvkNZISxbowAMxh-4NDS6GNcOeL0ziCmfkJ8PgZSTUY
-    short-id: 30f8
-  server: 45.66.163.95
-  servername: google.com
+    public-key: Z84J2IelR9ch3k8VtlVhhs5ycBUlXA7wHBWcBrjqnAw
+    short-id: 7dbf7d3233971d5c
+  server: 144.31.130.242
+  servername: max.ru
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 1955433c-a18a-4f0c-8837-390226193372
+  uuid: 446879b9-710c-431b-94d0-f6b4c18a528a
+- name: CA-VLESS 470ms
+  network: ws
+  port: 2087
+  server: 188.114.98.0
+  servername: a1d.maxriser.ir
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 3f58cc47-94f6-40d3-8797-1ce66cb0555e
+  ws-opts:
+    headers:
+      Host: a1d.maxriser.ir
+    path: /
+- cipher: chacha20-ietf-poly1305
+  name: ZA-SS 475ms
+  password: Xsy8Ox4yOV3xLlpxtjzs3X
+  port: 16233
+  server: 102.133.165.160
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: ZA-SS 480ms
+  password: aduB9HGxQHjA2SBMRjkHX6
+  port: 443
+  server: 102.37.156.224
+  type: ss
 - client-fingerprint: chrome
-  name: GB-VLESS 563ms
+  name: GB-VLESS 484ms
   network: tcp
   port: 443
   reality-opts:
@@ -1931,7 +1854,78 @@ proxies:
   uuid: 395b4d7b-0abf-4b48-b9da-7432d800ef65
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: TR-VLESS 568ms
+  name: RU-VLESS 490ms
+  network: tcp
+  port: 48444
+  reality-opts:
+    public-key: FApUbcJurXfV5Y3PG2xRycl1R7y0CxwmUU7FRgUpzG0
+    short-id: 3e4f5a6b
+  server: 5.188.224.124
+  servername: eh.vk.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 1546f279-2acc-40f5-9d1f-0e94d54db834
+- name: XX-VLESS 491ms
+  network: ws
+  port: 443
+  server: brenna.ns.cloudflare.com
+  servername: terazhediii.info
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 1b2c91ab-f6c9-42f8-b2c6-8de0ac133d63
+  ws-opts:
+    headers:
+      Host: terazhediii.info
+    path: /sghiyws
+- name: JP-TROJAN 499ms
+  password: f7dbed8b1ca85124e793ba6c0bcfd0db
+  port: 34818
+  server: 160.16.72.33
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: XX-VLESS 507ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: AYQOZFxjvHN-RIzKYEibwFiFsp03cdlWGdCmyFfuNVc
+    short-id: 4fa44664f6a566d3
+  server: estonia.scroogethebest.com
+  servername: estonia.scroogethebest.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: e2e1ddaa-1acf-4c4c-a211-92284f6440ed
+- name: US-VLESS 509ms
+  network: ws
+  port: 443
+  server: 162.159.38.176
+  servername: terazhediii.info
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 1b2c91ab-f6c9-42f8-b2c6-8de0ac133d63
+  ws-opts:
+    headers:
+      Host: terazhediii.info
+    path: /sghiyws
+- cipher: chacha20-ietf-poly1305
+  name: SA-SS 516ms
+  password: 1e68d4bd002437ab
+  port: 11201
+  server: 149.104.71.134
+  type: ss
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: TR-VLESS 520ms
   network: tcp
   port: 443
   reality-opts:
@@ -1944,36 +1938,9 @@ proxies:
   tls: true
   type: vless
   uuid: a44e0875-210f-4941-9062-89b6361a14c6
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: XX-VLESS 568ms
-  network: tcp
-  port: 443
-  server: s502.okgg.top
-  servername: u710948uc21fs502.okgg.top
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: ccd85f23-9105-37fd-96b9-9dcbc89ff3eb
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: DE-VLESS 570ms
-  network: tcp
-  port: 7443
-  reality-opts:
-    public-key: l1aZ57psAgXXvK_uYa4EUNWlZi91sBg7Cc8hC5pB3j0
-    short-id: 8443abcd
-  server: 150.241.65.211
-  servername: eh.vk.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 45da1143-48d7-4eb7-897f-e924c55212c4
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: NL-VLESS 572ms
+  name: NL-VLESS 522ms
   network: tcp
   port: 8443
   reality-opts:
@@ -1986,9 +1953,15 @@ proxies:
   tls: true
   type: vless
   uuid: e3d06cf6-5d4d-4f1f-bfda-27668def9cf4
+- cipher: aes-256-gcm
+  name: CH-SS 528ms
+  password: cdBIDV42DCwnfIN
+  port: 8119
+  server: 38.180.161.123
+  type: ss
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: XX-VLESS 574ms
+  name: XX-VLESS 528ms
   network: tcp
   port: 61234
   reality-opts:
@@ -2002,37 +1975,8 @@ proxies:
   type: vless
   uuid: ef092640-433a-4f17-99bd-d5d206435606
 - client-fingerprint: chrome
-  name: DE-VLESS 581ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: FV_Zfr_YpvUVYmLpggwOwoJdiYVsmAqgXqDIGAILP3A
-    short-id: 3f8a
-  server: 72.56.108.252
-  servername: yahoo.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 38707963-acf6-4e72-8db6-94faba4b5844
-- client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: DE-VLESS 590ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  server: 87.229.97.231
-  servername: yahoo.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: TR-VLESS 600ms
+  name: TR-VLESS 546ms
   network: tcp
   port: 443
   reality-opts:
@@ -2045,16 +1989,67 @@ proxies:
   tls: true
   type: vless
   uuid: 2dd1a15d-1426-413a-a3b8-a645788bc844
-- name: XX-TROJAN 601ms
-  password: ZY07256934
-  port: 443
-  server: glowing-deer.rooster465.autos
-  skip-cert-verify: false
-  sni: glowing-deer.rooster465.autos
-  type: trojan
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: NO-VLESS 602ms
+  name: XX-VLESS 547ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: 8WQHCqfqEp4X6Jh0E-Uuvw1Z1b8p_VC3_kN1fwxfB0o
+    short-id: e31b66be0cd67c8b
+  server: by.telega.store
+  servername: www.apple.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 1401682c-0e47-4eb9-b5ab-98243655be9b
+- client-fingerprint: chrome
+  name: HU-VLESS 550ms
+  network: ws
+  port: 81
+  server: 5.182.38.168
+  servername: snippet.sh21.eu.org
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
+  ws-opts:
+    headers:
+      Host: snippet.sh21.eu.org
+    path: /danfeng
+- name: XX-VLESS 558ms
+  network: ws
+  port: 443
+  server: vip3.kaixincloud.top
+  servername: vangoghhh.info
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 94daa8ad-75ed-4dbf-a6de-d05036d98df5
+  ws-opts:
+    headers:
+      Host: vangoghhh.info
+    path: /tixvuws
+- client-fingerprint: chrome
+  name: LV-VLESS 559ms
+  network: tcp
+  port: 2040
+  reality-opts:
+    public-key: 1RJ2ulM9UyAC8PFy194dV0RTZI6xF6U4CGClhNz9fTg
+    short-id: 50ed6f6007515d63
+  server: 94.131.104.229
+  servername: tradingview.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 14818654-7689-453a-9a1f-4c72f89782d5
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: NO-VLESS 568ms
   network: tcp
   port: 443
   reality-opts:
@@ -2069,73 +2064,36 @@ proxies:
   uuid: 1218c022-dca8-49e5-b7d4-a04f3023db81
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: XX-VLESS 607ms
+  name: DE-VLESS 570ms
   network: tcp
   port: 443
   reality-opts:
-    public-key: AYQOZFxjvHN-RIzKYEibwFiFsp03cdlWGdCmyFfuNVc
-    short-id: 4fa44664f6a566d3
-  server: estonia.scroogethebest.com
-  servername: estonia.scroogethebest.com
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  server: 87.229.97.154
+  servername: yahoo.com
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: e2e1ddaa-1acf-4c4c-a211-92284f6440ed
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: XX-VLESS 609ms
+  name: AU-VLESS 575ms
   network: tcp
-  port: 443
+  port: 1443
   reality-opts:
-    public-key: 8WQHCqfqEp4X6Jh0E-Uuvw1Z1b8p_VC3_kN1fwxfB0o
-    short-id: e31b66be0cd67c8b
-  server: by.telega.store
-  servername: www.apple.com
+    public-key: ZIBYUH_qQSeI1T6xImXG6MEZXP2yZW3NqGa8W69Cfyk
+    short-id: dde50f55d81116
+  server: 192.9.162.122
+  servername: swdist.apple.com
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 1401682c-0e47-4eb9-b5ab-98243655be9b
-- name: JP-TROJAN 610ms
-  password: f389ed926e512e15f382dc3804029474
-  port: 4674
-  server: 160.16.85.33
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
+  uuid: 7a169e43-ff85-4572-9843-ba7207d07319
 - client-fingerprint: chrome
-  name: HU-VLESS 620ms
-  network: ws
-  port: 81
-  server: 5.182.38.168
-  servername: snippet.sh21.eu.org
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
-  ws-opts:
-    headers:
-      Host: snippet.sh21.eu.org
-    path: /danfeng
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: FI-VLESS 620ms
-  network: tcp
-  port: 10965
-  reality-opts:
-    public-key: lHxeD2nYtDb1V7JseV-sUTEuqH6_jie7U_iOARX7cT0
-    short-id: 9f3a7c6d2e8b41af
-  server: 138.124.6.182
-  servername: deepl.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: d1209ffb-c159-48d5-b40d-542ce11fc768
-- client-fingerprint: chrome
-  name: DE-VLESS 620ms
+  name: DE-VLESS 586ms
   network: tcp
   port: 443
   reality-opts:
@@ -2148,122 +2106,29 @@ proxies:
   tls: true
   type: vless
   uuid: 1e878456-0f00-4a85-99a6-1d69bdc62e3d
-- name: JP-TROJAN 626ms
-  password: f389ed926e512e15f382dc3804029474
-  port: 4674
-  server: 153.121.45.139
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- cipher: aes-256-gcm
-  name: CN-SS 629ms
-  password: PiLr13pE
-  port: 30036
-  server: 120.233.125.33
+- cipher: chacha20-ietf-poly1305
+  name: HU-SS 594ms
+  password: v8NKiSxilGVslodFPWWLR8
+  port: 2949
+  server: 194.71.130.26
   type: ss
-- name: JP-TROJAN 629ms
-  password: f389ed926e512e15f382dc3804029474
-  port: 4674
-  server: 160.16.214.104
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: JP-TROJAN 629ms 1
-  password: f389ed926e512e15f382dc3804029474
-  port: 4674
-  server: 160.16.106.99
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: GB-VLESS 641ms
+  name: XX-VLESS 596ms
   network: tcp
   port: 443
   reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  server: 143.20.236.51
-  servername: yahoo.com
+    public-key: TnfSCSoPjSQZ2GNtR15iEnTtF6AMroEBGNBhxAnitWY
+    short-id: 4c2404fc
+  server: de17.fastlanehosting.ru
+  servername: sun6-22.userapi.com
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  uuid: a10791c1-4710-4ac7-901e-143eabe632e4
 - client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: XX-VLESS 650ms
-  network: tcp
-  port: 48444
-  reality-opts:
-    public-key: FApUbcJurXfV5Y3PG2xRycl1R7y0CxwmUU7FRgUpzG0
-    short-id: 3e4f5a6b
-  server: bs1.youtuber-vps.com
-  servername: eh.vk.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 1546f279-2acc-40f5-9d1f-0e94d54db834
-- client-fingerprint: chrome
-  name: LV-VLESS 652ms
-  network: tcp
-  port: 2040
-  reality-opts:
-    public-key: 1RJ2ulM9UyAC8PFy194dV0RTZI6xF6U4CGClhNz9fTg
-    short-id: 50ed6f6007515d63
-  server: 94.131.104.229
-  servername: tradingview.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 14818654-7689-453a-9a1f-4c72f89782d5
-- alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  name: IE-VLESS 658ms
-  network: ws
-  port: 2053
-  server: 23.95.225.214
-  servername: snippet.sheilabelinda.ndjp.net
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
-  ws-opts:
-    headers:
-      Host: snippet.sheilabelinda.ndjp.net
-    path: /danfeng
-- name: HK-TROJAN 661ms
-  password: f7dbed8b1ca85124e793ba6c0bcfd0db
-  port: 443
-  server: 58.152.18.189
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: TH-VLESS 666ms
-  network: ws
-  port: 80
-  server: 168.222.16.102
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: 4dc817f7-2595-4330-a1b0-e35e7c6b803a
-  ws-opts:
-    headers:
-      Host: www.ptnk.sry-vpn.com
-    path: /vless
-- name: XX-TROJAN 670ms
-  password: ZY07256934
-  port: 443
-  server: free-duckling.rooster465.autos
-  skip-cert-verify: false
-  type: trojan
-- client-fingerprint: chrome
-  name: PT-VLESS 673ms
+  name: PT-VLESS 603ms
   network: tcp
   port: 47910
   reality-opts:
@@ -2276,49 +2141,21 @@ proxies:
   tls: true
   type: vless
   uuid: f651b25b-0a6a-4954-910f-7c07a1f6f664
-- alpn:
-  - http%2F1.1
-  client-fingerprint: chrome
-  name: XX-VLESS 687ms
-  network: ws
-  port: 2096
-  server: chatgpt.com
-  servername: ca.adobe-connect.top
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 686c62d9-17a7-43c9-a40a-f6747df60a9f
-  ws-opts:
-    headers:
-      Host: ca.adobe-connect.top
-    path: /
-- cipher: chacha20-ietf-poly1305
-  name: MY-SS 707ms
-  password: RZirHzSqyyb37DDIiQeDLZTJft5ZQGmUCwyA3wm5ath4j9Y3
-  port: 51348
-  server: 124.217.247.205
-  type: ss
-- client-fingerprint: chrome
-  name: DE-VLESS 708ms
-  network: tcp
+- name: XX-TROJAN 604ms
+  password: ZY07256934
   port: 443
-  reality-opts:
-    public-key: h21nIjwib-HnJm4LOS6s80wmiAmib0WF2-qEe9qYg1M
-    short-id: 2d05
-  server: 87.106.189.9
-  servername: yahoo.com
+  server: glowing-deer.rooster465.autos
   skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: d35db0ad-224c-4bf2-9ddc-f72eb26d3938
-- client-fingerprint: chrome
-  name: AU-VLESS 722ms
+  sni: glowing-deer.rooster465.autos
+  type: trojan
+- alpn:
+  - http/1.1
+  client-fingerprint: random
+  name: SG-VLESS 613ms
   network: ws
-  port: 7000
-  server: 103.73.65.187
-  servername: snippet.fgfw.indevs.in
+  port: 443
+  server: 31.57.155.85
+  servername: snippet.gfw.nn.kg
   skip-cert-verify: false
   tfo: false
   tls: true
@@ -2326,23 +2163,84 @@ proxies:
   uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
   ws-opts:
     headers:
-      Host: snippet.fgfw.indevs.in
+      Host: snippet.gfw.nn.kg
     path: /danfeng
-- name: DE-VLESS 726ms
-  network: ws
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: DE-VLESS 617ms
+  network: tcp
   port: 443
-  server: 144.76.188.140
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  server: 87.229.97.231
+  servername: yahoo.com
   skip-cert-verify: false
   tfo: false
-  tls: false
+  tls: true
   type: vless
-  uuid: ba849385-a780-43a0-b4e7-6ab8a08d3824
-  ws-opts:
-    path: /
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: XX-VLESS 628ms
+  network: tcp
+  port: 8443
+  reality-opts:
+    public-key: 5Tz44GqhEgM6Q-kOX0WQ6voGySL5sOEeABSUsFDY8Uw
+    short-id: 21c7fb5ed34c260c
+  server: est.vles.space
+  servername: sun2-16.userapi.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 7f37b28b-cfcb-4c2a-ae41-8f2ddc9325dd
+- client-fingerprint: chrome
+  name: ES-VLESS 630ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: XxphGtGbyJegOM0QIy65eyC8g3dzlKOMY0tWFBnTCWc
+    short-id: a0cb
+  server: 212.227.95.106
+  servername: yahoo.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 438f81f8-aa18-4261-820a-87ee42122d0e
+- client-fingerprint: chrome
+  name: DE-VLESS 632ms
+  network: tcp
+  port: 8080
+  reality-opts:
+    public-key: Z84J2IelR9ch3k8VtlVhhs5ycBUlXA7wHBWcBrjqnAw
+    short-id: 7dbf7d3233971d5c
+  server: 91.196.32.225
+  servername: max.ru
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 446879b9-710c-431b-94d0-f6b4c18a528a
+- name: JP-TROJAN 638ms
+  password: f389ed926e512e15f382dc3804029474
+  port: 4674
+  server: 160.16.214.104
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: JP-TROJAN 640ms
+  password: f389ed926e512e15f382dc3804029474
+  port: 4674
+  server: 153.121.45.139
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
 - alpn:
   - http/1.1
   client-fingerprint: chrome
-  name: IS-VLESS 727ms
+  name: IS-VLESS 645ms
   network: ws
   port: 2053
   server: 45.83.21.13
@@ -2356,126 +2254,47 @@ proxies:
     headers:
       Host: snippet.fgfw.ccwu.cc
     path: /danfeng
-- name: JP-TROJAN 731ms
+- name: JP-TROJAN 647ms
   password: f389ed926e512e15f382dc3804029474
-  port: 3057
-  server: 160.16.214.104
+  port: 4674
+  server: 160.16.85.33
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: XX-VLESS 731ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: TnfSCSoPjSQZ2GNtR15iEnTtF6AMroEBGNBhxAnitWY
-    short-id: 4c2404fc
-  server: de17.fastlanehosting.ru
-  servername: sun6-22.userapi.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: a10791c1-4710-4ac7-901e-143eabe632e4
-- name: JP-TROJAN 732ms
+- name: JP-TROJAN 659ms
   password: f389ed926e512e15f382dc3804029474
-  port: 3057
-  server: 160.16.72.205
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: JP-TROJAN 738ms
-  password: f389ed926e512e15f382dc3804029474
-  port: 3057
+  port: 4674
   server: 160.16.106.99
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-- name: DE-VLESS 741ms
-  network: ws
-  port: 443
-  server: 144.76.188.139
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: 4e6b23f2-932b-4a80-a280-44cdf8a86452
-  ws-opts:
-    path: /
-- client-fingerprint: chrome
-  name: XX-VLESS 746ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 1HeKf_8KDjfzXfUi9P7WBaGStMvr96TKdUbofpkwBzQ
-    short-id: 8bd29483ded126b4
-  server: ny-meow.nethcloud.top
-  servername: wikihow.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 21915536-afb5-4a0c-b047-fcf549d3a173
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: XX-VLESS 748ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: -YTGWg5DjsLDyaDfr1D83kiUK22LVcrK3yC53lqqigs
-    short-id: feedbacc
-  server: sg.fasti.win
-  servername: sg.fasti.win
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: a16bd0e2-ff2e-4e4c-a955-0c684255a065
-- name: JP-TROJAN 755ms
-  password: f7dbed8b1ca85124e793ba6c0bcfd0db
-  port: 4674
-  server: 160.16.72.33
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: XX-TROJAN 762ms
+- name: XX-TROJAN 660ms
   password: ZY07256934
   port: 443
   server: delicate-buck.rooster465.autos
   skip-cert-verify: false
   type: trojan
-- client-fingerprint: chrome
-  name: LV-VLESS 762ms
-  network: tcp
-  port: 43798
-  reality-opts:
-    public-key: W3aiFnhZRvZuZP0Zyfy7888t-NbHc0RmMEyFa7fYShU
-    short-id: f71c22
-  server: 91.218.143.194
-  servername: yahoo.com
+- name: DE-VLESS 664ms
+  network: ws
+  port: 443
+  server: 144.76.188.140
   skip-cert-verify: false
   tfo: false
-  tls: true
+  tls: false
   type: vless
-  uuid: b7725d23-840a-4f8e-993c-69b40424cfc0
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: IN-VLESS 767ms
-  network: tcp
-  port: 24725
-  reality-opts:
-    public-key: PAAYOscWvc6-DIWjJ8cHWpgX-xkMUVmu8Nz24itmo34
-  server: 139.59.3.70
-  servername: dash.cloudflare.com
+  uuid: ba849385-a780-43a0-b4e7-6ab8a08d3824
+  ws-opts:
+    path: /
+- name: JP-TROJAN 667ms
+  password: f389ed926e512e15f382dc3804029474
+  port: 3419
+  server: 160.16.132.38
   skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 48ddd7e3-5d31-46ab-9153-16c0e4d92adc
+  sni: www.nintendogames.net
+  type: trojan
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: XX-VLESS 779ms
+  name: XX-VLESS 667ms
   network: tcp
   port: 443
   reality-opts:
@@ -2489,117 +2308,7 @@ proxies:
   type: vless
   uuid: 1af826cb-9503-43d4-adcf-d876e53e4c5b
 - client-fingerprint: chrome
-  name: ES-VLESS 783ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: XxphGtGbyJegOM0QIy65eyC8g3dzlKOMY0tWFBnTCWc
-    short-id: a0cb
-  server: 212.227.95.106
-  servername: yahoo.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 438f81f8-aa18-4261-820a-87ee42122d0e
-- name: SG-TROJAN 785ms
-  network: ws
-  password: 13c169be-8592-4eaa-94cb-69c859e7d987
-  port: 443
-  server: 128.199.252.180
-  skip-cert-verify: false
-  sni: ubu.okaoclax.me
-  type: trojan
-  ws-opts:
-    headers:
-      Host: ubu.okaoclax.me
-    path: /trojan-ws
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: CH-VLESS 788ms
-  network: tcp
-  port: 8443
-  reality-opts:
-    public-key: qBcUlVqkzWxGORpDCj_FcNHACi3mrAYTCZeJyVQa5yU
-    short-id: 6b374e33af12fd1e
-  server: 194.156.102.53
-  servername: retn.net
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 9a63b59c-5e54-437a-b7a1-2788780a7c13
-- name: XX-VLESS 788ms
-  network: ws
-  port: 80
-  server: www.ptnk.sry-vpn.com
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: 4dc817f7-2595-4330-a1b0-e35e7c6b803a
-  ws-opts:
-    headers:
-      Host: www.ptnk.sry-vpn.com
-    path: /vless
-- name: JP-TROJAN 794ms
-  password: f7dbed8b1ca85124e793ba6c0bcfd0db
-  port: 3419
-  server: 153.121.65.107
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: JP-TROJAN 797ms
-  password: f7dbed8b1ca85124e793ba6c0bcfd0db
-  port: 3419
-  server: 160.16.72.33
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: CA-VLESS 816ms
-  network: ws
-  port: 443
-  server: 162.159.36.5
-  servername: vangoghhh.info
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 94daa8ad-75ed-4dbf-a6de-d05036d98df5
-  ws-opts:
-    headers:
-      Host: vangoghhh.info
-    path: /tixvuws
-- client-fingerprint: chrome
-  name: FR-VLESS 818ms
-  network: tcp
-  port: 61873
-  reality-opts:
-    public-key: wEU32qHhiQq-FDYUvuEl7_HAM6r5nDh6M4F8WGnEhjE
-    short-id: 34d8e80d8fa40501
-  server: 45.95.233.85
-  servername: yandex.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 8b8f4dfb-cd48-4dab-bb75-b304971176cd
-- name: SG-VLESS 825ms
-  network: ws
-  port: 443
-  server: 194.87.10.77
-  servername: ylnhh.cc.cd
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
-  ws-opts:
-    headers:
-      Host: ylnhh.cc.cd
-    path: /Telegram🇨🇳@WangCai2
-- client-fingerprint: chrome
-  name: XX-VLESS 825ms
+  name: XX-VLESS 670ms
   network: ws
   port: 2053
   server: s2.eldoradu.ir
@@ -2613,14 +2322,216 @@ proxies:
     headers:
       Host: dxg5.sellink.ir
     path: /
+- name: DE-VLESS 673ms
+  network: ws
+  port: 443
+  server: 144.76.188.130
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: 75e13bcc-139b-4fe7-8525-548c8cfca08d
+  ws-opts:
+    path: /
 - alpn:
   - http/1.1
-  client-fingerprint: chrome
-  name: IL-VLESS 842ms
+  name: US-VLESS 677ms
   network: ws
+  port: 443
+  server: 192.200.160.20
+  servername: 639073677243308853.camry-perma.info
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: dc08d353-44f5-45b6-b273-703ff5e955dc
+  ws-opts:
+    headers:
+      Host: 639073677243308853.camry-perma.info
+    path: /jxyughws
+- name: DE-VLESS 679ms
+  network: ws
+  port: 443
+  server: 144.76.188.139
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: 4e6b23f2-932b-4a80-a280-44cdf8a86452
+  ws-opts:
+    path: /
+- name: HK-TROJAN 680ms
+  password: f7dbed8b1ca85124e793ba6c0bcfd0db
+  port: 443
+  server: 58.152.18.189
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- client-fingerprint: chrome
+  name: DE-VLESS 683ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: FV_Zfr_YpvUVYmLpggwOwoJdiYVsmAqgXqDIGAILP3A
+    short-id: 3f8a
+  server: 72.56.108.252
+  servername: yahoo.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 38707963-acf6-4e72-8db6-94faba4b5844
+- client-fingerprint: chrome
+  name: DE-VLESS 685ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: h21nIjwib-HnJm4LOS6s80wmiAmib0WF2-qEe9qYg1M
+    short-id: 2d05
+  server: 87.106.189.9
+  servername: yahoo.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: d35db0ad-224c-4bf2-9ddc-f72eb26d3938
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: IN-VLESS 721ms
+  network: tcp
+  port: 24725
+  reality-opts:
+    public-key: PAAYOscWvc6-DIWjJ8cHWpgX-xkMUVmu8Nz24itmo34
+  server: 139.59.3.70
+  servername: dash.cloudflare.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 48ddd7e3-5d31-46ab-9153-16c0e4d92adc
+- cipher: chacha20-ietf-poly1305
+  name: MY-SS 729ms
+  password: RZirHzSqyyb37DDIiQeDLZTJft5ZQGmUCwyA3wm5ath4j9Y3
+  port: 51348
+  server: 124.217.247.205
+  type: ss
+- client-fingerprint: chrome
+  name: FR-VLESS 732ms
+  network: tcp
+  port: 61873
+  reality-opts:
+    public-key: wEU32qHhiQq-FDYUvuEl7_HAM6r5nDh6M4F8WGnEhjE
+    short-id: 34d8e80d8fa40501
+  server: 45.95.233.85
+  servername: yandex.ru
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 8b8f4dfb-cd48-4dab-bb75-b304971176cd
+- name: XX-TROJAN 738ms
+  password: ZY07256934
+  port: 443
+  server: free-duckling.rooster465.autos
+  skip-cert-verify: false
+  type: trojan
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: CH-VLESS 741ms
+  network: tcp
   port: 8443
-  server: 212.80.205.244
-  servername: snippet.fgfw.ccwu.cc
+  reality-opts:
+    public-key: qBcUlVqkzWxGORpDCj_FcNHACi3mrAYTCZeJyVQa5yU
+    short-id: 6b374e33af12fd1e
+  server: 194.156.102.53
+  servername: retn.net
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 9a63b59c-5e54-437a-b7a1-2788780a7c13
+- name: TH-VLESS 743ms
+  network: ws
+  port: 80
+  server: 168.222.16.102
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: 4dc817f7-2595-4330-a1b0-e35e7c6b803a
+  ws-opts:
+    headers:
+      Host: www.ptnk.sry-vpn.com
+    path: /vless
+- name: JP-TROJAN 754ms
+  password: f389ed926e512e15f382dc3804029474
+  port: 3057
+  server: 160.16.106.99
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: JP-TROJAN 755ms
+  password: f389ed926e512e15f382dc3804029474
+  port: 3057
+  server: 160.16.72.205
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: JP-TROJAN 766ms
+  password: f389ed926e512e15f382dc3804029474
+  port: 3057
+  server: 160.16.214.104
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- client-fingerprint: chrome
+  name: FR-VLESS 767ms
+  network: tcp
+  port: 19547
+  reality-opts:
+    public-key: -zsPOGrZY1Dlb6eypa5V_OPaLBpT66FX3cSo0mNX8SI
+    short-id: 47ee5c592c1672cf
+  server: 109.172.55.157
+  servername: yandex.ru
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: f9cdb2e1-939c-4470-b322-14b7313dec48
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: XX-VLESS 775ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: 2ryk_zFs_pzxv-bL9FkOk0Jb5oQw1jAbyXjp6oh96R0
+    short-id: 4e249e62
+  server: nr-01.opsvpnvless.ru
+  servername: stats.vk-portal.net
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 1218c022-dca8-49e5-b7d4-a04f3023db81
+- client-fingerprint: chrome
+  name: LV-VLESS 776ms
+  network: tcp
+  port: 43798
+  reality-opts:
+    public-key: W3aiFnhZRvZuZP0Zyfy7888t-NbHc0RmMEyFa7fYShU
+    short-id: f71c22
+  server: 91.218.143.194
+  servername: yahoo.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: b7725d23-840a-4f8e-993c-69b40424cfc0
+- name: AU-VLESS 779ms
+  network: ws
+  port: 7000
+  server: 103.73.65.187
+  servername: snippet.fgfw.indevs.in
   skip-cert-verify: false
   tfo: false
   tls: true
@@ -2628,31 +2539,24 @@ proxies:
   uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
   ws-opts:
     headers:
-      Host: snippet.fgfw.ccwu.cc
+      Host: snippet.fgfw.indevs.in
     path: /danfeng
-- name: JP-TROJAN 846ms
-  password: f389ed926e512e15f382dc3804029474
-  port: 4019
-  server: 160.16.130.21
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- client-fingerprint: chrome
-  name: FR-VLESS 865ms
-  network: tcp
-  port: 58198
-  reality-opts:
-    public-key: zVumFklIWzpvzrtnlkGG4YRqBbV-diGCouiiSeEwnEE
-    short-id: 2c8a6793b9de7014
-  server: 109.172.55.220
-  servername: yandex.ru
+- name: CA-VLESS 787ms
+  network: ws
+  port: 443
+  server: 108.162.194.176
+  servername: terazhediii.info
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: d5d52c15-f963-42b8-971b-613fc9c5e7e3
+  uuid: 1b2c91ab-f6c9-42f8-b2c6-8de0ac133d63
+  ws-opts:
+    headers:
+      Host: terazhediii.info
+    path: /sghiyws
 - client-fingerprint: chrome
-  name: IN-VLESS 875ms
+  name: IN-VLESS 800ms
   network: ws
   port: 46000
   server: 152.70.76.104
@@ -2666,21 +2570,56 @@ proxies:
     headers:
       Host: sni.111000.v6.navy
     path: /?ed=2560
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: XX-VLESS 876ms
+- client-fingerprint: chrome
+  name: FR-VLESS 802ms
   network: tcp
-  port: 443
-  server: s226.okgg.top
-  servername: u710948u3491s226.okgg.top
+  port: 58198
+  reality-opts:
+    public-key: zVumFklIWzpvzrtnlkGG4YRqBbV-diGCouiiSeEwnEE
+    short-id: 2c8a6793b9de7014
+  server: 109.172.55.220
+  servername: yandex.ru
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: ccd85f23-9105-37fd-96b9-9dcbc89ff3eb
+  uuid: d5d52c15-f963-42b8-971b-613fc9c5e7e3
+- name: JP-TROJAN 806ms
+  password: f7dbed8b1ca85124e793ba6c0bcfd0db
+  port: 3419
+  server: 153.121.65.107
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: JP-TROJAN 812ms
+  password: f7dbed8b1ca85124e793ba6c0bcfd0db
+  port: 3419
+  server: 160.16.72.33
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: JP-TROJAN 813ms
+  password: f7dbed8b1ca85124e793ba6c0bcfd0db
+  port: 4674
+  server: 160.16.72.33
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: SG-TROJAN 831ms
+  network: ws
+  password: 13c169be-8592-4eaa-94cb-69c859e7d987
+  port: 443
+  server: 128.199.252.180
+  skip-cert-verify: false
+  sni: ubu.okaoclax.me
+  type: trojan
+  ws-opts:
+    headers:
+      Host: ubu.okaoclax.me
+    path: /trojan-ws
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: XX-VLESS 879ms
+  name: XX-VLESS 846ms
   network: tcp
   port: 510
   reality-opts:
@@ -2692,47 +2631,14 @@ proxies:
   tls: true
   type: vless
   uuid: b52989b9-09dc-4ca0-b722-e6fe3e8a0313
-- client-fingerprint: chrome
-  name: XX-VLESS 892ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 1HeKf_8KDjfzXfUi9P7WBaGStMvr96TKdUbofpkwBzQ
-    short-id: 8bd29483ded126b4
-  server: madrid-meow.nethcloud.top
-  servername: wikihow.com
+- name: JP-TROJAN 855ms
+  password: f389ed926e512e15f382dc3804029474
+  port: 4019
+  server: 160.16.130.21
   skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 21915536-afb5-4a0c-b047-fcf549d3a173
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: XX-VLESS 893ms
-  network: tcp
-  port: 443
-  server: s112.ayxj.top
-  servername: u710948u1799s112.ayxj.top
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: ccd85f23-9105-37fd-96b9-9dcbc89ff3eb
-- client-fingerprint: chrome
-  name: FR-VLESS 893ms
-  network: tcp
-  port: 19547
-  reality-opts:
-    public-key: -zsPOGrZY1Dlb6eypa5V_OPaLBpT66FX3cSo0mNX8SI
-    short-id: 47ee5c592c1672cf
-  server: 109.172.55.157
-  servername: yandex.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: f9cdb2e1-939c-4470-b322-14b7313dec48
-- name: XX-TROJAN 915ms
+  sni: www.nintendogames.net
+  type: trojan
+- name: XX-TROJAN 858ms
   network: ws
   password: 13c169be-8592-4eaa-94cb-69c859e7d987
   port: 443
@@ -2744,54 +2650,50 @@ proxies:
     headers:
       Host: ubu.okaoclax.me
     path: /trojan-ws
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: XX-VLESS 926ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 2ryk_zFs_pzxv-bL9FkOk0Jb5oQw1jAbyXjp6oh96R0
-    short-id: 4e249e62
-  server: nr-01.opsvpnvless.ru
-  servername: stats.vk-portal.net
+- name: XX-VLESS 868ms
+  network: ws
+  port: 80
+  server: www.ptnk.sry-vpn.com
   skip-cert-verify: false
   tfo: false
-  tls: true
+  tls: false
   type: vless
-  uuid: 1218c022-dca8-49e5-b7d4-a04f3023db81
-- name: JP-TROJAN 933ms
+  uuid: 4dc817f7-2595-4330-a1b0-e35e7c6b803a
+  ws-opts:
+    headers:
+      Host: www.ptnk.sry-vpn.com
+    path: /vless
+- name: JP-TROJAN 960ms
   password: f7dbed8b1ca85124e793ba6c0bcfd0db
   port: 3057
   server: 160.16.72.33
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-- name: JP-TROJAN 941ms
+- name: XX-VLESS 961ms
+  network: ws
+  port: 80
+  server: fsdns.ectunnelvpn.me
+  skip-cert-verify: false
+  tfo: false
+  tls: false
+  type: vless
+  uuid: 15cbab96-197e-46a5-9042-073b3980c798
+  ws-opts:
+    headers:
+      Host: fsdns.ectunnelvpn.me
+    path: /vless
+- name: JP-TROJAN 968ms
   password: f7dbed8b1ca85124e793ba6c0bcfd0db
   port: 3057
   server: 160.16.70.180
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: XX-VLESS 967ms
-  network: tcp
-  port: 8443
-  reality-opts:
-    public-key: 5Tz44GqhEgM6Q-kOX0WQ6voGySL5sOEeABSUsFDY8Uw
-    short-id: 21c7fb5ed34c260c
-  server: est.vles.space
-  servername: sun2-16.userapi.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 7f37b28b-cfcb-4c2a-ae41-8f2ddc9325dd
 - alpn:
   - http/1.1
   client-fingerprint: random
-  name: US-VLESS 977ms
+  name: US-VLESS 971ms
   network: ws
   port: 8443
   server: 158.51.125.177
@@ -2805,47 +2707,17 @@ proxies:
     headers:
       Host: snippet.fgfw.ccwu.cc
     path: /danfeng
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: XX-VLESS 978ms
-  network: tcp
-  port: 443
-  server: s229.okgg.top
-  servername: u710948ub8e9s229.okgg.top
+- name: JP-TROJAN 977ms
+  password: f389ed926e512e15f382dc3804029474
+  port: 34818
+  server: 160.16.106.99
   skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: ccd85f23-9105-37fd-96b9-9dcbc89ff3eb
-- client-fingerprint: chrome
-  name: HK-VLESS 1020ms
-  network: tcp
-  port: 62520
-  reality-opts:
-    public-key: OTbIHKT0UyR2T2ooCpI0Ozivr1JHUwOs29LQHtYltkk
-    short-id: 46319295d140d75d
-  server: 141.98.234.40
-  servername: yandex.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: be69896f-e641-41d9-bfc8-1e30885263d2
-- name: DE-VLESS 1032ms
-  network: ws
-  port: 443
-  server: 144.76.188.130
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: 75e13bcc-139b-4fe7-8525-548c8cfca08d
-  ws-opts:
-    path: /
+  sni: www.nintendogames.net
+  type: trojan
 - alpn:
   - http/1.1
   client-fingerprint: random
-  name: ZA-VLESS 1040ms
+  name: ZA-VLESS 1011ms
   network: ws
   port: 20205
   server: 139.84.235.99
@@ -2860,63 +2732,55 @@ proxies:
       Host: snippet.gfw.nn.kg
     path: /danfeng
 - client-fingerprint: chrome
-  name: SG-VLESS 1071ms
-  network: ws
-  port: 8443
-  server: 43.160.248.66
-  servername: ylnhh.cc.cd
+  name: HK-VLESS 1068ms
+  network: tcp
+  port: 62520
+  reality-opts:
+    public-key: OTbIHKT0UyR2T2ooCpI0Ozivr1JHUwOs29LQHtYltkk
+    short-id: 46319295d140d75d
+  server: 141.98.234.40
+  servername: yandex.ru
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  uuid: be69896f-e641-41d9-bfc8-1e30885263d2
+- client-fingerprint: chrome
+  name: XX-VLESS 1100ms
+  network: ws
+  port: 443
+  server: v2.dabache.top
+  servername: do88.cmddo.ggff.net
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 22620697-6fba-4b71-a348-0cef2f7bec1e
   ws-opts:
     headers:
-      Host: ylnhh.cc.cd
-    path: /Telegram🇨🇳@WangCai2
-- name: JP-TROJAN 1160ms
+      Host: do88.cmddo.ggff.net
+    path: /?ed=2048
+- name: JP-TROJAN 1203ms
   password: f7dbed8b1ca85124e793ba6c0bcfd0db
   port: 4019
   server: 160.16.70.180
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-- alpn:
-  - http/1.1
-  name: US-VLESS 1222ms
-  network: ws
-  port: 443
-  server: 192.200.160.20
-  servername: 639073677243308853.camry-perma.info
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: dc08d353-44f5-45b6-b273-703ff5e955dc
-  ws-opts:
-    headers:
-      Host: 639073677243308853.camry-perma.info
-    path: /jxyughws
-- name: XX-TROJAN 1224ms
-  password: q2GRUM1-odJBWq_KV6xv2fuNvu8ed-
-  port: 443
-  server: 8443.golden-cards.me
-  skip-cert-verify: false
-  type: trojan
 - cipher: aes-256-gcm
-  name: CH-SS 1232ms
-  password: cdBIDV42DCwnfIN
-  port: 8119
-  server: 38.180.161.123
+  name: CA-SS 1253ms
+  password: 8JCsPssfgS8tiRwiMlhARg==
+  port: 12000
+  server: 144.217.7.33
   type: ss
 - cipher: chacha20-ietf-poly1305
-  name: HU-SS 1235ms
-  password: v8NKiSxilGVslodFPWWLR8
-  port: 2949
-  server: 194.71.130.26
+  name: TR-SS 1270ms
+  password: AVLbEUEtBD59FsRqcNyEib
+  port: 60299
+  server: 203.202.232.78
   type: ss
 - client-fingerprint: chrome
-  name: US-VLESS 1239ms
+  name: US-VLESS 1299ms
   network: tcp
   port: 443
   reality-opts:
@@ -2929,296 +2793,270 @@ proxies:
   tls: true
   type: vless
   uuid: ddb913e5-492f-42e8-baec-93c9c5d333d6
-- name: XX-VLESS 1262ms
-  network: ws
-  port: 443
-  server: vip3.kaixincloud.top
-  servername: vangoghhh.info
+- name: JP-TROJAN 1446ms
+  password: f389ed926e512e15f382dc3804029474
+  port: 4937
+  server: 160.16.132.38
   skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 94daa8ad-75ed-4dbf-a6de-d05036d98df5
-  ws-opts:
-    headers:
-      Host: vangoghhh.info
-    path: /tixvuws
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: XX-VLESS 1327ms
-  network: tcp
-  port: 443
-  server: s133.ayxj.top
-  servername: u710948u8661s133.ayxj.top
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: ccd85f23-9105-37fd-96b9-9dcbc89ff3eb
+  sni: www.nintendogames.net
+  type: trojan
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: MD-VLESS 1492ms
+  name: FI-VLESS 1476ms
   network: tcp
-  port: 8443
+  port: 443
   reality-opts:
-    public-key: J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs
-    short-id: a20d3ed244c76426
-  server: 144.31.131.224
-  servername: mold.speedload.online
+    public-key: 4SvSS7EqHyV_LDW4vB2f7UIj6x_GXsR3vMnqnaxspHo
+    short-id: 42237f32aba8
+  server: 142.111.162.39
+  servername: www.mozilla.org
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 0ee2d410-3e64-4c41-a571-3e5d2b5b8982
+  uuid: 9a6f3933-590c-4fa6-8957-298a8b8a94bd
+- name: JP-TROJAN 1498ms
+  password: f7dbed8b1ca85124e793ba6c0bcfd0db
+  port: 34818
+  server: 153.121.65.107
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
 proxy-groups:
 - name: Proxy
   proxies:
-  - CA-VLESS 71ms
-  - CA-VLESS 73ms
-  - MX-SS 77ms
-  - US-VLESS 79ms
-  - US-VLESS 81ms
-  - GB-VLESS 82ms
-  - CA-VLESS 82ms
-  - CZ-VLESS 85ms
-  - US-VLESS 87ms
-  - US-SS 91ms
-  - CA-VLESS 91ms
-  - US-SS 92ms
-  - DE-VLESS 93ms
-  - US-SS 93ms
-  - XX-VLESS 95ms
-  - US-VLESS 98ms
-  - US-VLESS 98ms 1
-  - FR-VLESS 99ms
-  - US-VLESS 100ms
-  - US-VLESS 102ms
-  - CA-VLESS 103ms
-  - US-SS 106ms
-  - CA-VLESS 119ms
-  - XX-SS 121ms
-  - US-SS 124ms
-  - US-VLESS 130ms
+  - CA-VLESS 33ms
+  - CA-VLESS 40ms
+  - CZ-VLESS 41ms
+  - US-VLESS 43ms
+  - CA-VLESS 44ms
+  - FR-VLESS 45ms
+  - US-VLESS 47ms
+  - CA-VLESS 47ms
+  - CA-VLESS 47ms 1
+  - CA-VLESS 49ms
+  - CA-VLESS 50ms
+  - US-VLESS 51ms
+  - US-VLESS 51ms 1
+  - CA-VLESS 51ms
+  - US-VLESS 52ms
+  - IN-VLESS 52ms
+  - CA-VLESS 54ms
+  - CA-VLESS 55ms
+  - GB-VLESS 61ms
+  - XX-VLESS 62ms
+  - CA-VLESS 64ms
+  - US-VLESS 68ms
+  - CA-VLESS 69ms
+  - XX-VLESS 75ms
+  - XX-SS 79ms
+  - CA-VLESS 83ms
+  - US-VLESS 90ms
+  - MX-SS 96ms
+  - US-SS 102ms
+  - XX-VLESS 102ms
+  - US-SS 104ms
+  - US-SS 113ms
+  - DE-VLESS 120ms
+  - US-VLESS 121ms
+  - US-SS 127ms
+  - US-VLESS 148ms
+  - US-VLESS 151ms
   - US-VLESS 162ms
+  - US-VLESS 163ms
   - US-VLESS 164ms
-  - CA-VLESS 175ms
-  - US-VLESS 179ms
-  - US-VLESS 198ms
-  - US-VLESS 199ms
-  - XX-TROJAN 204ms
-  - XX-SS 216ms
-  - US-VLESS 217ms
-  - GB-SS 219ms
-  - GB-SS 220ms
-  - NL-SS 226ms
-  - US-VLESS 228ms
-  - US-VLESS 235ms
-  - XX-SS 237ms
-  - DE-SS 247ms
-  - NL-SS 248ms
-  - GB-SS 258ms
-  - DE-SS 261ms
-  - DE-VLESS 262ms
-  - IN-VLESS 265ms
-  - AT-SS 268ms
-  - JP-SS 270ms
-  - DE-VLESS 289ms
-  - XX-VLESS 296ms
-  - XX-VLESS 300ms
-  - NL-SS 302ms
-  - XX-VLESS 308ms
-  - TR-VLESS 317ms
-  - TR-SS 324ms
-  - NL-VLESS 336ms
-  - NL-VLESS 338ms
-  - DE-VLESS 339ms
-  - RU-VLESS 344ms
-  - SE-SS 347ms
-  - RU-VLESS 349ms
-  - NL-VLESS 352ms
-  - NL-VLESS 357ms
-  - BG-SS 359ms
-  - CA-VLESS 360ms
-  - DE-VLESS 362ms
-  - DE-VLESS 365ms
-  - RU-VLESS 366ms
-  - XX-VLESS 374ms
-  - DE-VLESS 374ms
-  - DE-VLESS 376ms
-  - CH-VLESS 377ms
-  - DE-VLESS 381ms
-  - NL-VLESS 385ms
-  - DE-VLESS 387ms
-  - PL-VLESS 387ms
-  - CA-VLESS 387ms
-  - CA-VLESS 392ms
-  - PL-VLESS 397ms
-  - XX-SS 400ms
-  - NL-VLESS 401ms
-  - DE-VLESS 407ms
-  - FR-VLESS 407ms
-  - XX-VLESS 408ms
-  - DE-VLESS 409ms
-  - NL-VLESS 412ms
-  - JP-TROJAN 413ms
-  - JP-TROJAN 414ms
-  - GB-VLESS 414ms
-  - JP-TROJAN 415ms
-  - CA-VLESS 415ms
-  - XX-SS 415ms
-  - JP-TROJAN 415ms 1
-  - AT-VLESS 416ms
-  - JP-TROJAN 417ms
-  - HR-SS 427ms
-  - JP-TROJAN 427ms
-  - JP-TROJAN 427ms 1
-  - JP-TROJAN 428ms
-  - JP-TROJAN 430ms
-  - JP-TROJAN 431ms
-  - XX-VLESS 434ms
-  - US-VLESS 437ms
-  - EE-VLESS 438ms
-  - DE-VLESS 438ms
-  - AT-VLESS 439ms
-  - XX-VLESS 442ms
-  - NL-VLESS 442ms
-  - XX-VLESS 445ms
-  - XX-VLESS 447ms
-  - AU-SS 447ms
-  - AL-VLESS 448ms
-  - NL-VLESS 452ms
-  - NL-VLESS 453ms
+  - US-VLESS 164ms 1
+  - XX-VLESS 169ms
+  - GB-SS 195ms
+  - XX-SS 197ms
+  - XX-SS 201ms
+  - NL-SS 211ms
+  - DE-SS 212ms
+  - US-VLESS 215ms
+  - NL-SS 219ms
+  - XX-TROJAN 228ms
+  - DE-VLESS 230ms
+  - DE-SS 239ms
+  - GB-SS 240ms
+  - XX-SS 250ms
+  - DE-VLESS 252ms
+  - US-VLESS 283ms
+  - US-SS 286ms
+  - JP-SS 289ms
+  - NL-VLESS 297ms
+  - TR-VLESS 299ms
+  - NL-VLESS 304ms
+  - XX-VLESS 304ms
+  - NL-VLESS 306ms
+  - XX-SS 312ms
+  - SE-SS 313ms
+  - TR-SS 315ms
+  - NL-VLESS 315ms
+  - XX-VLESS 317ms
+  - DE-VLESS 319ms
+  - DE-VLESS 321ms
+  - RU-VLESS 321ms
+  - NO-VLESS 324ms
+  - NL-VLESS 324ms
+  - NL-VLESS 324ms 1
+  - DE-VLESS 325ms
+  - DE-VLESS 331ms
+  - DE-VLESS 333ms
+  - NL-VLESS 339ms
+  - NL-VLESS 340ms
+  - RU-VLESS 341ms
+  - DE-VLESS 345ms
+  - DE-VLESS 348ms
+  - FR-VLESS 349ms
+  - PL-VLESS 350ms
+  - XX-VLESS 353ms
+  - XX-VLESS 354ms
+  - CH-VLESS 355ms
+  - DE-VLESS 359ms
+  - GB-VLESS 360ms
+  - PL-VLESS 368ms
+  - CA-VLESS 372ms
+  - AT-VLESS 382ms
+  - NL-VLESS 382ms
+  - CA-VLESS 385ms
+  - AT-VLESS 386ms
+  - NL-VLESS 387ms
+  - XX-VLESS 387ms
+  - HR-SS 389ms
+  - GB-VLESS 389ms
+  - NL-VLESS 389ms
+  - DE-VLESS 389ms
+  - XX-VLESS 390ms
+  - XX-VLESS 395ms
+  - EE-VLESS 400ms
+  - LV-VLESS 400ms
+  - XX-VLESS 402ms
+  - FI-VLESS 410ms
+  - DE-VLESS 410ms
+  - SE-VLESS 415ms
+  - CA-VLESS 416ms
+  - MD-VLESS 417ms
+  - EE-VLESS 417ms
+  - DE-VLESS 417ms
+  - DE-VLESS 418ms
+  - DE-VLESS 420ms
+  - CY-VLESS 421ms
+  - AL-VLESS 421ms
+  - XX-SS 422ms
+  - DE-VLESS 425ms
+  - DE-VLESS 430ms
+  - BG-SS 433ms
+  - XX-VLESS 433ms
+  - CA-SS 437ms
+  - DE-VLESS 440ms
+  - IE-VLESS 440ms
+  - FI-VLESS 441ms
+  - EE-VLESS 441ms
+  - JP-TROJAN 442ms
+  - XX-VLESS 446ms
+  - XX-VLESS 448ms
+  - UA-VLESS 449ms
+  - JP-TROJAN 449ms
+  - TR-VLESS 452ms
+  - JP-TROJAN 453ms
+  - AU-SS 453ms
   - DE-VLESS 454ms
-  - BY-VLESS 455ms
-  - NL-VLESS 456ms
-  - XX-VLESS 457ms
-  - SE-VLESS 460ms
-  - EE-VLESS 461ms
-  - DE-VLESS 462ms
-  - DE-VLESS 462ms 1
-  - XX-VLESS 464ms
-  - DE-VLESS 466ms
-  - CA-SS 467ms
-  - XX-VLESS 469ms
-  - XX-VLESS 471ms
-  - BG-SS 471ms
-  - DE-VLESS 473ms
-  - FI-VLESS 474ms
-  - DE-VLESS 476ms
-  - US-VLESS 479ms
-  - CY-VLESS 480ms
-  - EE-VLESS 482ms
-  - US-VLESS 486ms
-  - XX-VLESS 489ms
-  - ZA-SS 492ms
-  - XX-VLESS 494ms
-  - DE-VLESS 497ms
-  - ZA-SS 498ms
-  - NL-VLESS 498ms
-  - DE-VLESS 499ms
-  - TR-VLESS 503ms
-  - UA-VLESS 505ms
-  - IE-VLESS 512ms
-  - CA-VLESS 514ms
-  - XX-VLESS 514ms
-  - NO-VLESS 515ms
-  - EE-VLESS 515ms
-  - CA-VLESS 516ms
-  - IE-VLESS 520ms
-  - IE-VLESS 532ms
-  - SA-SS 534ms
-  - CY-VLESS 534ms
-  - US-VLESS 535ms
-  - HK-VLESS 538ms
-  - DE-VLESS 548ms
-  - AU-VLESS 554ms
-  - NL-VLESS 556ms
-  - GB-VLESS 563ms
-  - TR-VLESS 568ms
-  - XX-VLESS 568ms
+  - XX-VLESS 454ms
+  - NL-SS 455ms
+  - IE-VLESS 460ms
+  - JP-TROJAN 462ms
+  - IE-VLESS 463ms
+  - EE-VLESS 463ms
+  - DE-VLESS 464ms
+  - DE-VLESS 467ms
+  - CY-VLESS 468ms
+  - CA-VLESS 470ms
+  - ZA-SS 475ms
+  - ZA-SS 480ms
+  - GB-VLESS 484ms
+  - RU-VLESS 490ms
+  - XX-VLESS 491ms
+  - JP-TROJAN 499ms
+  - XX-VLESS 507ms
+  - US-VLESS 509ms
+  - SA-SS 516ms
+  - TR-VLESS 520ms
+  - NL-VLESS 522ms
+  - CH-SS 528ms
+  - XX-VLESS 528ms
+  - TR-VLESS 546ms
+  - XX-VLESS 547ms
+  - HU-VLESS 550ms
+  - XX-VLESS 558ms
+  - LV-VLESS 559ms
+  - NO-VLESS 568ms
   - DE-VLESS 570ms
-  - NL-VLESS 572ms
-  - XX-VLESS 574ms
-  - DE-VLESS 581ms
-  - DE-VLESS 590ms
-  - TR-VLESS 600ms
-  - XX-TROJAN 601ms
-  - NO-VLESS 602ms
-  - XX-VLESS 607ms
-  - XX-VLESS 609ms
-  - JP-TROJAN 610ms
-  - HU-VLESS 620ms
-  - FI-VLESS 620ms
-  - DE-VLESS 620ms
-  - JP-TROJAN 626ms
-  - CN-SS 629ms
-  - JP-TROJAN 629ms
-  - JP-TROJAN 629ms 1
-  - GB-VLESS 641ms
-  - XX-VLESS 650ms
-  - LV-VLESS 652ms
-  - IE-VLESS 658ms
-  - HK-TROJAN 661ms
-  - TH-VLESS 666ms
-  - XX-TROJAN 670ms
-  - PT-VLESS 673ms
-  - XX-VLESS 687ms
-  - MY-SS 707ms
-  - DE-VLESS 708ms
-  - AU-VLESS 722ms
-  - DE-VLESS 726ms
-  - IS-VLESS 727ms
-  - JP-TROJAN 731ms
-  - XX-VLESS 731ms
-  - JP-TROJAN 732ms
-  - JP-TROJAN 738ms
-  - DE-VLESS 741ms
-  - XX-VLESS 746ms
-  - XX-VLESS 748ms
+  - AU-VLESS 575ms
+  - DE-VLESS 586ms
+  - HU-SS 594ms
+  - XX-VLESS 596ms
+  - PT-VLESS 603ms
+  - XX-TROJAN 604ms
+  - SG-VLESS 613ms
+  - DE-VLESS 617ms
+  - XX-VLESS 628ms
+  - ES-VLESS 630ms
+  - DE-VLESS 632ms
+  - JP-TROJAN 638ms
+  - JP-TROJAN 640ms
+  - IS-VLESS 645ms
+  - JP-TROJAN 647ms
+  - JP-TROJAN 659ms
+  - XX-TROJAN 660ms
+  - DE-VLESS 664ms
+  - JP-TROJAN 667ms
+  - XX-VLESS 667ms
+  - XX-VLESS 670ms
+  - DE-VLESS 673ms
+  - US-VLESS 677ms
+  - DE-VLESS 679ms
+  - HK-TROJAN 680ms
+  - DE-VLESS 683ms
+  - DE-VLESS 685ms
+  - IN-VLESS 721ms
+  - MY-SS 729ms
+  - FR-VLESS 732ms
+  - XX-TROJAN 738ms
+  - CH-VLESS 741ms
+  - TH-VLESS 743ms
+  - JP-TROJAN 754ms
   - JP-TROJAN 755ms
-  - XX-TROJAN 762ms
-  - LV-VLESS 762ms
-  - IN-VLESS 767ms
-  - XX-VLESS 779ms
-  - ES-VLESS 783ms
-  - SG-TROJAN 785ms
-  - CH-VLESS 788ms
-  - XX-VLESS 788ms
-  - JP-TROJAN 794ms
-  - JP-TROJAN 797ms
-  - CA-VLESS 816ms
-  - FR-VLESS 818ms
-  - SG-VLESS 825ms
-  - XX-VLESS 825ms
-  - IL-VLESS 842ms
-  - JP-TROJAN 846ms
-  - FR-VLESS 865ms
-  - IN-VLESS 875ms
-  - XX-VLESS 876ms
-  - XX-VLESS 879ms
-  - XX-VLESS 892ms
-  - XX-VLESS 893ms
-  - FR-VLESS 893ms
-  - XX-TROJAN 915ms
-  - XX-VLESS 926ms
-  - JP-TROJAN 933ms
-  - JP-TROJAN 941ms
-  - XX-VLESS 967ms
-  - US-VLESS 977ms
-  - XX-VLESS 978ms
-  - HK-VLESS 1020ms
-  - DE-VLESS 1032ms
-  - ZA-VLESS 1040ms
-  - SG-VLESS 1071ms
-  - JP-TROJAN 1160ms
-  - US-VLESS 1222ms
-  - XX-TROJAN 1224ms
-  - CH-SS 1232ms
-  - HU-SS 1235ms
-  - US-VLESS 1239ms
-  - XX-VLESS 1262ms
-  - XX-VLESS 1327ms
-  - MD-VLESS 1492ms
+  - JP-TROJAN 766ms
+  - FR-VLESS 767ms
+  - XX-VLESS 775ms
+  - LV-VLESS 776ms
+  - AU-VLESS 779ms
+  - CA-VLESS 787ms
+  - IN-VLESS 800ms
+  - FR-VLESS 802ms
+  - JP-TROJAN 806ms
+  - JP-TROJAN 812ms
+  - JP-TROJAN 813ms
+  - SG-TROJAN 831ms
+  - XX-VLESS 846ms
+  - JP-TROJAN 855ms
+  - XX-TROJAN 858ms
+  - XX-VLESS 868ms
+  - JP-TROJAN 960ms
+  - XX-VLESS 961ms
+  - JP-TROJAN 968ms
+  - US-VLESS 971ms
+  - JP-TROJAN 977ms
+  - ZA-VLESS 1011ms
+  - HK-VLESS 1068ms
+  - XX-VLESS 1100ms
+  - JP-TROJAN 1203ms
+  - CA-SS 1253ms
+  - TR-SS 1270ms
+  - US-VLESS 1299ms
+  - JP-TROJAN 1446ms
+  - FI-VLESS 1476ms
+  - JP-TROJAN 1498ms
   type: select
 rules:
 - MATCH,Proxy
