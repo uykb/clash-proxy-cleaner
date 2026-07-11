@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -27,39 +27,46 @@ jobs:
 
       - name: Download Mihomo
         run: |
-          # Get latest release download URL (linux-amd64-compatible)
-          DOWNLOAD_URL=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep "browser_download_url" | grep "linux-amd64-compatible-v" | head -n 1 | cut -d '"' -f 4)
+          # 获取 Mihomo 最新版下载链接，兼容 naming 变化
+          API_RESP=$(curl -sL "https://api.github.com/repos/MetaCubeX/mihomo/releases/latest")
+          DOWNLOAD_URL=$(echo "$API_RESP" | grep -o '"browser_download_url": *"[^"]*linux-amd64[^"]*gz"' | head -n 1 | cut -d'"' -f4)
           
           if [ -z "$DOWNLOAD_URL" ]; then
-            echo "Failed to get latest mihomo download URL"
+            echo "ERROR: Cannot find mihomo download URL"
+            echo "Available assets:"
+            echo "$API_RESP" | grep "name" | grep -i mihomo
             exit 1
           fi
           
-          echo "Downloading from: $DOWNLOAD_URL"
+          echo "Downloading: $DOWNLOAD_URL"
+          curl -sL --retry 5 --retry-delay 5 -o mihomo.gz "$DOWNLOAD_URL"
           
-          # Retry download up to 5 times
-          for i in {1..5}; do
-            wget -q -O mihomo.gz "$DOWNLOAD_URL" && break || sleep 10;
-          done
-          
-          if [ ! -f mihomo.gz ]; then
-            echo "Failed to download mihomo after 5 attempts"
-            exit 1
-          fi
-          
-          gunzip mihomo.gz
+          gunzip -f mihomo.gz
           chmod +x mihomo
+          ./mihomo -v
 
       - name: Run Cleaner
         env:
           PROXY_URLS: ${{ secrets.PROXY_URLS }}
           MAX_LATENCY: 1500
         run: python clean_proxies.py
+        timeout-minutes: 55
 
       - name: Commit and Push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          
+          # 使用 token 确保认证
+          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          
           git add subscribe.yaml base64.txt
-          git commit -m "Update cleaned proxies [$(date -u +'%Y-%m-%d %H:%M:%S')]" || exit 0
-          git push
+          
+          # 检查是否有实际变更
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          git commit -m "更新清洗代理节点 [$(date -u +'%Y-%m-%d %H:%M:%S')]"
+          git push origin HEAD:${{ github.ref_name }}
