@@ -5,6 +5,8 @@ import base64
 import time
 import subprocess
 import socket
+import random
+import concurrent.futures
 from datetime import datetime, timedelta, timezone
 from loguru import logger
 
@@ -272,21 +274,48 @@ class ProxyCleaner:
             logger.error("Mihomo binary not found")
             return False
             
+        # 使用随机端口避免冲突
+        self.api_port = random.randint(9000, 9999)
+        
         cmd = [self.mihomo_path, "-d", self.working_dir, "-f", config_path]
-        self.mihomo_process = subprocess.Popen(cmd)
-        for _ in range(15):
+        self.mihomo_process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        
+        # 增加等待时间至 30 秒
+        for _ in range(30):
             try:
-                requests.get(f"http://127.0.0.1:{self.api_port}/version", 
-                             headers={"Authorization": f"Bearer {self.api_secret}"})
-                return True
+                resp = requests.get(f"http://127.0.0.1:{self.api_port}/version", 
+                                    headers={"Authorization": f"Bearer {self.api_secret}"},
+                                    timeout=2)
+                if resp.status_code == 200:
+                    return True
             except:
                 time.sleep(1)
+        
+        # 打印 Mihomo 错误日志
+        try:
+            _, stderr = self.mihomo_process.communicate(timeout=5)
+            logger.error(f"Mihomo failed to start: {stderr.decode()}")
+        except:
+            logger.error("Mihomo failed to start and could not read error output")
         return False
 
     def stop_mihomo(self):
         if self.mihomo_process:
             self.mihomo_process.terminate()
             self.mihomo_process.wait()
+            self.mihomo_process = None
+
+    def test_single_proxy(self, proxy_info):
+        name, proxy, headers, max_latency, api_port = proxy_info
+        try:
+            test_url = f"http://127.0.0.1:{api_port}/proxies/{name}/delay?timeout=2000&url=http://www.gstatic.com/generate_204"
+            resp = requests.get(test_url, headers=headers, timeout=5)
+            if resp.status_code == 200:
+                delay = resp.json().get('delay', 9999)
+                return (proxy, delay) if delay < max_latency else None
+        except:
+            pass
+        return None
 
     def proxy_to_uri(self, p):
         try:
@@ -356,10 +385,18 @@ class ProxyCleaner:
 
         test_config = {
             "log-level": "silent",
-            "external-controller": f"0.0.0.0:{self.api_port}",
+            "external-controller": f"127.0.0.1:{self.api_port}",
             "secret": self.api_secret,
             "mode": "global",
-            "proxies": proxies_to_test
+            "mixed-port": 7890,
+            "proxies": proxies_to_test,
+            "proxy-groups": [
+                {
+                    "name": "Proxy",
+                    "type": "select",
+                    "proxies": [p['name'] for p in proxies_to_test]
+                }
+            ]
         }
         config_path = os.path.join(self.working_dir, "test_config.yaml")
         with open(config_path, 'w', encoding='utf-8') as f:
@@ -372,16 +409,13 @@ class ProxyCleaner:
         valid_proxies = []
         headers = {"Authorization": f"Bearer {self.api_secret}"}
         
-        for proxy in proxies_to_test:
-            name = proxy['name']
-            try:
-                test_url = f"http://127.0.0.1:{self.api_port}/proxies/{name}/delay?timeout=2000&url=http://www.gstatic.com/generate_204"
-                resp = requests.get(test_url, headers=headers, timeout=5)
-                if resp.status_code == 200:
-                    delay = resp.json().get('delay', 9999)
-                    if delay < self.max_latency:
-                        valid_proxies.append((proxy, delay))
-            except: pass
+        # 并发测速
+        with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+            futures = {executor.submit(self.test_single_proxy, (p['name'], p, headers, self.max_latency, self.api_port)): p for p in proxies_to_test}
+            for future in concurrent.futures.as_completed(futures):
+                result = future.result()
+                if result:
+                    valid_proxies.append(result)
 
         self.stop_mihomo()
         valid_proxies.sort(key=lambda x: x[1])
@@ -406,6 +440,9 @@ class ProxyCleaner:
                 counts[base] = 0
                 p['name'] = base
             final_list.append(p)
+        
+        if not final_list:
+            logger.warning("No valid proxies after testing.")
 
         output = {
             "proxies": final_list,
@@ -416,7 +453,13 @@ class ProxyCleaner:
         with open("subscribe.yaml", "w", encoding="utf-8") as f:
             yaml.dump(output, f, allow_unicode=True)
             
-        # Generate base64.txt
+        # Generate base64.txt with fallback
+        try:
+            with open("base64.txt", "r", encoding="utf-8") as f:
+                old_base64 = f.read().strip()
+        except FileNotFoundError:
+            old_base64 = ""
+        
         uris = [self.proxy_to_uri(p) for p in final_list]
         uris = [u for u in uris if u]
         if uris:
@@ -424,6 +467,12 @@ class ProxyCleaner:
             with open("base64.txt", "w", encoding="utf-8") as f:
                 f.write(b64_content)
             logger.info(f"Saved {len(uris)} nodes to base64.txt")
+        elif old_base64:
+            logger.warning("No valid proxies, keeping old base64.txt")
+        else:
+            with open("base64.txt", "w", encoding="utf-8") as f:
+                f.write("")
+            logger.warning("No valid proxies, wrote empty base64.txt")
             
         logger.info(f"Done. Saved {len(final_list)} nodes to subscribe.yaml")
 
