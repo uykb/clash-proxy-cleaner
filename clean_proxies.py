@@ -258,45 +258,21 @@ class ProxyCleaner:
         except:
             return host
 
-    def get_proxy_exit_ip(self, proxy_name):
-        """Query Cloudflare trace via Mihomo to obtain exit IP and CF location"""
-        try:
-            headers = {"Authorization": f"Bearer {self.api_secret}"}
-            # Switch selector group 'Proxy' and 'GLOBAL'
-            requests.put(f"http://127.0.0.1:{self.api_port}/proxies/GLOBAL", json={"name": proxy_name}, headers=headers, timeout=2)
-            requests.put(f"http://127.0.0.1:{self.api_port}/proxies/Proxy", json={"name": proxy_name}, headers=headers, timeout=2)
-
-            proxies = {
-                "http": f"http://127.0.0.1:{self.mixed_port}",
-                "https": f"http://127.0.0.1:{self.mixed_port}"
-            }
-            resp = requests.get("http://1.1.1.1/cdn-cgi/trace", proxies=proxies, timeout=3)
-            if resp.status_code == 200:
-                data = {}
-                for line in resp.text.splitlines():
-                    if '=' in line:
-                        k, v = line.split('=', 1)
-                        data[k.strip()] = v.strip()
-                return data.get("ip"), data.get("loc")
-        except Exception as e:
-            logger.debug(f"Failed to fetch exit IP for {proxy_name}: {e}")
-        return None, None
-
     def fetch_geo_batch(self, targets):
         """Batch fetch GeoIP & IP quality info (hosting vs residential)"""
         unique_targets = list(set(t for t in targets if t))
         if not unique_targets:
             return
-        logger.info(f"Fetching GeoIP & IP quality for {len(unique_targets)} unique targets...")
+        logger.info(f"Fetching GeoIP & IP quality for {len(unique_targets)} unique servers...")
         
         # ip-api batch limit is 100
         batch_size = 100
         for i in range(0, len(unique_targets), batch_size):
             batch = unique_targets[i:i+batch_size]
             try:
-                # We send just the hosts/ips, ip-api handles both IP and Domain
+                # ip-api batch handles both IP and Domain automatically
                 resp = requests.post("http://ip-api.com/batch?fields=status,message,countryCode,hosting,mobile,isp,as,query", 
-                                    json=[{"query": h} for h in batch], timeout=20)
+                                    json=[{"query": h} for h in batch], timeout=15)
                 if resp.status_code == 200:
                     results = resp.json()
                     for res in results:
@@ -462,43 +438,28 @@ class ProxyCleaner:
                 if result:
                     valid_proxies.append(result)
 
+        self.stop_mihomo()
         valid_proxies.sort(key=lambda x: x[1])
 
-        # 嗅探有效节点的真实出口 IP（落地 IP）及出口地区
+        # 批量获取有效节点的 GeoIP & IP 质量（极速批量处理）
         if valid_proxies:
-            logger.info(f"Sniffing exit IP for {len(valid_proxies)} valid proxies...")
-            for p, _ in valid_proxies:
-                exit_ip, cf_loc = self.get_proxy_exit_ip(p['name'])
-                p['exit_ip'] = exit_ip
-                p['cf_loc'] = cf_loc
-
-        self.stop_mihomo()
-
-        # 收集需要查询 GeoIP & IP 质量的 IP/Host
-        targets_to_query = []
-        for p, _ in valid_proxies:
-            if p.get('exit_ip'):
-                targets_to_query.append(p['exit_ip'])
-            elif p.get('server'):
-                targets_to_query.append(p['server'])
-
-        if targets_to_query:
-            self.fetch_geo_batch(targets_to_query)
+            unique_servers = list(set(p.get('server') for p, _ in valid_proxies if p.get('server')))
+            self.fetch_geo_batch(unique_servers)
         
         final_list = []
         counts = {}
         for p, delay in valid_proxies:
             ptype = p.get('type', 'Unknown').upper()
-            target = p.get('exit_ip') or p.get('server')
-            info = self.geo_cache.get(target)
+            server = p.get('server')
+            info = self.geo_cache.get(server)
             
             if isinstance(info, dict):
-                country_code = info.get('countryCode') or p.get('cf_loc') or "XX"
+                country_code = info.get('countryCode') or "XX"
                 # hosting 为 False 或者 mobile 为 True 判定为住宅/家宽 IP (RES)
                 is_residential = (info.get('hosting') is False) or (info.get('mobile') is True)
                 ip_type = "RES" if is_residential else "DC"
             else:
-                country_code = p.get('cf_loc') or (info if isinstance(info, str) else "XX")
+                country_code = info if isinstance(info, str) else "XX"
                 ip_type = "DC"
 
             flag = self.country_code_to_flag(country_code)
