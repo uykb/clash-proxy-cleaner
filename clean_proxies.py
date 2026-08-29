@@ -36,6 +36,7 @@ class ProxyCleaner:
     def decode_base64(self, content):
         """Helper to decode base64 content with padding fix"""
         try:
+            content = content.strip().replace('\n', '').replace('\r', '')
             missing_padding = len(content) % 4
             if missing_padding:
                 content += '=' * (4 - missing_padding)
@@ -55,7 +56,9 @@ class ProxyCleaner:
 
     def parse_vmess(self, uri):
         try:
-            data = json.loads(self.decode_base64(uri[8:]))
+            decoded = self.decode_base64(uri[8:])
+            if not decoded: return None
+            data = json.loads(decoded)
             proxy = {
                 "name": data.get("ps", "vmess"),
                 "type": "vmess",
@@ -84,10 +87,12 @@ class ProxyCleaner:
             if '@' in main:
                 auth, server = main.split('@', 1)
                 auth_dec = self.decode_base64(auth)
+                if not auth_dec: return None
                 method, password = auth_dec.split(':', 1)
             else:
                 # Some ss links are base64(method:password@host:port)
                 decoded = self.decode_base64(main)
+                if not decoded: return None
                 auth, server = decoded.split('@', 1)
                 method, password = auth.split(':', 1)
             
@@ -274,9 +279,6 @@ class ProxyCleaner:
             logger.error("Mihomo binary not found")
             return False
             
-        # 使用随机端口避免冲突
-        self.api_port = random.randint(9000, 9999)
-        
         cmd = [self.mihomo_path, "-d", self.working_dir, "-f", config_path]
         self.mihomo_process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         
@@ -383,6 +385,7 @@ class ProxyCleaner:
         proxies_to_test = list(unique_proxies.values())
         logger.info(f"Testing {len(proxies_to_test)} unique nodes...")
 
+        self.api_port = random.randint(9000, 9999)
         test_config = {
             "log-level": "silent",
             "external-controller": f"127.0.0.1:{self.api_port}",
@@ -404,7 +407,7 @@ class ProxyCleaner:
 
         if not self.start_mihomo(config_path):
             logger.error("Failed to start Mihomo.")
-            return
+            exit(1)
 
         valid_proxies = []
         headers = {"Authorization": f"Bearer {self.api_secret}"}
