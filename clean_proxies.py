@@ -243,35 +243,76 @@ class ProxyCleaner:
         
         return proxies
 
+    def country_code_to_flag(self, country_code):
+        """Convert 2-letter country code to flag emoji"""
+        if not country_code or len(country_code) != 2:
+            return "🌐"
+        try:
+            return "".join(chr(ord(c.upper()) + 127397) for c in country_code)
+        except Exception:
+            return "🌐"
+
     def resolve_host(self, host):
         try:
             return socket.gethostbyname(host)
         except:
             return host
 
-    def fetch_geo_batch(self, proxies):
-        """Batch fetch GeoIP info for proxy servers"""
-        unique_hosts = list(set(p.get('server') for p in proxies if p.get('server')))
-        logger.info(f"Fetching GeoIP for {len(unique_hosts)} unique hosts...")
+    def get_proxy_exit_ip(self, proxy_name):
+        """Query Cloudflare trace via Mihomo to obtain exit IP and CF location"""
+        try:
+            headers = {"Authorization": f"Bearer {self.api_secret}"}
+            # Switch selector group 'Proxy' and 'GLOBAL'
+            requests.put(f"http://127.0.0.1:{self.api_port}/proxies/GLOBAL", json={"name": proxy_name}, headers=headers, timeout=2)
+            requests.put(f"http://127.0.0.1:{self.api_port}/proxies/Proxy", json={"name": proxy_name}, headers=headers, timeout=2)
+
+            proxies = {
+                "http": f"http://127.0.0.1:{self.mixed_port}",
+                "https": f"http://127.0.0.1:{self.mixed_port}"
+            }
+            resp = requests.get("http://1.1.1.1/cdn-cgi/trace", proxies=proxies, timeout=3)
+            if resp.status_code == 200:
+                data = {}
+                for line in resp.text.splitlines():
+                    if '=' in line:
+                        k, v = line.split('=', 1)
+                        data[k.strip()] = v.strip()
+                return data.get("ip"), data.get("loc")
+        except Exception as e:
+            logger.debug(f"Failed to fetch exit IP for {proxy_name}: {e}")
+        return None, None
+
+    def fetch_geo_batch(self, targets):
+        """Batch fetch GeoIP & IP quality info (hosting vs residential)"""
+        unique_targets = list(set(t for t in targets if t))
+        if not unique_targets:
+            return
+        logger.info(f"Fetching GeoIP & IP quality for {len(unique_targets)} unique targets...")
         
         # ip-api batch limit is 100
         batch_size = 100
-        for i in range(0, len(unique_hosts), batch_size):
-            batch = unique_hosts[i:i+batch_size]
+        for i in range(0, len(unique_targets), batch_size):
+            batch = unique_targets[i:i+batch_size]
             try:
-                # We send just the hosts, ip-api handles both IP and Domain
-                resp = requests.post("http://ip-api.com/batch?fields=status,message,countryCode,query", 
+                # We send just the hosts/ips, ip-api handles both IP and Domain
+                resp = requests.post("http://ip-api.com/batch?fields=status,message,countryCode,hosting,mobile,isp,as,query", 
                                     json=[{"query": h} for h in batch], timeout=20)
                 if resp.status_code == 200:
                     results = resp.json()
                     for res in results:
                         if res.get('status') == 'success':
-                            self.geo_cache[res.get('query')] = res.get('countryCode')
+                            self.geo_cache[res.get('query')] = {
+                                "countryCode": res.get('countryCode', 'XX'),
+                                "hosting": res.get('hosting', False),
+                                "mobile": res.get('mobile', False),
+                                "isp": res.get('isp', ''),
+                                "as": res.get('as', '')
+                            }
             except Exception as e:
                 logger.error(f"GeoIP batch error: {e}")
             
             # Rate limit for free tier: 15 requests per minute
-            if len(unique_hosts) > batch_size:
+            if len(unique_targets) > batch_size:
                 time.sleep(2)
 
     def start_mihomo(self, config_path):
@@ -386,12 +427,13 @@ class ProxyCleaner:
         logger.info(f"Testing {len(proxies_to_test)} unique nodes...")
 
         self.api_port = random.randint(9000, 9999)
+        self.mixed_port = random.randint(17800, 17899)
         test_config = {
             "log-level": "silent",
             "external-controller": f"127.0.0.1:{self.api_port}",
             "secret": self.api_secret,
             "mode": "global",
-            "mixed-port": 7890,
+            "mixed-port": self.mixed_port,
             "proxies": proxies_to_test,
             "proxy-groups": [
                 {
@@ -420,22 +462,49 @@ class ProxyCleaner:
                 if result:
                     valid_proxies.append(result)
 
-        self.stop_mihomo()
         valid_proxies.sort(key=lambda x: x[1])
 
-        # Fetch GeoIP for valid proxies
+        # 嗅探有效节点的真实出口 IP（落地 IP）及出口地区
         if valid_proxies:
-            self.fetch_geo_batch([p for p, _ in valid_proxies])
+            logger.info(f"Sniffing exit IP for {len(valid_proxies)} valid proxies...")
+            for p, _ in valid_proxies:
+                exit_ip, cf_loc = self.get_proxy_exit_ip(p['name'])
+                p['exit_ip'] = exit_ip
+                p['cf_loc'] = cf_loc
+
+        self.stop_mihomo()
+
+        # 收集需要查询 GeoIP & IP 质量的 IP/Host
+        targets_to_query = []
+        for p, _ in valid_proxies:
+            if p.get('exit_ip'):
+                targets_to_query.append(p['exit_ip'])
+            elif p.get('server'):
+                targets_to_query.append(p['server'])
+
+        if targets_to_query:
+            self.fetch_geo_batch(targets_to_query)
         
         final_list = []
         counts = {}
         for p, delay in valid_proxies:
             ptype = p.get('type', 'Unknown').upper()
-            server = p.get('server')
-            geo = self.geo_cache.get(server, "XX")
+            target = p.get('exit_ip') or p.get('server')
+            info = self.geo_cache.get(target)
             
-            # Format: JP-VMESS 120ms
-            base = f"{geo}-{ptype} {delay}ms"
+            if isinstance(info, dict):
+                country_code = info.get('countryCode') or p.get('cf_loc') or "XX"
+                # hosting 为 False 或者 mobile 为 True 判定为住宅/家宽 IP (RES)
+                is_residential = (info.get('hosting') is False) or (info.get('mobile') is True)
+                ip_type = "RES" if is_residential else "DC"
+            else:
+                country_code = p.get('cf_loc') or (info if isinstance(info, str) else "XX")
+                ip_type = "DC"
+
+            flag = self.country_code_to_flag(country_code)
+
+            # Format: 🇯🇵[RES] JP-VLESS 85ms 或 🇸🇬[DC] SG-TROJAN 60ms
+            base = f"{flag}[{ip_type}] {country_code.upper()}-{ptype} {delay}ms"
             if base in counts:
                 counts[base] += 1
                 p['name'] = f"{base} {counts[base]}"
