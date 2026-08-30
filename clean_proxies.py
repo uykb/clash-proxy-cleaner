@@ -327,7 +327,8 @@ class ProxyCleaner:
     def test_single_proxy(self, proxy_info):
         name, proxy, headers, max_latency, api_port = proxy_info
         try:
-            test_url = f"http://127.0.0.1:{api_port}/proxies/{name}/delay?timeout=2000&url=http://www.gstatic.com/generate_204"
+            # 使用标准的 HTTPS 204 进行端到端 TLS 握手及真实连通性测试
+            test_url = f"http://127.0.0.1:{api_port}/proxies/{name}/delay?timeout=2500&url=https://cp.cloudflare.com/generate_204"
             resp = requests.get(test_url, headers=headers, timeout=5)
             if resp.status_code == 200:
                 delay = resp.json().get('delay', 9999)
