@@ -290,6 +290,22 @@ class ProxyCleaner:
         
         return proxies
 
+    def get_proxy_fingerprint(self, p):
+        """Generate a composite fingerprint for deduplicating proxy nodes accurately"""
+        if not p or not isinstance(p, dict):
+            return None
+        ptype = str(p.get('type', '')).lower()
+        server = str(p.get('server', '')).strip().lower()
+        port = str(p.get('port', '')).strip()
+        
+        # 提取核心认证标识与网络路径
+        auth = str(p.get('uuid') or p.get('password') or '').strip().lower()
+        network = str(p.get('network', 'tcp')).lower()
+        sni = str(p.get('sni') or p.get('servername') or '').strip().lower()
+        path = str(p.get('ws-opts', {}).get('path', '') or p.get('grpc-opts', {}).get('grpc-service-name', '')).strip().lower()
+        
+        return f"{ptype}://{auth}@{server}:{port}?net={network}&sni={sni}&path={path}"
+
     def country_code_to_flag(self, country_code):
         """Convert 2-letter country code to flag emoji"""
         if not country_code or len(country_code) != 2:
@@ -468,13 +484,15 @@ class ProxyCleaner:
 
         unique_proxies = {}
         for p in raw_proxies:
-            key = f"{p.get('server')}:{p.get('port')}"
-            if key not in unique_proxies:
+            fingerprint = self.get_proxy_fingerprint(p)
+            if not fingerprint:
+                continue
+            if fingerprint not in unique_proxies:
                 p['name'] = f"Node-{len(unique_proxies)}"
-                unique_proxies[key] = p
+                unique_proxies[fingerprint] = p
         
         proxies_to_test = list(unique_proxies.values())
-        logger.info(f"Testing {len(proxies_to_test)} unique nodes...")
+        logger.info(f"Deduplicated {len(raw_proxies)} raw proxies into {len(proxies_to_test)} unique nodes...")
 
         self.api_port = random.randint(9000, 9999)
         self.mixed_port = random.randint(17800, 17899)
@@ -556,11 +574,12 @@ class ProxyCleaner:
                     with open("subscribe.yaml", "r", encoding="utf-8") as f:
                         old_data = yaml.safe_load(f)
                         if isinstance(old_data, dict) and "proxies" in old_data and old_data["proxies"]:
-                            existing_servers = {p.get('server') for p in final_list}
+                            existing_fps = {self.get_proxy_fingerprint(p) for p in final_list}
                             for old_p in old_data["proxies"]:
-                                if old_p.get('server') and old_p.get('server') not in existing_servers:
+                                old_fp = self.get_proxy_fingerprint(old_p)
+                                if old_fp and old_fp not in existing_fps:
                                     final_list.append(old_p)
-                                    existing_servers.add(old_p.get('server'))
+                                    existing_fps.add(old_fp)
                             logger.info(f"Loaded fallback nodes. Total nodes now: {len(final_list)}")
             except Exception as e:
                 logger.error(f"Failed to load fallback nodes: {e}")
