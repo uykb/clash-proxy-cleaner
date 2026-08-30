@@ -2,7 +2,7 @@ name: Clean and Update Proxies
 
 on:
   schedule:
-    - cron: '0 */12 * * *' # Daily at 00:00 (London/UTC)
+    - cron: '0 */12 * * *' # Daily at 00:00 and 12:00 (UTC)
   workflow_dispatch: # Manual trigger
 
 jobs:
@@ -70,3 +70,20 @@ jobs:
           
           git commit -m "更新清洗代理节点 [$(date -u +'%Y-%m-%d %H:%M:%S')]"
           git push origin HEAD:${{ github.ref_name }}
+
+      - name: Prune Git History (Weekly)
+        # 每周日 UTC 0 点自动修剪历史提交，保留最近 30 条提交，防止仓库体积膨胀
+        if: github.event.schedule == '0 0 * * 0' || github.event_name == 'workflow_dispatch'
+        run: |
+          COMMIT_COUNT=$(git rev-list --count HEAD)
+          echo "Current commit count: $COMMIT_COUNT"
+          if [ "$COMMIT_COUNT" -gt 50 ]; then
+            echo "Pruning git history to keep repository lightweight..."
+            git checkout --orphan temp_branch
+            git add -A
+            git commit -m "chore: 定期压缩历史提交并保持仓库轻量 [$(date -u +'%Y-%m-%d %H:%M:%S')]"
+            git branch -D ${{ github.ref_name }}
+            git branch -m ${{ github.ref_name }}
+            git push -f origin ${{ github.ref_name }}
+            echo "Git history pruned successfully."
+          fi

@@ -125,6 +125,51 @@ class ProxyCleaner:
             }
         except: return None
 
+    def parse_hysteria2(self, uri):
+        try:
+            # hysteria2://auth@host:port?sni=xxx&insecure=1#name or hy2://auth@host:port?sni=xxx#name
+            u = urllib.parse.urlparse(uri)
+            name = urllib.parse.unquote(u.fragment) if u.fragment else "hysteria2"
+            query = urllib.parse.parse_qs(u.query)
+            proxy = {
+                "name": name,
+                "type": "hysteria2",
+                "server": u.hostname,
+                "port": int(u.port or 443),
+                "password": urllib.parse.unquote(u.username or u.netloc.split('@')[0] if '@' in u.netloc else ""),
+                "sni": query.get("sni", [u.hostname])[0],
+                "skip-cert-verify": query.get("insecure", ["0"])[0] == "1" or query.get("allowInsecure", ["0"])[0] == "1"
+            }
+            if "obfs" in query and query.get("obfs"):
+                proxy["obfs"] = query["obfs"][0]
+                if "obfs-password" in query and query.get("obfs-password"):
+                    proxy["obfs-password"] = query["obfs-password"][0]
+            return proxy
+        except: return None
+
+    def parse_tuic(self, uri):
+        try:
+            # tuic://uuid:password@host:port?congestion_control=bbr&sni=xxx&alpn=h3&allow_insecure=1#name
+            u = urllib.parse.urlparse(uri)
+            name = urllib.parse.unquote(u.fragment) if u.fragment else "tuic"
+            query = urllib.parse.parse_qs(u.query)
+            uuid = u.username or ""
+            password = u.password or ""
+            proxy = {
+                "name": name,
+                "type": "tuic",
+                "server": u.hostname,
+                "port": int(u.port or 443),
+                "uuid": uuid,
+                "password": password,
+                "sni": query.get("sni", [u.hostname])[0],
+                "skip-cert-verify": query.get("allow_insecure", ["0"])[0] == "1" or query.get("insecure", ["0"])[0] == "1",
+                "congestion-controller": query.get("congestion_control", ["bbr"])[0],
+                "alpn": query.get("alpn", ["h3"])
+            }
+            return proxy
+        except: return None
+
     def parse_vless(self, uri):
         try:
             # vless://uuid@host:port?query#name
@@ -190,6 +235,8 @@ class ProxyCleaner:
                             elif line.startswith('ss://'): p = self.parse_ss(line)
                             elif line.startswith('trojan://'): p = self.parse_trojan(line)
                             elif line.startswith('vless://'): p = self.parse_vless(line)
+                            elif line.startswith('hysteria2://') or line.startswith('hy2://'): p = self.parse_hysteria2(line)
+                            elif line.startswith('tuic://'): p = self.parse_tuic(line)
                             if p: current_proxies.append(p)
             
             if current_proxies:
@@ -383,6 +430,32 @@ class ProxyCleaner:
                 uri += urllib.parse.urlencode(params)
                 uri += f"#{name}"
                 return uri
+            elif ptype == 'hysteria2':
+                password = urllib.parse.quote(p.get('password', ''))
+                uri = f"hysteria2://{password}@{p.get('server')}:{p.get('port')}?"
+                params = {}
+                if p.get('sni'): params['sni'] = p['sni']
+                if p.get('skip-cert-verify'): params['insecure'] = '1'
+                if p.get('obfs'):
+                    params['obfs'] = p['obfs']
+                    if p.get('obfs-password'): params['obfs-password'] = p['obfs-password']
+                if params: uri += urllib.parse.urlencode(params)
+                uri += f"#{name}"
+                return uri
+            elif ptype == 'tuic':
+                uuid = p.get('uuid', '')
+                password = p.get('password', '')
+                auth_str = f"{uuid}:{password}" if password else uuid
+                uri = f"tuic://{auth_str}@{p.get('server')}:{p.get('port')}?"
+                params = {}
+                if p.get('sni'): params['sni'] = p['sni']
+                if p.get('skip-cert-verify'): params['allow_insecure'] = '1'
+                if p.get('congestion-controller'): params['congestion_control'] = p['congestion-controller']
+                if p.get('alpn'):
+                    params['alpn'] = p['alpn'][0] if isinstance(p['alpn'], list) else p['alpn']
+                if params: uri += urllib.parse.urlencode(params)
+                uri += f"#{name}"
+                return uri
         except: pass
         return None
 
@@ -475,8 +548,25 @@ class ProxyCleaner:
                 p['name'] = base
             final_list.append(p)
         
+        # 保底机制：若本次测试有效节点过少（< 5），尝试读取上一次的有效节点进行兜底
+        if len(final_list) < 5:
+            logger.warning(f"Only {len(final_list)} valid nodes found in this run. Activating fallback mechanism...")
+            try:
+                if os.path.exists("subscribe.yaml"):
+                    with open("subscribe.yaml", "r", encoding="utf-8") as f:
+                        old_data = yaml.safe_load(f)
+                        if isinstance(old_data, dict) and "proxies" in old_data and old_data["proxies"]:
+                            existing_servers = {p.get('server') for p in final_list}
+                            for old_p in old_data["proxies"]:
+                                if old_p.get('server') and old_p.get('server') not in existing_servers:
+                                    final_list.append(old_p)
+                                    existing_servers.add(old_p.get('server'))
+                            logger.info(f"Loaded fallback nodes. Total nodes now: {len(final_list)}")
+            except Exception as e:
+                logger.error(f"Failed to load fallback nodes: {e}")
+
         if not final_list:
-            logger.warning("No valid proxies after testing.")
+            logger.warning("No valid proxies after testing and fallback.")
 
         output = {
             "proxies": final_list,
@@ -502,7 +592,7 @@ class ProxyCleaner:
                 f.write(b64_content)
             logger.info(f"Saved {len(uris)} nodes to base64.txt")
         elif old_base64:
-            logger.warning("No valid proxies, keeping old base64.txt")
+            logger.warning("No valid URIs, keeping old base64.txt")
         else:
             with open("base64.txt", "w", encoding="utf-8") as f:
                 f.write("")
