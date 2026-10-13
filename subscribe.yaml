@@ -1,55 +1,5 @@
 proxies:
-- cipher: 2022-blake3-aes-128-gcm
-  name: 🇺🇸[RES] US-SS 90ms
-  password: NzJlOTQ5NWYtM2ZkYi00Cg==
-  port: 28679
-  server: 103.11.76.248
-  type: ss
-- name: 🇽🇽[DC] XX-TROJAN 110ms
-  password: UX82473651
-  port: 443
-  server: pro-mako.rooster465.autos
-  skip-cert-verify: false
-  sni: pro-mako.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 123ms
-  password: UX82473651
-  port: 443
-  server: guided-ferret.rooster465.autos
-  skip-cert-verify: false
-  sni: guided-ferret.rooster465.autos
-  type: trojan
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 🇽🇽[DC] XX-VLESS 133ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: p8VhFzvFOBAhWAEAeWmwDxT3xBSRsGYixqi0qnLFnBM
-    short-id: 21270a66
-  server: tk1.high-speed-test-56424.me
-  servername: aws.amazon.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 37615d66-5467-44a3-bc23-f2c3bef7f761
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 🇺🇸[RES] US-VLESS 214ms
-  network: tcp
-  port: 41705
-  reality-opts:
-    public-key: KfOrtENkHAXDFlsCluw6fv62Q-WuJXCKI98XZihtemA
-    short-id: e51285e3
-  server: 154.29.149.140
-  servername: us1p1.xn--ghq880n3na965a.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
-- name: 🇺🇸[DC] US-VLESS 220ms
+- name: 🇺🇸[DC] US-VLESS 111ms
   network: tcp
   port: 45299
   server: 104.243.33.154
@@ -58,60 +8,49 @@ proxies:
   tls: false
   type: vless
   uuid: 261f011c-e97a-4d72-b596-e6329b50b47b
-- name: 🇽🇽[DC] XX-TROJAN 448ms
-  password: UX82473651
-  port: 443
-  server: warm-krill.rooster465.autos
-  skip-cert-verify: false
-  sni: warm-krill.rooster465.autos
-  type: trojan
-- name: 🇩🇪[DC] DE-VLESS 458ms
-  network: tcp
-  port: 45021
-  server: 31.77.148.89
-  skip-cert-verify: false
-  tfo: false
-  tls: false
-  type: vless
-  uuid: ad263f1c-199e-4aaf-bf22-c3ad0407d377
-- name: 🇽🇽[DC] XX-TROJAN 459ms
-  password: UX82473651
-  port: 443
-  server: concrete-aardvark.rooster465.autos
-  skip-cert-verify: false
-  sni: concrete-aardvark.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 469ms
-  password: UX82473651
-  port: 443
-  server: live-stallion.rooster465.autos
-  skip-cert-verify: false
-  sni: live-stallion.rooster465.autos
-  type: trojan
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 🇽🇽[DC] XX-VLESS 472ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
-    short-id: 1a
-  server: t14.qifei.app
-  servername: www.amazon.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
-- cipher: chacha20-ietf-poly1305
-  name: 🇳🇱[DC] NL-SS 475ms
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.46
-  type: ss
 - alterId: 0
   cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 475ms
+  name: 🇨🇦[DC] CA-VMESS 111ms
+  network: ws
+  port: 443
+  server: 172.66.203.67
+  servername: vmess.lbw666.dpdns.org
+  skip-cert-verify: false
+  tls: true
+  type: vmess
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  ws-opts:
+    headers:
+      Host: vmess.lbw666.dpdns.org
+    path: /ws?ed=2048
+- cipher: aes-256-gcm
+  name: 🇺🇸[DC] US-SS 116ms
+  password: 618a13eda4b4d208a4bcdc85fcb8996df812d59dd48419f75ae3f5f5b46a94fb
+  port: 8393
+  server: 45.76.9.57
+  type: ss
+- cipher: aes-128-gcm
+  name: 🇨🇦[DC] CA-SS 134ms
+  password: 4efe1af272e7292139b889f6a63ee071
+  port: 18766
+  server: 64.74.163.69
+  type: ss
+- cipher: 2022-blake3-aes-128-gcm
+  name: 🇺🇸[RES] US-SS 198ms
+  password: NzJlOTQ5NWYtM2ZkYi00Cg==
+  port: 28679
+  server: 103.11.76.248
+  type: ss
+- name: 🇽🇽[DC] XX-TROJAN 269ms
+  password: UX82473651
+  port: 443
+  server: pro-mako.rooster465.autos
+  skip-cert-verify: false
+  sni: pro-mako.rooster465.autos
+  type: trojan
+- alterId: 0
+  cipher: auto
+  name: 🇽🇽[DC] XX-VMESS 323ms
   network: ws
   port: 443
   server: cf.0sm.com
@@ -125,174 +64,136 @@ proxies:
       Host: vmess.lbw666.dpdns.org
     path: /ws?ed=2048
 - cipher: chacha20-ietf-poly1305
-  name: 🇳🇱[DC] NL-SS 481ms
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.42
-  type: ss
-- name: 🇽🇽[DC] XX-TROJAN 491ms
-  password: UX82473651
-  port: 443
-  server: legible-ram.rooster465.autos
-  skip-cert-verify: false
-  sni: legible-ram.rooster465.autos
-  type: trojan
-- cipher: aes-256-gcm
-  name: 🇬🇧[RES] GB-SS 496ms
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 82.110.60.9
-  type: ss
-- cipher: chacha20-ietf-poly1305
-  name: 🇳🇱[DC] NL-SS 498ms
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.171
-  type: ss
-- cipher: chacha20-ietf-poly1305
-  name: 🇳🇱[DC] NL-SS 500ms
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 443
-  server: 82.38.31.159
-  type: ss
-- alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  name: 🇨🇦[DC] CA-VLESS 504ms
-  network: ws
-  port: 443
-  server: 104.21.70.22
-  servername: luminouspetal.cyou
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: efe19c5a-0ea1-4666-8a4c-4a33f4670775
-  ws-opts:
-    headers:
-      Host: luminouspetal.cyou
-    path: /raccoonwsvless
-- cipher: chacha20-ietf-poly1305
-  name: 🇳🇱[DC] NL-SS 506ms
+  name: 🇳🇱[DC] NL-SS 369ms
   password: oZIoA69Q8yhcQV8ka3Pa3A
   port: 8080
   server: 82.38.31.82
   type: ss
 - cipher: chacha20-ietf-poly1305
-  name: 🇳🇱[DC] NL-SS 512ms
+  name: 🇳🇱[DC] NL-SS 370ms
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 82.38.31.42
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇳🇱[DC] NL-SS 371ms
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 82.38.31.46
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇳🇱[DC] NL-SS 372ms
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 82.38.31.171
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇳🇱[DC] NL-SS 376ms
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 443
+  server: 82.38.31.159
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇽🇽[DC] XX-SS 379ms
+  password: y7KeRTzmH0vXT2kp
+  port: 443
+  server: c3.nastuh.link
+  type: ss
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 🇺🇸[RES] US-VLESS 382ms
+  network: tcp
+  port: 41705
+  reality-opts:
+    public-key: KfOrtENkHAXDFlsCluw6fv62Q-WuJXCKI98XZihtemA
+    short-id: e51285e3
+  server: 154.29.149.140
+  servername: us1p1.xn--ghq880n3na965a.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+- cipher: chacha20-ietf-poly1305
+  name: 🇳🇱[DC] NL-SS 383ms
   password: oZIoA69Q8yhcQV8ka3Pa3A
   port: 443
   server: 82.38.31.170
   type: ss
-- cipher: chacha20-ietf-poly1305
-  name: 🇸🇬[DC] SG-SS 517ms
-  password: 9epp3o9ng8ej59uv
-  port: 14249
-  server: 45.128.12.20
+- cipher: aes-256-gcm
+  name: 🇬🇧[RES] GB-SS 388ms
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  port: 19999
+  server: 82.110.60.9
   type: ss
-- name: 🇸🇬[DC] SG-VLESS 520ms
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇭[DC] CH-SS 389ms
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
+  port: 8388
+  server: 132.243.175.144
+  type: ss
+- name: 🇩🇪[DC] DE-VLESS 389ms
   network: tcp
-  port: 16263
-  server: 47.237.74.17
+  port: 45021
+  server: 31.77.148.89
   skip-cert-verify: false
   tfo: false
   tls: false
   type: vless
-  uuid: c538c9dd-2e3f-488f-a8ca-ac5b7c0773f3
-- name: 🇽🇽[DC] XX-TROJAN 523ms
+  uuid: ad263f1c-199e-4aaf-bf22-c3ad0407d377
+- name: 🇽🇽[DC] XX-TROJAN 399ms
   password: UX82473651
   port: 443
-  server: obliging-louse.rooster465.autos
+  server: guided-ferret.rooster465.autos
   skip-cert-verify: false
-  sni: obliging-louse.rooster465.autos
+  sni: guided-ferret.rooster465.autos
   type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 532ms
+- name: 🇽🇽[DC] XX-TROJAN 433ms
   password: UX82473651
   port: 443
-  server: assuring-skink.rooster465.autos
+  server: alert-titmouse.rooster465.autos
   skip-cert-verify: false
-  sni: assuring-skink.rooster465.autos
+  sni: alert-titmouse.rooster465.autos
   type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 548ms
-  password: UX82473651
-  port: 443
-  server: noted-cougar.rooster465.autos
+- client-fingerprint: firefox
+  name: 🇬🇧[DC] GB-VLESS 438ms
+  network: tcp
+  port: 2053
+  reality-opts:
+    public-key: xPEBx4wUmwAAv4ikUALNBf5wH6TRhyeQ0Q2pcNELsV0
+    short-id: d051f678212f9d54
+  server: 51.89.194.151
+  servername: www.apple.com
   skip-cert-verify: false
-  sni: noted-cougar.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 551ms
-  password: UX82473651
-  port: 443
-  server: prime-corgi.rooster465.autos
-  skip-cert-verify: false
-  sni: prime-corgi.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 553ms
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 8e790f25-1d71-4601-9fb0-d503931dcfca
+- name: 🇽🇽[DC] XX-TROJAN 446ms
   password: UX82473651
   port: 443
   server: adapting-basilisk.rooster465.autos
   skip-cert-verify: false
   sni: adapting-basilisk.rooster465.autos
   type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 553ms 1
-  password: UX82473651
+- client-fingerprint: randomized
+  flow: xtls-rprx-vision
+  name: 🇩🇪[DC] DE-VLESS 461ms
+  network: tcp
   port: 443
-  server: allowed-poodle.rooster465.autos
+  reality-opts:
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  server: 179.61.145.245
+  servername: de2.srv.vbuste.ru
   skip-cert-verify: false
-  sni: allowed-poodle.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 553ms 2
-  password: UX82473651
-  port: 443
-  server: pure-kodiak.rooster465.autos
-  skip-cert-verify: false
-  sni: pure-kodiak.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 553ms 3
-  password: UX82473651
-  port: 443
-  server: working-tomcat.rooster465.autos
-  skip-cert-verify: false
-  sni: working-tomcat.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 557ms
-  password: UX82473651
-  port: 443
-  server: glorious-lark.rooster465.autos
-  skip-cert-verify: false
-  sni: glorious-lark.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 560ms
-  password: UX82473651
-  port: 443
-  server: comic-poodle.rooster465.autos
-  skip-cert-verify: false
-  sni: comic-poodle.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 565ms
-  password: UX82473651
-  port: 443
-  server: inviting-rabbit.rooster465.autos
-  skip-cert-verify: false
-  sni: inviting-rabbit.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 568ms
-  password: UX82473651
-  port: 443
-  server: fancy-skink.rooster465.autos
-  skip-cert-verify: false
-  sni: fancy-skink.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 571ms
-  password: UX82473651
-  port: 443
-  server: cunning-grub.rooster465.autos
-  skip-cert-verify: false
-  sni: cunning-grub.rooster465.autos
-  type: trojan
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
 - alterId: 0
   cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 572ms
+  name: 🇽🇽[DC] XX-VMESS 464ms
   network: ws
   port: 443
   server: us5-1.998998.best
@@ -305,44 +206,9 @@ proxies:
     headers:
       Host: server4.9966338.xyz
     path: /androirfdsreoightrjh?ed=2560
-- name: 🇽🇽[DC] XX-TROJAN 588ms
-  password: UX82473651
-  port: 443
-  server: central-jawfish.rooster465.autos
-  skip-cert-verify: false
-  sni: central-jawfish.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 591ms
-  password: UX82473651
-  port: 443
-  server: main-fawn.rooster465.autos
-  skip-cert-verify: false
-  sni: main-fawn.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 594ms
-  password: UX82473651
-  port: 443
-  server: fancy-javelin.rooster465.autos
-  skip-cert-verify: false
-  sni: fancy-javelin.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 596ms
-  password: UX82473651
-  port: 443
-  server: organic-caribou.rooster465.autos
-  skip-cert-verify: false
-  sni: organic-caribou.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 599ms
-  password: UX82473651
-  port: 443
-  server: brief-glider.rooster465.autos
-  skip-cert-verify: false
-  sni: brief-glider.rooster465.autos
-  type: trojan
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇫🇷[DC] FR-VLESS 605ms
+  name: 🇫🇷[DC] FR-VLESS 466ms
   network: tcp
   port: 443
   reality-opts:
@@ -355,38 +221,26 @@ proxies:
   tls: true
   type: vless
   uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 🇫🇷[DC] FR-VLESS 615ms
-  network: tcp
-  port: 443
+- client-fingerprint: random
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: GunService
+  name: 🇩🇪[RES] DE-VLESS 467ms
+  network: grpc
+  port: 8444
   reality-opts:
-    public-key: 5BDht3tAZdKEKpJymGlRK9JugOnieA-kMSWz_0FoE0I
-    short-id: 6f76ad09
-  server: 157.228.155.238
-  servername: addons.mozilla.org
+    public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+    short-id: 457fab2ac885dbe0
+  server: 178.17.57.33
+  servername: github.com
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-- client-fingerprint: chrome
-  name: 🇳🇱[DC] NL-VLESS 615ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: ClG6fvriBTK8donGsTlKusJ0dwRCgVDDTAGzAtZzJDY
-    short-id: 82c2b7d5e70ff000
-  server: 162.35.242.252
-  servername: nl.aksay.pro
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: e3e9805a-6c8b-4edd-8ee8-621df79806eb
+  uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
 - client-fingerprint: firefox
   flow: xtls-rprx-vision
-  name: 🇳🇱[RES] NL-VLESS 620ms
+  name: 🇳🇱[RES] NL-VLESS 475ms
   network: tcp
   port: 443
   reality-opts:
@@ -401,68 +255,7 @@ proxies:
   uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇸🇪[RES] SE-VLESS 621ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
-    short-id: 4be4110078ebed4a
-  server: 150.241.79.232
-  servername: de2.srv.vbuste.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 🇩🇪[RES] DE-VLESS 628ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
-    short-id: 4be4110078ebed4a
-  server: 144.31.62.242
-  servername: de2.srv.vbuste.ru
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
-- client-fingerprint: firefox
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: GunService
-  name: 🇩🇪[RES] DE-VLESS 632ms
-  network: grpc
-  port: 8444
-  reality-opts:
-    public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
-    short-id: 457fab2ac885dbe0
-  server: 193.233.74.6
-  servername: github.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
-- name: 🇽🇽[DC] XX-TROJAN 633ms
-  password: UX82473651
-  port: 443
-  server: winning-marten.rooster465.autos
-  skip-cert-verify: false
-  sni: winning-marten.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 635ms
-  password: UX82473651
-  port: 443
-  server: amazed-mako.rooster465.autos
-  skip-cert-verify: false
-  sni: amazed-mako.rooster465.autos
-  type: trojan
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 🇩🇪[RES] DE-VLESS 645ms
+  name: 🇩🇪[RES] DE-VLESS 479ms
   network: tcp
   port: 443
   reality-opts:
@@ -477,37 +270,69 @@ proxies:
   uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇽🇽[DC] XX-VLESS 652ms
+  name: 🇫🇷[DC] FR-VLESS 483ms
   network: tcp
   port: 443
   reality-opts:
-    public-key: s0ypPx0AL3k2KOk74tbm-aE-i7eIR_MYVzfLHZeLaUk
-    short-id: 2e124af254a65e7c
-  server: tomaz1337shellbuy.vvzzkontaktezzvv.garden
-  servername: tomaz1337shellbuy.vvzzkontaktezzvv.garden
+    public-key: 5BDht3tAZdKEKpJymGlRK9JugOnieA-kMSWz_0FoE0I
+    short-id: 6f76ad09
+  server: 157.228.155.238
+  servername: addons.mozilla.org
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 4bdeee92-97e8-414d-bef6-ec1d5e2ab73b
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: 🇩🇪[DC] DE-VLESS 659ms
-  network: tcp
-  port: 443
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+- client-fingerprint: firefox
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: GunService
+  name: 🇩🇪[RES] DE-VLESS 490ms
+  network: grpc
+  port: 8444
   reality-opts:
-    public-key: LEoyslGYLVf2XWq9Bkq8Hod-EsB3ZoTlvR5AKK3rciQ
-    short-id: c885e8f8
-  server: 144.31.215.227
-  servername: cdn-de.bulkavpn.top
+    public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+    short-id: 457fab2ac885dbe0
+  server: 193.233.74.6
+  servername: github.com
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 91d734be-a3d0-4d50-83ab-74cf7b6966fa
+  uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇩🇪[DC] DE-VLESS 674ms
+  name: 🇸🇪[RES] SE-VLESS 499ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  server: 150.241.79.232
+  servername: de2.srv.vbuste.ru
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 🇩🇪[RES] DE-VLESS 501ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  server: 144.31.62.242
+  servername: de2.srv.vbuste.ru
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇩🇪[DC] DE-VLESS 509ms
   network: tcp
   port: 443
   reality-opts:
@@ -522,43 +347,7 @@ proxies:
   uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇩🇪[DC] DE-VLESS 681ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: RTG-xTU5UuKTRrkk8_COe04GiUWrqrSdt9mqSak_XEc
-    short-id: e696e744
-  server: 2.27.35.55
-  servername: addons.mozilla.org
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-- name: 🇽🇽[DC] XX-TROJAN 683ms
-  password: UX82473651
-  port: 443
-  server: equipped-stingray.rooster465.autos
-  skip-cert-verify: false
-  sni: equipped-stingray.rooster465.autos
-  type: trojan
-- alpn:
-  - http/1.1
-  name: 🇨🇦[DC] CA-TROJAN 683ms
-  network: ws
-  password: humanity
-  port: 443
-  server: 172.66.40.99
-  skip-cert-verify: false
-  sni: www.trusteeforward.com
-  type: trojan
-  ws-opts:
-    headers:
-      Host: www.trusteeforward.com
-    path: /assignment
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 🇩🇪[DC] DE-VLESS 683ms
+  name: 🇩🇪[DC] DE-VLESS 515ms
   network: tcp
   port: 443
   reality-opts:
@@ -572,8 +361,53 @@ proxies:
   type: vless
   uuid: 84ed0e09-6803-4ef9-a977-74b657d971e5
 - client-fingerprint: chrome
+  name: 🇳🇱[DC] NL-VLESS 515ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: ClG6fvriBTK8donGsTlKusJ0dwRCgVDDTAGzAtZzJDY
+    short-id: 82c2b7d5e70ff000
+  server: 162.35.242.252
+  servername: nl.aksay.pro
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: e3e9805a-6c8b-4edd-8ee8-621df79806eb
+- client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇩🇪[DC] DE-VLESS 695ms
+  name: 🇩🇪[RES] DE-VLESS 517ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: P-r-oVr8MTTCILgRxk8YuB9OKVojYw3MkH_ERUXzX3s
+    short-id: b76a6309
+  server: 31.76.35.27
+  servername: addons.mozilla.org
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 4d852af3-a121-41aa-9aed-4ca40a6f7b4d
+- alpn:
+  - http/1.1
+  name: 🇨🇦[DC] CA-VLESS 517ms
+  network: ws
+  port: 443
+  server: 104.21.70.22
+  servername: brightlux.forum
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: efe19c5a-0ea1-4666-8a4c-4a33f4670775
+  ws-opts:
+    headers:
+      Host: brightlux.forum
+    path: /raccoonwsvless
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇩🇪[DC] DE-VLESS 528ms
   network: tcp
   port: 443
   reality-opts:
@@ -586,255 +420,53 @@ proxies:
   tls: true
   type: vless
   uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-- name: 🇽🇽[DC] XX-TROJAN 696ms
-  password: UX82473651
-  port: 443
-  server: musical-terrier.rooster465.autos
-  skip-cert-verify: false
-  sni: musical-terrier.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 699ms
-  password: UX82473651
-  port: 443
-  server: optimum-snapper.rooster465.autos
-  skip-cert-verify: false
-  sni: optimum-snapper.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 701ms
-  password: UX82473651
-  port: 443
-  server: rested-seahorse.rooster465.autos
-  skip-cert-verify: false
-  sni: rested-seahorse.rooster465.autos
-  type: trojan
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 🇱🇻[DC] LV-VLESS 701ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 4SJB--DChFNhmOUz0-BZK2dS3GhZ1yZwMVIhmpobB0o
-    short-id: 44f7c5615039ae1b
-  server: 31.57.106.241
-  servername: www.lmt.lv
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: a4801105-c0c7-4cab-87c6-f257ff2afc09
-- name: 🇽🇽[DC] XX-TROJAN 705ms
-  password: UX82473651
-  port: 443
-  server: intense-wildcat.rooster465.autos
-  skip-cert-verify: false
-  sni: intense-wildcat.rooster465.autos
-  type: trojan
-- client-fingerprint: random
-  name: 🇵🇱[RES] PL-VLESS 709ms
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: gS0qvWKumWcOVoAgf8SHt6Sm3tqpBw07c5sA_Clb1hg
-  server: 80.47.12.94
-  servername: pl-1-1.unturned-rust-dead.lol
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇽🇽[DC] XX-VLESS 709ms
+  name: 🇩🇪[DC] DE-VLESS 533ms
   network: tcp
   port: 443
   reality-opts:
-    public-key: ZqVz1kWNxh_5zQ5PPkoPHoaXQOvppM0ZyIo8uKp2dCg
-    short-id: bdf5852d1423e694
-  server: fi.pythonsetupbib.online
-  servername: fi.pythonsetupbib.online
+    public-key: RTG-xTU5UuKTRrkk8_COe04GiUWrqrSdt9mqSak_XEc
+    short-id: e696e744
+  server: 2.27.35.55
+  servername: addons.mozilla.org
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
-- name: 🇽🇽[DC] XX-TROJAN 711ms
-  password: UX82473651
-  port: 443
-  server: moral-basilisk.rooster465.autos
-  skip-cert-verify: false
-  sni: moral-basilisk.rooster465.autos
-  type: trojan
-- client-fingerprint: chrome
-  name: 🇫🇮[DC] FI-VLESS 711ms
-  network: tcp
-  port: 2053
-  reality-opts:
-    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
-    short-id: d368b94e275ab080
-  server: 95.216.27.15
-  servername: www.google.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
-- name: 🇽🇽[DC] XX-TROJAN 713ms
-  password: UX82473651
-  port: 443
-  server: inspired-hound.rooster465.autos
-  skip-cert-verify: false
-  sni: inspired-hound.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 716ms
-  password: UX82473651
-  port: 443
-  server: integral-rodent.rooster465.autos
-  skip-cert-verify: false
-  sni: integral-rodent.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 718ms
-  password: UX82473651
-  port: 443
-  server: simple-molly.rooster465.autos
-  skip-cert-verify: false
-  sni: simple-molly.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 719ms
-  password: UX82473651
-  port: 443
-  server: musical-mouse.rooster465.autos
-  skip-cert-verify: false
-  sni: musical-mouse.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 722ms
-  password: UX82473651
-  port: 443
-  server: evolving-platypus.rooster465.autos
-  skip-cert-verify: false
-  sni: evolving-platypus.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 757ms
-  password: UX82473651
-  port: 443
-  server: stable-python.rooster465.autos
-  skip-cert-verify: false
-  sni: stable-python.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 759ms
-  password: UX82473651
-  port: 443
-  server: evident-ant.rooster465.autos
-  skip-cert-verify: false
-  sni: evident-ant.rooster465.autos
-  type: trojan
-- alterId: 0
-  cipher: auto
-  name: 🇭🇰[DC] HK-VMESS 762ms
-  network: ws
-  port: 443
-  server: 47.243.153.153
-  servername: i2psm3knof5qjjix.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
-  ws-opts:
-    headers:
-      Host: i2psm3knof5qjjix.v.3dns.vip
-    path: /ws-vmess
-- alterId: 0
-  cipher: auto
-  name: 🇭🇰[DC] HK-VMESS 763ms
-  network: ws
-  port: 443
-  server: 8.217.254.88
-  servername: 2b9hwy8ocx7q74nm.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  ws-opts:
-    headers:
-      Host: 2b9hwY8oCx7Q74NM.v.3dns.vip
-    path: /ws-vmess
-- alterId: 0
-  cipher: auto
-  name: 🇭🇰[DC] HK-VMESS 769ms
-  network: ws
-  port: 443
-  server: 47.243.194.125
-  servername: nycqg19zkwacpm1b.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  ws-opts:
-    headers:
-      Host: nycqg19zkwacpm1b.v.3dns.vip
-    path: /ws-vmess
-- alterId: 0
-  cipher: auto
-  name: 🇭🇰[DC] HK-VMESS 771ms
-  network: ws
-  port: 443
-  server: 8.217.13.103
-  servername: qtkdr8jxe3wefxjm.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
-  ws-opts:
-    headers:
-      Host: qtkdr8jxe3wefxjm.v.3dns.vip
-    path: /ws-vmess
-- client-fingerprint: random
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: GunService
-  name: 🇩🇪[RES] DE-VLESS 780ms
-  network: grpc
-  port: 8444
-  reality-opts:
-    public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
-    short-id: 457fab2ac885dbe0
-  server: 178.17.57.33
-  servername: github.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇳🇱[DC] NL-VLESS 785ms
+  name: 🇪🇪[DC] EE-VLESS 536ms
   network: tcp
-  port: 2063
+  port: 443
   reality-opts:
-    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
-  server: 31.77.13.19
-  servername: rusbid.de
+    public-key: 7mRrVzTchVLWWBru5fCgTvtdkL7lVJ_qRj9HW8Rd8X0
+    short-id: 0da7e14db353e7d0
+  server: 185.31.242.61
+  servername: est.nztvpn.com
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
-- name: 🇮🇪[DC] IE-TROJAN 788ms
-  password: UX82473651
+  uuid: ee18d188-14cc-417e-beb1-70e4add6d023
+- alpn:
+  - http/1.1
+  name: 🇨🇦[DC] CA-TROJAN 546ms
+  network: ws
+  password: humanity
   port: 443
-  server: 34.242.77.118
+  server: 172.66.40.99
   skip-cert-verify: false
-  sni: sacred-anemone.rooster465.autos
+  sni: www.trusteeforward.com
   type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 799ms
-  password: UX82473651
-  port: 443
-  server: joint-ewe.rooster465.autos
-  skip-cert-verify: false
-  sni: joint-ewe.rooster465.autos
-  type: trojan
+  ws-opts:
+    headers:
+      Host: www.trusteeforward.com
+    path: /assignment
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇺🇸[DC] US-VLESS 805ms
+  name: 🇺🇸[DC] US-VLESS 550ms
   network: tcp
   port: 443
   reality-opts:
@@ -847,263 +479,122 @@ proxies:
   tls: true
   type: vless
   uuid: 719b9354-45e2-4718-8709-d965b64554db
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 🇮🇩[DC] ID-VLESS 822ms
+- name: 🇵🇱[DC] PL-VLESS 557ms
   network: tcp
-  port: 16006
-  reality-opts:
-    public-key: ll7JTP628PuBMZJvx6fuhGSmCRSURnReAetmhCEL8GU
-  server: 103.172.197.3
-  servername: www.cloudflare.com
+  port: 8443
+  server: 2.26.225.89
+  servername: pl.flen-vpn.xyz
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: f8c9d2a1-da40-4f90-b671-11772a0b13d6
-- name: 🇽🇽[DC] XX-TROJAN 831ms
-  password: UX82473651
-  port: 443
-  server: promoted-rattler.rooster465.autos
-  skip-cert-verify: false
-  sni: promoted-rattler.rooster465.autos
-  type: trojan
-- alterId: 0
-  cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 841ms
-  network: ws
-  port: 443
-  server: uk3-2.998998.best
-  servername: server22.9966338.xyz
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  ws-opts:
-    headers:
-      Host: server22.9966338.xyz
-    path: /serhrdftshg?ed=2560
-- alterId: 0
-  cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 842ms
-  network: ws
-  port: 443
-  server: uk2-2.998998.best
-  servername: server3.9966338.xyz
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  ws-opts:
-    headers:
-      Host: server3.9966338.xyz
-    path: /waetasiuofguiwer?ed=2560
-- name: 🇽🇽[DC] XX-TROJAN 851ms
-  password: UX82473651
-  port: 443
-  server: ace-liger.rooster465.autos
-  skip-cert-verify: false
-  sni: ace-liger.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 855ms
-  password: UX82473651
-  port: 443
-  server: pretty-rat.rooster465.autos
-  skip-cert-verify: false
-  sni: pretty-rat.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 861ms
-  password: UX82473651
-  port: 443
-  server: delicate-buck.rooster465.autos
-  skip-cert-verify: false
-  sni: delicate-buck.rooster465.autos
-  type: trojan
+  uuid: 51a1fd52-fd88-4905-a976-35e44be28e4b
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇹🇷[RES] TR-VLESS 882ms
+  name: 🇽🇽[DC] XX-VLESS 563ms
   network: tcp
   port: 443
   reality-opts:
-    public-key: sZAJkAu23wp1WKY-qeaeiwR38izP5OyfhumoE9xhbB8
-    short-id: f46cd3ea3d1eb72d
-  server: 78.135.73.47
-  servername: www.datadoghq.com
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 25e16692-d097-4e69-9e2d-8415609c1968
-- alterId: 0
-  cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 885ms
-  network: ws
-  port: 443
-  server: i2psm3knof5qjjix.v.3dns.vip
-  servername: i2psm3knof5qjjix.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  ws-opts:
-    headers:
-      Host: i2psm3knof5qjjix.v.3dns.vip
-    path: /ws-vmess
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 🇽🇽[DC] XX-VLESS 892ms
-  network: tcp
-  port: 2063
-  reality-opts:
-    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
-  server: pl-waw.dontblockmepls.com
-  servername: rusbid.de
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
-- name: 🇽🇽[DC] XX-TROJAN 893ms
-  password: UX82473651
-  port: 443
-  server: loved-shark.rooster465.autos
-  skip-cert-verify: false
-  sni: loved-shark.rooster465.autos
-  type: trojan
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 🇮🇩[DC] ID-VLESS 910ms
-  network: tcp
-  port: 29172
-  reality-opts:
-    public-key: pff94OJwuKXnF7_3SJ8KKJuAN4GJtInBlR-kg-4mwzQ
-  server: 103.172.197.2
+    public-key: p8VhFzvFOBAhWAEAeWmwDxT3xBSRsGYixqi0qnLFnBM
+    short-id: 21270a66
+  server: tk1.high-speed-test-56424.me
   servername: aws.amazon.com
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 3977434d-6a9b-4858-8ced-80326ba5e367
-- name: 🇽🇽[DC] XX-TROJAN 942ms
-  password: UX82473651
-  port: 443
-  server: cuddly-sheepdog.rooster465.autos
-  skip-cert-verify: false
-  sni: cuddly-sheepdog.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 951ms
-  password: UX82473651
-  port: 443
-  server: real-cardinal.rooster465.autos
-  skip-cert-verify: false
-  sni: real-cardinal.rooster465.autos
-  type: trojan
-- alpn:
-  - h2
-  - http/1.1
-  client-fingerprint: ios
-  name: 🇨🇦[DC] CA-VLESS 961ms
-  network: xhttp
-  port: 443
-  server: 104.21.207.202
-  servername: b33ec4a1s226.fuhuovps.xyz
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  xhttp-opts:
-    host: b33ec4a1s226.fuhuovps.xyz
-    path: e0d9cd6ea04ecda957b4ca0869e038af
-- name: 🇽🇽[DC] XX-TROJAN 977ms
-  password: UX82473651
-  port: 443
-  server: kind-stork.rooster465.autos
-  skip-cert-verify: false
-  sni: kind-stork.rooster465.autos
-  type: trojan
-- cipher: aes-256-gcm
-  name: 🇽🇽[DC] XX-SS 982ms
-  password: sxajCTwrlK0zl+zmHpX0p0jXIfatnzlLzWlSQ950L1c=
-  port: 52351
-  server: pphfree2.mvpnpvpn.de5.net
-  type: ss
-- name: 🇽🇽[DC] XX-TROJAN 1015ms
-  password: UX82473651
-  port: 443
-  server: optimal-penguin.rooster465.autos
-  skip-cert-verify: false
-  sni: optimal-penguin.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 1036ms
-  password: UX82473651
-  port: 443
-  server: pet-antelope.rooster465.autos
-  skip-cert-verify: false
-  sni: pet-antelope.rooster465.autos
-  type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 1038ms
-  password: UX82473651
-  port: 443
-  server: meet-goshawk.rooster465.autos
-  skip-cert-verify: false
-  sni: meet-goshawk.rooster465.autos
-  type: trojan
-- alterId: 0
-  cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 1068ms
-  network: ws
-  port: 443
-  server: uk3-2.998998.best
-  servername: server22.9966338.xyz
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  ws-opts:
-    headers:
-      Host: server22.9966338.xyz
-    path: /serhrdftshg
+  uuid: 37615d66-5467-44a3-bc23-f2c3bef7f761
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇵🇱[DC] PL-VLESS 1071ms
+  name: 🇵🇱[DC] PL-VLESS 565ms
   network: tcp
-  port: 33891
+  port: 443
   reality-opts:
-    public-key: HXXIkFRPeRpluXJ7SOoUGf9EOq4Lw-oJpvg1W0UPbEw
-    short-id: 5bd7b68ca4c04443
-  server: 144.31.101.196
-  servername: browser.yandex.com
+    public-key: JNr60Nnq_sdeAz5jd25bxNDx_c9CeYLu7DRbQH3P5xk
+    short-id: 85766a81
+  server: 177.1.192.81
+  servername: addons.mozilla.org
   skip-cert-verify: false
   tfo: false
   tls: true
   type: vless
-  uuid: 1c794e75-bcd4-4a65-9f69-ed0a10f33d60
-- alterId: 0
-  cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 1081ms
-  network: ws
+  uuid: 5ac49a12-f275-44b4-b11d-26505f3f268e
+- client-fingerprint: random
+  flow: xtls-rprx-vision
+  name: 🇩🇪[DC] DE-VLESS 565ms
+  network: tcp
   port: 443
-  server: yg1.ygkkk.dpdns.org
-  servername: jmp1.907737.xyz
+  reality-opts:
+    public-key: LEoyslGYLVf2XWq9Bkq8Hod-EsB3ZoTlvR5AKK3rciQ
+    short-id: c885e8f8
+  server: 144.31.215.227
+  servername: cdn-de.bulkavpn.top
   skip-cert-verify: false
+  tfo: false
   tls: true
-  type: vmess
-  uuid: b2ba4a73-3123-479e-aa96-5973a9ecd0c0
-  ws-opts:
-    headers:
-      Host: jmp1.907737.xyz
-    path: /b2ba4a73-3123-479e-aa96-5973a9ecd0c0-vm
-- name: 🇽🇽[DC] XX-TROJAN 1096ms
+  type: vless
+  uuid: 91d734be-a3d0-4d50-83ab-74cf7b6966fa
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇵🇱[DC] PL-VLESS 571ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: qC0g7Y0pwyLFTGAPG2zfZNuo64Cda695wdKgLU4KkF8
+    short-id: 770618b6
+  server: 177.1.192.74
+  servername: addons.mozilla.org
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 4d852af3-a121-41aa-9aed-4ca40a6f7b4d
+- name: 🇽🇽[DC] XX-TROJAN 572ms
   password: UX82473651
   port: 443
-  server: normal-macaque.rooster465.autos
+  server: allowed-poodle.rooster465.autos
   skip-cert-verify: false
-  sni: normal-macaque.rooster465.autos
+  sni: allowed-poodle.rooster465.autos
+  type: trojan
+- client-fingerprint: chrome
+  name: 🇫🇮[DC] FI-VLESS 575ms
+  network: tcp
+  port: 2053
+  reality-opts:
+    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
+    short-id: d368b94e275ab080
+  server: 95.216.27.15
+  servername: www.google.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
+- name: 🇽🇽[DC] XX-TROJAN 583ms
+  password: UX82473651
+  port: 443
+  server: warm-krill.rooster465.autos
+  skip-cert-verify: false
+  sni: warm-krill.rooster465.autos
   type: trojan
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 🇵🇱[DC] PL-VLESS 1132ms
+  name: 🇱🇻[DC] LV-VLESS 585ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: miDhSALrcCvSfc38VjCDYlzNh5M61NMR5IkUli7IN08
+    short-id: 0da7e14db353e7d0
+  server: 216.173.71.43
+  servername: lv.nztvpn.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: ee18d188-14cc-417e-beb1-70e4add6d023
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇵🇱[DC] PL-VLESS 589ms
   network: tcp
   port: 443
   reality-opts:
@@ -1116,68 +607,655 @@ proxies:
   tls: true
   type: vless
   uuid: 4d852af3-a121-41aa-9aed-4ca40a6f7b4d
-- name: 🇽🇽[DC] XX-TROJAN 1136ms
+- name: 🇽🇽[DC] XX-TROJAN 592ms
   password: UX82473651
   port: 443
-  server: inviting-ferret.rooster465.autos
+  server: optimal-penguin.rooster465.autos
   skip-cert-verify: false
-  sni: inviting-ferret.rooster465.autos
+  sni: optimal-penguin.rooster465.autos
+  type: trojan
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 🇱🇻[DC] LV-VLESS 600ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: 4SJB--DChFNhmOUz0-BZK2dS3GhZ1yZwMVIhmpobB0o
+    short-id: 44f7c5615039ae1b
+  server: 31.57.106.241
+  servername: www.lmt.lv
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: a4801105-c0c7-4cab-87c6-f257ff2afc09
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇽🇽[DC] XX-VLESS 602ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: s0ypPx0AL3k2KOk74tbm-aE-i7eIR_MYVzfLHZeLaUk
+    short-id: 2e124af254a65e7c
+  server: tomaz1337shellbuy.vvzzkontaktezzvv.garden
+  servername: tomaz1337shellbuy.vvzzkontaktezzvv.garden
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 4bdeee92-97e8-414d-bef6-ec1d5e2ab73b
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇽🇽[DC] XX-VLESS 614ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: ZqVz1kWNxh_5zQ5PPkoPHoaXQOvppM0ZyIo8uKp2dCg
+    short-id: bdf5852d1423e694
+  server: fi.pythonsetupbib.online
+  servername: fi.pythonsetupbib.online
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 🇫🇮[DC] FI-VLESS 619ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: bQZcMViJWXus9rMSTOa-ZAaUJC0mIlPx7XmzrLp8GQU
+    short-id: 94f32cfc
+  server: 185.166.154.111
+  servername: cdn.bulkavpn.top
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 91d734be-a3d0-4d50-83ab-74cf7b6966fa
+- cipher: chacha20-ietf-poly1305
+  name: 🇸🇬[DC] SG-SS 623ms
+  password: 9epp3o9ng8ej59uv
+  port: 14249
+  server: 45.128.12.20
+  type: ss
+- name: 🇽🇽[DC] XX-TROJAN 623ms
+  password: UX82473651
+  port: 443
+  server: promoted-rattler.rooster465.autos
+  skip-cert-verify: false
+  sni: promoted-rattler.rooster465.autos
+  type: trojan
+- client-fingerprint: chrome
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: GunService
+  name: 🇫🇮[RES] FI-VLESS 659ms
+  network: grpc
+  port: 8444
+  reality-opts:
+    public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+  server: 153.80.241.206
+  servername: github.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇽🇽[DC] XX-VLESS 659ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: Kb8SsVPprs46BJSUNp5JvWLI-TFEiHmlBOXLQd37Glg
+    short-id: a1037b25dcef6aa7
+  server: sw.golangwikito.cfd
+  servername: sw.golangwikito.cfd
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+- client-fingerprint: chrome
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: GunService
+  name: 🇹🇷[RES] TR-VLESS 668ms
+  network: grpc
+  port: 8444
+  reality-opts:
+    public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+  server: 62.60.233.157
+  servername: github.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
+- name: 🇽🇽[DC] XX-TROJAN 672ms
+  password: UX82473651
+  port: 443
+  server: evident-ant.rooster465.autos
+  skip-cert-verify: false
+  sni: evident-ant.rooster465.autos
+  type: trojan
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇳🇱[DC] NL-VLESS 675ms
+  network: tcp
+  port: 2063
+  reality-opts:
+    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
+  server: 31.77.13.19
+  servername: rusbid.de
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇽🇽[DC] XX-VLESS 679ms
+  network: tcp
+  port: 40443
+  reality-opts:
+    public-key: w4AYHvQnQS6olDqoG9ptLOtgehaWOsv9HQhDax5bLA4
+    short-id: db46e2946fc466fd
+  server: arcturus.yokkastars.com
+  servername: deepl.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: bb0f1ed0-0298-40a1-adb1-1f5d6ab33d54
+- name: 🇽🇽[DC] XX-TROJAN 680ms
+  password: UX82473651
+  port: 443
+  server: inviting-rabbit.rooster465.autos
+  skip-cert-verify: false
+  sni: inviting-rabbit.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 681ms
+  password: UX82473651
+  port: 443
+  server: noted-cougar.rooster465.autos
+  skip-cert-verify: false
+  sni: noted-cougar.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 684ms
+  password: UX82473651
+  port: 443
+  server: pure-kodiak.rooster465.autos
+  skip-cert-verify: false
+  sni: pure-kodiak.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 687ms
+  password: UX82473651
+  port: 443
+  server: comic-poodle.rooster465.autos
+  skip-cert-verify: false
+  sni: comic-poodle.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 690ms
+  password: UX82473651
+  port: 443
+  server: stable-python.rooster465.autos
+  skip-cert-verify: false
+  sni: stable-python.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 692ms
+  password: UX82473651
+  port: 443
+  server: sacred-anemone.rooster465.autos
+  skip-cert-verify: false
+  sni: sacred-anemone.rooster465.autos
+  type: trojan
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇪🇪[DC] EE-VLESS 700ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: lwKaUQ81wJUJRsqAPsfTPj5V_f9N50UYEwzRI_nuq2g
+    short-id: e88cb983f3c97528
+  server: 93.89.220.37
+  servername: ibm.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 185e2bb3-2934-48d0-bbd5-dd20d16e83ee
+- name: 🇽🇽[DC] XX-TROJAN 705ms
+  password: UX82473651
+  port: 443
+  server: fancy-skink.rooster465.autos
+  skip-cert-verify: false
+  sni: fancy-skink.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 706ms
+  password: UX82473651
+  port: 443
+  server: glorious-lark.rooster465.autos
+  skip-cert-verify: false
+  sni: glorious-lark.rooster465.autos
   type: trojan
 - alterId: 0
   cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 1163ms
+  name: 🇽🇽[DC] XX-VMESS 709ms
   network: ws
   port: 443
-  server: qtkdr8jxe3wefxjm.v.3dns.vip
+  server: uk2-2.998998.best
+  servername: server3.9966338.xyz
   skip-cert-verify: false
   tls: true
   type: vmess
-  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
+  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
   ws-opts:
     headers:
-      Host: qTKDR8jXE3wEFxJM.v.3dns.vip
-    path: /ws-vmess
+      Host: server3.9966338.xyz
+    path: /waetasiuofguiwer?ed=2560
+- name: 🇽🇽[DC] XX-TROJAN 710ms
+  password: UX82473651
+  port: 443
+  server: central-jawfish.rooster465.autos
+  skip-cert-verify: false
+  sni: central-jawfish.rooster465.autos
+  type: trojan
+- client-fingerprint: firefox
+  name: 🇽🇽[DC] XX-VLESS 712ms
+  network: tcp
+  port: 25895
+  reality-opts:
+    public-key: jOVKSP-bS9OkILJ8Epz8hadh6qhavCrOiJYeF0NCn0k
+    short-id: a73f0410d728c823
+  server: ee.h1cloud.net
+  servername: www.samsung.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇹🇷[RES] TR-VLESS 712ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: sZAJkAu23wp1WKY-qeaeiwR38izP5OyfhumoE9xhbB8
+    short-id: f46cd3ea3d1eb72d
+  server: 78.135.73.47
+  servername: www.datadoghq.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 25e16692-d097-4e69-9e2d-8415609c1968
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇭🇰[RES] HK-VLESS 720ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
+    short-id: 1a
+  server: 42.200.173.5
+  servername: s3.ap-east-1.amazonaws.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
 - alterId: 0
   cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 1165ms
+  name: 🇽🇽[DC] XX-VMESS 732ms
   network: ws
   port: 443
-  server: 2b9hwy8ocx7q74nm.v.3dns.vip
+  server: uk3-2.998998.best
+  servername: server22.9966338.xyz
   skip-cert-verify: false
   tls: true
   type: vmess
-  uuid: f23bb427c1f94373876c2f43e9f790f3
+  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
   ws-opts:
     headers:
-      Host: 2b9hwY8oCx7Q74NM.v.3dns.vip
-    path: /ws-vmess
-- name: 🇽🇽[DC] XX-TROJAN 1179ms
+      Host: server22.9966338.xyz
+    path: /serhrdftshg?ed=2560
+- name: 🇽🇽[DC] XX-TROJAN 733ms
+  password: UX82473651
+  port: 443
+  server: amazed-mako.rooster465.autos
+  skip-cert-verify: false
+  sni: amazed-mako.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 739ms
+  password: UX82473651
+  port: 443
+  server: live-stallion.rooster465.autos
+  skip-cert-verify: false
+  sni: live-stallion.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 741ms
+  password: UX82473651
+  port: 443
+  server: engaging-toucan.rooster465.autos
+  skip-cert-verify: false
+  sni: engaging-toucan.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 742ms
+  password: UX82473651
+  port: 443
+  server: evolving-platypus.rooster465.autos
+  skip-cert-verify: false
+  sni: evolving-platypus.rooster465.autos
+  type: trojan
+- name: 🇩🇪[DC] DE-TROJAN 747ms
   network: ws
-  password: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  password: humanity
   port: 443
-  server: us3-2.998998.best
+  server: 144.31.205.106
   skip-cert-verify: false
-  sni: nat3.xxai.dpdns.org
+  sni: www.volumeroot.com
   type: trojan
   ws-opts:
     headers:
-      Host: nat3.xxai.dpdns.org
-    path: /anyway
-- name: 🇽🇽[DC] XX-TROJAN 1193ms
+      Host: www.volumeroot.com
+    path: /assignment
+- client-fingerprint: chrome
+  name: 🇩🇪[DC] DE-VLESS 759ms
+  network: ws
+  port: 443
+  server: 94.143.231.146
+  servername: sub.merky.top
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
+  ws-opts:
+    headers:
+      Host: sub.merky.top
+    path: /merky-connect/de6/
+- client-fingerprint: random
+  flow: xtls-rprx-vision
+  name: 🇷🇺[RES] RU-VLESS 760ms
+  network: tcp
+  port: 443
+  server: 77.110.105.122
+  servername: co-pl.speedtec.ru
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 019fbe0f-2d9f-4b89-9f81-e1e36129892a
+- cipher: chacha20-ietf-poly1305
+  name: 🇷🇴[DC] RO-SS 777ms
+  password: U83u9OGpvSatIUW7LsWffr
+  port: 64546
+  server: 194.68.44.42
+  type: ss
+- client-fingerprint: chrome
+  name: 🇽🇽[DC] XX-VLESS 796ms
+  network: ws
+  port: 443
+  server: sub.merky.top
+  servername: sub.merky.top
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
+  ws-opts:
+    headers:
+      Host: sub.merky.top
+    path: /merky-connect/de6/
+- name: 🇽🇽[DC] XX-TROJAN 796ms
   password: UX82473651
   port: 443
-  server: brave-tomcat.rooster465.autos
+  server: pleased-albacore.rooster465.autos
   skip-cert-verify: false
-  sni: brave-tomcat.rooster465.autos
+  sni: pleased-albacore.rooster465.autos
   type: trojan
-- name: 🇽🇽[DC] XX-TROJAN 1212ms
+- name: 🇽🇽[DC] XX-TROJAN 811ms
   password: UX82473651
   port: 443
-  server: fond-mammoth.rooster465.autos
+  server: musical-terrier.rooster465.autos
   skip-cert-verify: false
-  sni: fond-mammoth.rooster465.autos
+  sni: musical-terrier.rooster465.autos
   type: trojan
-- name: 🇽🇽[DC] XX-VLESS 1226ms
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇽🇽[DC] XX-VLESS 813ms
+  network: tcp
+  port: 2063
+  reality-opts:
+    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
+  server: pl-waw.dontblockmepls.com
+  servername: rusbid.de
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
+- name: 🇰🇷[DC] KR-TROJAN 831ms
+  password: UX82473651
+  port: 443
+  server: 3.34.131.153
+  skip-cert-verify: false
+  sni: pretty-rat.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 834ms
+  password: UX82473651
+  port: 443
+  server: working-tomcat.rooster465.autos
+  skip-cert-verify: false
+  sni: working-tomcat.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 835ms
+  password: UX82473651
+  port: 443
+  server: optimum-snapper.rooster465.autos
+  skip-cert-verify: false
+  sni: optimum-snapper.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 838ms
+  password: UX82473651
+  port: 443
+  server: cunning-grub.rooster465.autos
+  skip-cert-verify: false
+  sni: cunning-grub.rooster465.autos
+  type: trojan
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: ios
+  name: 🇨🇦[DC] CA-VLESS 850ms
+  network: xhttp
+  port: 443
+  server: 104.21.207.202
+  servername: b33ec4a1s226.fuhuovps.xyz
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  xhttp-opts:
+    host: b33ec4a1s226.fuhuovps.xyz
+    path: e0d9cd6ea04ecda957b4ca0869e038af
+- name: 🇽🇽[DC] XX-TROJAN 857ms
+  password: UX82473651
+  port: 443
+  server: fancy-javelin.rooster465.autos
+  skip-cert-verify: false
+  sni: fancy-javelin.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 862ms
+  password: UX82473651
+  port: 443
+  server: kind-stork.rooster465.autos
+  skip-cert-verify: false
+  sni: kind-stork.rooster465.autos
+  type: trojan
+- client-fingerprint: chrome
+  name: 🇽🇽[DC] XX-VLESS 862ms
+  network: tcp
+  port: 24215
+  reality-opts:
+    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
+  server: hinet1.2yly.com
+  servername: addons.mozilla.org
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇽🇽[DC] XX-VLESS 867ms
+  network: tcp
+  port: 25119
+  reality-opts:
+    public-key: szPq4a3cvxfBOmGyg-UJCV3d1Jqjnj7YR3gaxyYtnk4
+    short-id: 10f517
+  server: se3.h1cloud.net
+  servername: www.samsung.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+- name: 🇽🇽[DC] XX-TROJAN 869ms
+  password: UX82473651
+  port: 443
+  server: prime-corgi.rooster465.autos
+  skip-cert-verify: false
+  sni: prime-corgi.rooster465.autos
+  type: trojan
+- alterId: 0
+  cipher: auto
+  name: 🇽🇽[DC] XX-VMESS 869ms
+  network: ws
+  port: 443
+  server: uk3-2.998998.best
+  servername: server22.9966338.xyz
+  skip-cert-verify: false
+  tls: true
+  type: vmess
+  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  ws-opts:
+    headers:
+      Host: server22.9966338.xyz
+    path: /serhrdftshg
+- name: 🇽🇽[DC] XX-TROJAN 876ms
+  password: UX82473651
+  port: 443
+  server: pretty-rat.rooster465.autos
+  skip-cert-verify: false
+  sni: pretty-rat.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 878ms
+  password: UX82473651
+  port: 443
+  server: assuring-skink.rooster465.autos
+  skip-cert-verify: false
+  sni: assuring-skink.rooster465.autos
+  type: trojan
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: ios
+  name: 🇨🇦[DC] CA-VLESS 879ms
+  network: xhttp
+  port: 443
+  server: 104.27.0.121
+  servername: b33ec4a1s226.fuhuovps.xyz
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  xhttp-opts:
+    host: b33ec4a1s226.fuhuovps.xyz
+    path: e0d9cd6ea04ecda957b4ca0869e038af
+- name: 🇽🇽[DC] XX-TROJAN 889ms
+  password: UX82473651
+  port: 443
+  server: brief-glider.rooster465.autos
+  skip-cert-verify: false
+  sni: brief-glider.rooster465.autos
+  type: trojan
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇩🇪[RES] DE-VLESS 897ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: 8u8r2iWMt8Isz2ZNRbn3g4cfldhcePRB-1hxGYLTnSg
+    short-id: aa6582cf25e243ce
+  server: 212.100.171.154
+  servername: www.google.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: a5ce10af-5e95-4eb3-ab87-bf4f95cb059b
+- name: 🇽🇽[DC] XX-TROJAN 900ms
+  password: UX82473651
+  port: 443
+  server: moral-basilisk.rooster465.autos
+  skip-cert-verify: false
+  sni: moral-basilisk.rooster465.autos
+  type: trojan
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇮🇩[DC] ID-VLESS 901ms
+  network: tcp
+  port: 16006
+  reality-opts:
+    public-key: ll7JTP628PuBMZJvx6fuhGSmCRSURnReAetmhCEL8GU
+  server: 103.172.197.3
+  servername: www.cloudflare.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: f8c9d2a1-da40-4f90-b671-11772a0b13d6
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: ios
+  name: 🇨🇦[DC] CA-VLESS 903ms
+  network: xhttp
+  port: 443
+  server: 104.19.12.0
+  servername: b33ec4a1s226.fuhuovps.xyz
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  xhttp-opts:
+    host: b33ec4a1s226.fuhuovps.xyz
+    path: e0d9cd6ea04ecda957b4ca0869e038af
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 🇮🇩[DC] ID-VLESS 903ms
+  network: tcp
+  port: 29172
+  reality-opts:
+    public-key: pff94OJwuKXnF7_3SJ8KKJuAN4GJtInBlR-kg-4mwzQ
+  server: 103.172.197.2
+  servername: aws.amazon.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 3977434d-6a9b-4858-8ced-80326ba5e367
+- name: 🇽🇽[DC] XX-VLESS 924ms
   network: tcp
   port: 8080
   server: milo.rubinaz.xyz
@@ -1186,180 +1264,310 @@ proxies:
   tls: false
   type: vless
   uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
-- alterId: 0
-  cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 1246ms
-  network: ws
-  port: 443
-  server: ex1ogt73nzpqkac2.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  ws-opts:
-    headers:
-      Host: ex1ogt73nzpqkac2.v.3dns.vip
-    path: /ws-vmess
-- alterId: 0
-  cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 1275ms
-  network: ws
-  port: 443
-  server: qtkdr8jxe3wefxjm.v.3dns.vip
-  servername: qtkdr8jxe3wefxjm.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
-  ws-opts:
-    headers:
-      Host: qTKDR8jXE3wEFxJM.v.3dns.vip
-    path: /ws-vmess
-- name: 🇽🇽[DC] XX-TROJAN 1326ms
+- name: 🇽🇽[DC] XX-TROJAN 935ms
   password: UX82473651
   port: 443
-  server: alert-titmouse.rooster465.autos
+  server: simple-molly.rooster465.autos
   skip-cert-verify: false
-  sni: alert-titmouse.rooster465.autos
+  sni: simple-molly.rooster465.autos
   type: trojan
-- alterId: 0
-  cipher: auto
-  name: 🇽🇽[DC] XX-VMESS 1450ms
+- name: 🇽🇽[DC] XX-TROJAN 946ms
+  password: UX82473651
+  port: 443
+  server: winning-marten.rooster465.autos
+  skip-cert-verify: false
+  sni: winning-marten.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 948ms
+  password: UX82473651
+  port: 443
+  server: delicate-buck.rooster465.autos
+  skip-cert-verify: false
+  sni: delicate-buck.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 977ms
+  password: UX82473651
+  port: 443
+  server: normal-macaque.rooster465.autos
+  skip-cert-verify: false
+  sni: normal-macaque.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 987ms
+  password: UX82473651
+  port: 443
+  server: loved-shark.rooster465.autos
+  skip-cert-verify: false
+  sni: loved-shark.rooster465.autos
+  type: trojan
+- client-fingerprint: chrome
+  name: 🇨🇦[DC] CA-VLESS 1005ms
   network: ws
   port: 443
-  server: nycqg19zkwacpm1b.v.3dns.vip
+  server: 162.159.128.96
+  servername: ws-japan-ga-01.xyy123.bid
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: f90e2825-6433-46b0-91a2-971f335b887a
+  ws-opts:
+    headers:
+      Host: ws-japan-ga-01.xyy123.bid
+    path: /
+- name: 🇽🇽[DC] XX-TROJAN 1023ms
+  password: UX82473651
+  port: 443
+  server: main-fawn.rooster465.autos
+  skip-cert-verify: false
+  sni: main-fawn.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-TROJAN 1033ms
+  password: UX82473651
+  port: 443
+  server: obliging-louse.rooster465.autos
+  skip-cert-verify: false
+  sni: obliging-louse.rooster465.autos
+  type: trojan
+- name: 🇽🇽[DC] XX-VLESS 1089ms
+  network: tcp
+  port: 8443
+  server: pl.flen-vpn.xyz
+  servername: pl.flen-vpn.xyz
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 51a1fd52-fd88-4905-a976-35e44be28e4b
+- name: 🇮🇪[DC] IE-TROJAN 1135ms
+  password: UX82473651
+  port: 443
+  server: 34.242.77.118
+  skip-cert-verify: false
+  sni: sacred-anemone.rooster465.autos
+  type: trojan
+- client-fingerprint: random
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: 0adb9638509b
+  name: 🇽🇽[DC] XX-VLESS 1179ms
+  network: grpc
+  port: 443
+  reality-opts:
+    public-key: pAgrBKJCmuSJHIzYkEJTqsOBOVBK_DMtEqFPo-PaTkg
+    short-id: b3c9d0c6bdd114a6
+  server: 36a466g.fi1.h1clayd.click
+  servername: 36a466g.fi1.h1clayd.click
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 9a0e84f8-4b58-477f-99da-5fac5a2e58e8
+- client-fingerprint: safari
+  flow: xtls-rprx-vision
+  name: 🇳🇱[DC] NL-VLESS 1184ms
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: MTYXgxLIK9PzmQGAjuCmhI1FikCNlvU66NKgQ5g14Bc
+    short-id: 0b135481ea1283fc
+  server: 185.112.59.210
+  servername: nl2.nztvpn.com
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: ee18d188-14cc-417e-beb1-70e4add6d023
+- name: 🇽🇽[DC] XX-TROJAN 1192ms
+  password: UX82473651
+  port: 443
+  server: musical-mouse.rooster465.autos
+  skip-cert-verify: false
+  sni: musical-mouse.rooster465.autos
+  type: trojan
+- cipher: chacha20-ietf-poly1305
+  name: 🇩🇪[DC] DE-SS 1196ms
+  password: NcAXc0UZI6yQJE1p8QmOv8
+  port: 8388
+  server: 57.129.113.16
+  type: ss
+- client-fingerprint: chrome
+  name: 🇽🇽[DC] XX-VLESS 1236ms
+  network: ws
+  port: 443
+  server: 86153507-1976-48f1-ac86-e8ab274470a8.fly.dev
+  servername: 86153507-1976-48f1-ac86-e8ab274470a8.fly.dev
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 0b3c3f4f-843a-5b0a-98fe-132c88fbefc0
+  ws-opts:
+    headers:
+      Host: 86153507-1976-48f1-ac86-e8ab274470a8.fly.dev
+    path: /ws/0b3c3f4f-843a-5b0a-98fe-132c88fbefc0
+- alterId: 0
+  cipher: auto
+  name: 🇽🇽[DC] XX-VMESS 1240ms
+  network: ws
+  port: 443
+  server: yg1.ygkkk.dpdns.org
+  servername: jmp1.907737.xyz
   skip-cert-verify: false
   tls: true
   type: vmess
-  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
+  uuid: b2ba4a73-3123-479e-aa96-5973a9ecd0c0
   ws-opts:
     headers:
-      Host: NYcQg19zkwaCPM1B.v.3dns.vip
-    path: /ws-vmess
+      Host: jmp1.907737.xyz
+    path: /b2ba4a73-3123-479e-aa96-5973a9ecd0c0-vm
+- alterId: 0
+  cipher: auto
+  name: 🇽🇽[DC] XX-VMESS 1336ms
+  network: ws
+  port: 443
+  server: eu3.998998.best
+  servername: server40.9966338.xyz
+  skip-cert-verify: false
+  tls: true
+  type: vmess
+  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  ws-opts:
+    headers:
+      Host: server40.9966338.xyz
+    path: /aiaiai
 proxy-groups:
 - name: Proxy
   proxies:
-  - 🇺🇸[RES] US-SS 90ms
-  - 🇽🇽[DC] XX-TROJAN 110ms
-  - 🇽🇽[DC] XX-TROJAN 123ms
-  - 🇽🇽[DC] XX-VLESS 133ms
-  - 🇺🇸[RES] US-VLESS 214ms
-  - 🇺🇸[DC] US-VLESS 220ms
-  - 🇽🇽[DC] XX-TROJAN 448ms
-  - 🇩🇪[DC] DE-VLESS 458ms
-  - 🇽🇽[DC] XX-TROJAN 459ms
-  - 🇽🇽[DC] XX-TROJAN 469ms
-  - 🇽🇽[DC] XX-VLESS 472ms
-  - 🇳🇱[DC] NL-SS 475ms
-  - 🇽🇽[DC] XX-VMESS 475ms
-  - 🇳🇱[DC] NL-SS 481ms
-  - 🇽🇽[DC] XX-TROJAN 491ms
-  - 🇬🇧[RES] GB-SS 496ms
-  - 🇳🇱[DC] NL-SS 498ms
-  - 🇳🇱[DC] NL-SS 500ms
-  - 🇨🇦[DC] CA-VLESS 504ms
-  - 🇳🇱[DC] NL-SS 506ms
-  - 🇳🇱[DC] NL-SS 512ms
-  - 🇸🇬[DC] SG-SS 517ms
-  - 🇸🇬[DC] SG-VLESS 520ms
-  - 🇽🇽[DC] XX-TROJAN 523ms
-  - 🇽🇽[DC] XX-TROJAN 532ms
-  - 🇽🇽[DC] XX-TROJAN 548ms
-  - 🇽🇽[DC] XX-TROJAN 551ms
-  - 🇽🇽[DC] XX-TROJAN 553ms
-  - 🇽🇽[DC] XX-TROJAN 553ms 1
-  - 🇽🇽[DC] XX-TROJAN 553ms 2
-  - 🇽🇽[DC] XX-TROJAN 553ms 3
-  - 🇽🇽[DC] XX-TROJAN 557ms
-  - 🇽🇽[DC] XX-TROJAN 560ms
-  - 🇽🇽[DC] XX-TROJAN 565ms
-  - 🇽🇽[DC] XX-TROJAN 568ms
-  - 🇽🇽[DC] XX-TROJAN 571ms
-  - 🇽🇽[DC] XX-VMESS 572ms
-  - 🇽🇽[DC] XX-TROJAN 588ms
-  - 🇽🇽[DC] XX-TROJAN 591ms
-  - 🇽🇽[DC] XX-TROJAN 594ms
-  - 🇽🇽[DC] XX-TROJAN 596ms
-  - 🇽🇽[DC] XX-TROJAN 599ms
-  - 🇫🇷[DC] FR-VLESS 605ms
-  - 🇫🇷[DC] FR-VLESS 615ms
-  - 🇳🇱[DC] NL-VLESS 615ms
-  - 🇳🇱[RES] NL-VLESS 620ms
-  - 🇸🇪[RES] SE-VLESS 621ms
-  - 🇩🇪[RES] DE-VLESS 628ms
-  - 🇩🇪[RES] DE-VLESS 632ms
-  - 🇽🇽[DC] XX-TROJAN 633ms
-  - 🇽🇽[DC] XX-TROJAN 635ms
-  - 🇩🇪[RES] DE-VLESS 645ms
-  - 🇽🇽[DC] XX-VLESS 652ms
-  - 🇩🇪[DC] DE-VLESS 659ms
-  - 🇩🇪[DC] DE-VLESS 674ms
-  - 🇩🇪[DC] DE-VLESS 681ms
-  - 🇽🇽[DC] XX-TROJAN 683ms
-  - 🇨🇦[DC] CA-TROJAN 683ms
-  - 🇩🇪[DC] DE-VLESS 683ms
-  - 🇩🇪[DC] DE-VLESS 695ms
-  - 🇽🇽[DC] XX-TROJAN 696ms
-  - 🇽🇽[DC] XX-TROJAN 699ms
-  - 🇽🇽[DC] XX-TROJAN 701ms
-  - 🇱🇻[DC] LV-VLESS 701ms
+  - 🇺🇸[DC] US-VLESS 111ms
+  - 🇨🇦[DC] CA-VMESS 111ms
+  - 🇺🇸[DC] US-SS 116ms
+  - 🇨🇦[DC] CA-SS 134ms
+  - 🇺🇸[RES] US-SS 198ms
+  - 🇽🇽[DC] XX-TROJAN 269ms
+  - 🇽🇽[DC] XX-VMESS 323ms
+  - 🇳🇱[DC] NL-SS 369ms
+  - 🇳🇱[DC] NL-SS 370ms
+  - 🇳🇱[DC] NL-SS 371ms
+  - 🇳🇱[DC] NL-SS 372ms
+  - 🇳🇱[DC] NL-SS 376ms
+  - 🇽🇽[DC] XX-SS 379ms
+  - 🇺🇸[RES] US-VLESS 382ms
+  - 🇳🇱[DC] NL-SS 383ms
+  - 🇬🇧[RES] GB-SS 388ms
+  - 🇨🇭[DC] CH-SS 389ms
+  - 🇩🇪[DC] DE-VLESS 389ms
+  - 🇽🇽[DC] XX-TROJAN 399ms
+  - 🇽🇽[DC] XX-TROJAN 433ms
+  - 🇬🇧[DC] GB-VLESS 438ms
+  - 🇽🇽[DC] XX-TROJAN 446ms
+  - 🇩🇪[DC] DE-VLESS 461ms
+  - 🇽🇽[DC] XX-VMESS 464ms
+  - 🇫🇷[DC] FR-VLESS 466ms
+  - 🇩🇪[RES] DE-VLESS 467ms
+  - 🇳🇱[RES] NL-VLESS 475ms
+  - 🇩🇪[RES] DE-VLESS 479ms
+  - 🇫🇷[DC] FR-VLESS 483ms
+  - 🇩🇪[RES] DE-VLESS 490ms
+  - 🇸🇪[RES] SE-VLESS 499ms
+  - 🇩🇪[RES] DE-VLESS 501ms
+  - 🇩🇪[DC] DE-VLESS 509ms
+  - 🇩🇪[DC] DE-VLESS 515ms
+  - 🇳🇱[DC] NL-VLESS 515ms
+  - 🇩🇪[RES] DE-VLESS 517ms
+  - 🇨🇦[DC] CA-VLESS 517ms
+  - 🇩🇪[DC] DE-VLESS 528ms
+  - 🇩🇪[DC] DE-VLESS 533ms
+  - 🇪🇪[DC] EE-VLESS 536ms
+  - 🇨🇦[DC] CA-TROJAN 546ms
+  - 🇺🇸[DC] US-VLESS 550ms
+  - 🇵🇱[DC] PL-VLESS 557ms
+  - 🇽🇽[DC] XX-VLESS 563ms
+  - 🇵🇱[DC] PL-VLESS 565ms
+  - 🇩🇪[DC] DE-VLESS 565ms
+  - 🇵🇱[DC] PL-VLESS 571ms
+  - 🇽🇽[DC] XX-TROJAN 572ms
+  - 🇫🇮[DC] FI-VLESS 575ms
+  - 🇽🇽[DC] XX-TROJAN 583ms
+  - 🇱🇻[DC] LV-VLESS 585ms
+  - 🇵🇱[DC] PL-VLESS 589ms
+  - 🇽🇽[DC] XX-TROJAN 592ms
+  - 🇱🇻[DC] LV-VLESS 600ms
+  - 🇽🇽[DC] XX-VLESS 602ms
+  - 🇽🇽[DC] XX-VLESS 614ms
+  - 🇫🇮[DC] FI-VLESS 619ms
+  - 🇸🇬[DC] SG-SS 623ms
+  - 🇽🇽[DC] XX-TROJAN 623ms
+  - 🇫🇮[RES] FI-VLESS 659ms
+  - 🇽🇽[DC] XX-VLESS 659ms
+  - 🇹🇷[RES] TR-VLESS 668ms
+  - 🇽🇽[DC] XX-TROJAN 672ms
+  - 🇳🇱[DC] NL-VLESS 675ms
+  - 🇽🇽[DC] XX-VLESS 679ms
+  - 🇽🇽[DC] XX-TROJAN 680ms
+  - 🇽🇽[DC] XX-TROJAN 681ms
+  - 🇽🇽[DC] XX-TROJAN 684ms
+  - 🇽🇽[DC] XX-TROJAN 687ms
+  - 🇽🇽[DC] XX-TROJAN 690ms
+  - 🇽🇽[DC] XX-TROJAN 692ms
+  - 🇪🇪[DC] EE-VLESS 700ms
   - 🇽🇽[DC] XX-TROJAN 705ms
-  - 🇵🇱[RES] PL-VLESS 709ms
-  - 🇽🇽[DC] XX-VLESS 709ms
-  - 🇽🇽[DC] XX-TROJAN 711ms
-  - 🇫🇮[DC] FI-VLESS 711ms
-  - 🇽🇽[DC] XX-TROJAN 713ms
-  - 🇽🇽[DC] XX-TROJAN 716ms
-  - 🇽🇽[DC] XX-TROJAN 718ms
-  - 🇽🇽[DC] XX-TROJAN 719ms
-  - 🇽🇽[DC] XX-TROJAN 722ms
-  - 🇽🇽[DC] XX-TROJAN 757ms
-  - 🇽🇽[DC] XX-TROJAN 759ms
-  - 🇭🇰[DC] HK-VMESS 762ms
-  - 🇭🇰[DC] HK-VMESS 763ms
-  - 🇭🇰[DC] HK-VMESS 769ms
-  - 🇭🇰[DC] HK-VMESS 771ms
-  - 🇩🇪[RES] DE-VLESS 780ms
-  - 🇳🇱[DC] NL-VLESS 785ms
-  - 🇮🇪[DC] IE-TROJAN 788ms
-  - 🇽🇽[DC] XX-TROJAN 799ms
-  - 🇺🇸[DC] US-VLESS 805ms
-  - 🇮🇩[DC] ID-VLESS 822ms
-  - 🇽🇽[DC] XX-TROJAN 831ms
-  - 🇽🇽[DC] XX-VMESS 841ms
-  - 🇽🇽[DC] XX-VMESS 842ms
-  - 🇽🇽[DC] XX-TROJAN 851ms
-  - 🇽🇽[DC] XX-TROJAN 855ms
-  - 🇽🇽[DC] XX-TROJAN 861ms
-  - 🇹🇷[RES] TR-VLESS 882ms
-  - 🇽🇽[DC] XX-VMESS 885ms
-  - 🇽🇽[DC] XX-VLESS 892ms
-  - 🇽🇽[DC] XX-TROJAN 893ms
-  - 🇮🇩[DC] ID-VLESS 910ms
-  - 🇽🇽[DC] XX-TROJAN 942ms
-  - 🇽🇽[DC] XX-TROJAN 951ms
-  - 🇨🇦[DC] CA-VLESS 961ms
+  - 🇽🇽[DC] XX-TROJAN 706ms
+  - 🇽🇽[DC] XX-VMESS 709ms
+  - 🇽🇽[DC] XX-TROJAN 710ms
+  - 🇽🇽[DC] XX-VLESS 712ms
+  - 🇹🇷[RES] TR-VLESS 712ms
+  - 🇭🇰[RES] HK-VLESS 720ms
+  - 🇽🇽[DC] XX-VMESS 732ms
+  - 🇽🇽[DC] XX-TROJAN 733ms
+  - 🇽🇽[DC] XX-TROJAN 739ms
+  - 🇽🇽[DC] XX-TROJAN 741ms
+  - 🇽🇽[DC] XX-TROJAN 742ms
+  - 🇩🇪[DC] DE-TROJAN 747ms
+  - 🇩🇪[DC] DE-VLESS 759ms
+  - 🇷🇺[RES] RU-VLESS 760ms
+  - 🇷🇴[DC] RO-SS 777ms
+  - 🇽🇽[DC] XX-VLESS 796ms
+  - 🇽🇽[DC] XX-TROJAN 796ms
+  - 🇽🇽[DC] XX-TROJAN 811ms
+  - 🇽🇽[DC] XX-VLESS 813ms
+  - 🇰🇷[DC] KR-TROJAN 831ms
+  - 🇽🇽[DC] XX-TROJAN 834ms
+  - 🇽🇽[DC] XX-TROJAN 835ms
+  - 🇽🇽[DC] XX-TROJAN 838ms
+  - 🇨🇦[DC] CA-VLESS 850ms
+  - 🇽🇽[DC] XX-TROJAN 857ms
+  - 🇽🇽[DC] XX-TROJAN 862ms
+  - 🇽🇽[DC] XX-VLESS 862ms
+  - 🇽🇽[DC] XX-VLESS 867ms
+  - 🇽🇽[DC] XX-TROJAN 869ms
+  - 🇽🇽[DC] XX-VMESS 869ms
+  - 🇽🇽[DC] XX-TROJAN 876ms
+  - 🇽🇽[DC] XX-TROJAN 878ms
+  - 🇨🇦[DC] CA-VLESS 879ms
+  - 🇽🇽[DC] XX-TROJAN 889ms
+  - 🇩🇪[RES] DE-VLESS 897ms
+  - 🇽🇽[DC] XX-TROJAN 900ms
+  - 🇮🇩[DC] ID-VLESS 901ms
+  - 🇨🇦[DC] CA-VLESS 903ms
+  - 🇮🇩[DC] ID-VLESS 903ms
+  - 🇽🇽[DC] XX-VLESS 924ms
+  - 🇽🇽[DC] XX-TROJAN 935ms
+  - 🇽🇽[DC] XX-TROJAN 946ms
+  - 🇽🇽[DC] XX-TROJAN 948ms
   - 🇽🇽[DC] XX-TROJAN 977ms
-  - 🇽🇽[DC] XX-SS 982ms
-  - 🇽🇽[DC] XX-TROJAN 1015ms
-  - 🇽🇽[DC] XX-TROJAN 1036ms
-  - 🇽🇽[DC] XX-TROJAN 1038ms
-  - 🇽🇽[DC] XX-VMESS 1068ms
-  - 🇵🇱[DC] PL-VLESS 1071ms
-  - 🇽🇽[DC] XX-VMESS 1081ms
-  - 🇽🇽[DC] XX-TROJAN 1096ms
-  - 🇵🇱[DC] PL-VLESS 1132ms
-  - 🇽🇽[DC] XX-TROJAN 1136ms
-  - 🇽🇽[DC] XX-VMESS 1163ms
-  - 🇽🇽[DC] XX-VMESS 1165ms
-  - 🇽🇽[DC] XX-TROJAN 1179ms
-  - 🇽🇽[DC] XX-TROJAN 1193ms
-  - 🇽🇽[DC] XX-TROJAN 1212ms
-  - 🇽🇽[DC] XX-VLESS 1226ms
-  - 🇽🇽[DC] XX-VMESS 1246ms
-  - 🇽🇽[DC] XX-VMESS 1275ms
-  - 🇽🇽[DC] XX-TROJAN 1326ms
-  - 🇽🇽[DC] XX-VMESS 1450ms
+  - 🇽🇽[DC] XX-TROJAN 987ms
+  - 🇨🇦[DC] CA-VLESS 1005ms
+  - 🇽🇽[DC] XX-TROJAN 1023ms
+  - 🇽🇽[DC] XX-TROJAN 1033ms
+  - 🇽🇽[DC] XX-VLESS 1089ms
+  - 🇮🇪[DC] IE-TROJAN 1135ms
+  - 🇽🇽[DC] XX-VLESS 1179ms
+  - 🇳🇱[DC] NL-VLESS 1184ms
+  - 🇽🇽[DC] XX-TROJAN 1192ms
+  - 🇩🇪[DC] DE-SS 1196ms
+  - 🇽🇽[DC] XX-VLESS 1236ms
+  - 🇽🇽[DC] XX-VMESS 1240ms
+  - 🇽🇽[DC] XX-VMESS 1336ms
   type: select
 rules:
 - MATCH,Proxy
