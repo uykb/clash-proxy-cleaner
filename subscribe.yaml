@@ -1,4 +1,21 @@
 proxies:
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: ios
+  name: 🇽🇽[DC] XX-VLESS 807ms
+  network: xhttp
+  port: 443
+  server: f2d0ba8dc394.fuhuovps.xyz
+  servername: f0c5bfd6s394.fuhuovps.xyz
+  skip-cert-verify: false
+  tfo: false
+  tls: true
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  xhttp-opts:
+    host: f0c5bfd6s394.fuhuovps.xyz
+    path: f00757d3fec0e7aca102e554fb32f21e
 - alterId: 0
   cipher: auto
   name: 🇨🇦[DC] CA-VMESS 99ms
@@ -868,23 +885,6 @@ proxies:
   port: 8388
   server: 154.36.158.197
   type: ss
-- alpn:
-  - h2
-  - http/1.1
-  client-fingerprint: ios
-  name: 🇽🇽[DC] XX-VLESS 1077ms
-  network: xhttp
-  port: 443
-  server: f2d0ba8dc394.fuhuovps.xyz
-  servername: f0c5bfd6s394.fuhuovps.xyz
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  xhttp-opts:
-    host: f0c5bfd6s394.fuhuovps.xyz
-    path: f00757d3fec0e7aca102e554fb32f21e
 - alterId: 0
   cipher: auto
   name: 🇽🇽[DC] XX-VMESS 1080ms
@@ -1060,6 +1060,7 @@ proxies:
 proxy-groups:
 - name: Proxy
   proxies:
+  - 🇽🇽[DC] XX-VLESS 807ms
   - 🇨🇦[DC] CA-VMESS 99ms
   - 🇺🇸[RES] US-VLESS 124ms
   - 🇨🇦[DC] CA-VLESS 133ms
@@ -1132,7 +1133,6 @@ proxy-groups:
   - 🇨🇦[DC] CA-VLESS 954ms
   - 🇦🇪[DC] AE-VLESS 969ms
   - 🇯🇵[RES] JP-SS 1011ms
-  - 🇽🇽[DC] XX-VLESS 1077ms
   - 🇽🇽[DC] XX-VMESS 1080ms
   - 🇽🇽[DC] XX-VMESS 1086ms
   - 🇽🇽[DC] XX-VLESS 1089ms
